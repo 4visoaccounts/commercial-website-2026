@@ -15,6 +15,8 @@ module.exports = {
         'grey': '#666666',
         'white': '#ffffff',
         'secondary': '#25BC7A',
+        'card-bg': '#FBFEFC',
+        'card-border': '#DEEEE5',
         'schema-bg': '#DEEEE5',
         'schema-line': '#E9F3EF',
         

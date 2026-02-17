@@ -1,0 +1,58 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set stakeholders = data.commonStakeholder.all() ?? [] %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 pb-16 md:pb-40 relative">
+   {# Background vertical lines #}
+    <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
+        {% for i in 1..6 %}
+            <div class="h-full w-px bg-schema-line"></div>
+        {% endfor %}
+    </div>
+    {% if title %}
+        <h2 class="text-center mb-16">{{ title|striptags|raw }}</h2>
+    {% endif %}
+
+    {% if stakeholders|length %}
+        <div class="flex flex-col md:flex-row gap-6 items-start mb-16">
+            {% for stakeholder in stakeholders %}
+                <div class="bg-card-bg border border-card-border rounded p-8 py-12 w-full md:w-1/3">
+                    <span class="text-primary-mint font-semibold text-sm">{{ '%02d'|format(loop.index) }}</span>
+
+                    {% if stakeholder.commonTitle %}
+                        <h3 class="mt-2 mb-8">{{ stakeholder.commonTitle|striptags }}</h3>
+                    {% endif %}
+
+                    {% if stakeholder.commonDescription %}
+                        <div class="text-sm s-stakeholder">
+                            {{ stakeholder.commonDescription|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if description or link %}
+        <div class="text-center space-y-6">
+            {% if description %}
+                <h4>{{ description|striptags }}</h4>
+            {% endif %}
+
+            {% if link %}
+                {% include 'components/button' with {
+                    href: link.url ?? '#',
+                    text: link.text ?? 'Let\'s talk!',
+                    variant: 'primary',
+                } %}
+            {% endif %}
+        </div>
+    {% endif %}
+</section>
