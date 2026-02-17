@@ -1,0 +1,19 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Simple
+toolbar:
+  - heading
+  - '|'
+  - blockQuote
+  - bold
+  - italic
+  - underline
+  - insertTable
+  - bulletedList
+  - numberedList
+  - link

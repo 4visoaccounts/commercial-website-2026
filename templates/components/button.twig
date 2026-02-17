@@ -1,0 +1,32 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set href = href ?? '#' %}
+{% set text = text ?? '' %}
+{% set variant = variant ?? 'primary' %}
+{% set icon = icon ?? null %}
+{% set positionIcon = positionIcon ?? 'left' %}
+
+{# ========================================================================== #}
+{# :: Styles #}
+{# ========================================================================== #}
+{% if variant == 'secondary' %}
+    {% set btnClasses = 'bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white' %}
+{% else %}
+    {% set btnClasses = 'bg-primary-pine text-white hover:bg-primary' %}
+{% endif %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<a href="{{ href }}" class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition {{ btnClasses }}">
+    {% if icon and positionIcon == 'left' %}
+        <i class="ph ph-{{ icon }}"></i>
+    {% endif %}
+
+    {{ text }}
+
+    {% if icon and positionIcon == 'right' %}
+        <i class="ph ph-{{ icon }}"></i>
+    {% endif %}
+</a>

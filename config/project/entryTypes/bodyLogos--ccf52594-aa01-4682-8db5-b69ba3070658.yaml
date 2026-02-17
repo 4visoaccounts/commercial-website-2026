@@ -1,0 +1,57 @@
+color: orange
+description: null
+fieldLayouts:
+  c44956e9-f55c-440b-896a-560727d3439c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-09T18:47:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 91eb9106-675f-4455-a848-017a556650a4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T18:47:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6e8d296e-8b80-4b94-96b3-6ae6e854ca88 # Asset
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 82a3cbe4-a6fb-40b7-9655-0765ad0bf1c2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 268df46e-c35d-4cba-bea0-01f0a856e092
+        userCondition: null
+handle: bodyLogos
+hasTitleField: false
+icon: apple
+name: 'Body: logos'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

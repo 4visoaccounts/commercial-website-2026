@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: eb1fe321-4bb0-403f-9d7f-de5de38200c3 # feature
+handle: features
+maxAuthors: 1
+name: feature
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: true
+    template: features/_entry.twig
+    uriFormat: 'features/{slug}'
+type: channel

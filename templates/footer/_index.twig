@@ -1,0 +1,66 @@
+{# ========================================================================== #}
+{# Footer Index #}
+{# ========================================================================== #}
+<footer>
+    {# Part 1: Primary section with logo/description and contact info #}
+    <div class="bg-primary text-white" >
+        <div class="w-full md:max-w-7xl mx-auto px-4 lg:px-8 py-16 md:py-20">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                {# Left: Smaller logo #}
+                <div class="w-full md:w-6/12">
+                    <div class="flex justify-center md:justify-start">
+                        <div class="w-40">
+                            {% include "/logos/inverted-logo.twig" %}
+                        </div>
+                    </div>
+                    <p class="text-white mt-8 text-center md:text-left">
+                        {{ footer.commonDescription|striptags|nl2br}}
+                    </p>
+                </div>
+
+                <div class="w-full md:w-2/12"></div>
+
+                {# Right: Contact #}
+                <div class="w-full md:w-4/12"> 
+                    <div class="text-black bg-primary-light p-6 rounded-lg">
+                        <h4 class="font-semibold text-black mb-3 text-lg">Contact</h4>
+                        <div class="flex flex-col gap-2">
+                            {% include "/components/link.twig" with {
+                                href: "tel:" ~ company.commonPhone,
+                                text: company.commonPhone,
+                                icon: "phone",
+                                positionIcon: "left",
+                                isWhite: true,
+                                isUnderlined: true
+                            } %}
+
+                            {% include "/components/link.twig" with {
+                                href: "mailto:" ~ company.commonMail,
+                                text: company.commonMail,
+                                icon: "envelope",
+                                positionIcon: "left",
+                                isWhite: true,
+                                isUnderlined: true
+                            } %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Part 2: Primary-light section with copyright #}
+    <div class="bg-primary-light">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-dark text-sm">
+                <p>
+                    {{ subfooter.commonTitle}}
+                </p>
+                <div class="flex flex-wrap gap-6 mt-2 md:mt-0">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

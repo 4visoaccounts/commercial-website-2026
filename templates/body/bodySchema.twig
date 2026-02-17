@@ -1,0 +1,45 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-40 relative">
+{# Background vertical lines #}
+        <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none">
+            {% for i in 1..6 %}
+                <div class="h-full w-px bg-schema-line"></div>
+            {% endfor %}
+        </div>
+    <div class="bg-schema-bg rounded p-8 md:p-16 md:py-28 relative overflow-hidden">
+        
+
+        {# Content #}
+        <div class="relative z-10 text-center space-y-8">
+            {% if title %}
+                <h2>{{ title|striptags|raw }}</h2>
+            {% endif %}
+
+            {# Schema image placeholder #}
+            <div class="py-16 md:py-24"></div>
+
+            {% if description %}
+                <h4 class="max-w-2xl mx-auto">{{ description|striptags|raw }}</h4>
+            {% endif %}
+
+            {% if link %}
+                <div>
+                    {% include 'components/button' with {
+                        href: link.url ?? '#',
+                        text: link.text ?? 'Request a Demo',
+                        variant: 'primary',
+                    } %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

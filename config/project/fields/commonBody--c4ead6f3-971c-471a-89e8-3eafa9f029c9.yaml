@@ -1,0 +1,125 @@
+columnSuffix: null
+handle: commonBody
+instructions: null
+name: Body
+searchable: true
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 0a31b237-aa73-445d-9320-929ee8a1f03d # Body: blocks
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 9d84ffbb-ea75-490b-b03e-1d022d921c7c # Body: blogs
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - bdb86032-2c1a-40ed-a2c8-75ed76f4cfbf # Body: contact
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 298ca713-b469-453a-bdd4-5fab42adec68 # Body: cta
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - ccf52594-aa01-4682-8db5-b69ba3070658 # Body: logos
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 286086d8-f228-41fa-a0b1-827ab3d4b335 # Body: products
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - b516e068-66a6-43d5-88dd-10fc8fe05cd3 # Body: product categories
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - e9553650-6944-44af-870a-dbedcc0e3a49 # Body: split
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - ab2e69ff-aecb-4b09-bc05-c3d5b32a84a9 # Body: wysiwyg
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - e5debc2e-300d-47e9-86db-5a469e3376ef # Body: schema
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 8c6f1534-ce1f-44c0-84d6-d6d49356de4f # Body: features
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - a96bdc50-6743-41da-a246-44735b3d6c1d # Body: stakeholder
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 78c5f45e-0ac8-44b2-bada-2b3fef62a4af # Body: benefits
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

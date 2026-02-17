@@ -1,0 +1,41 @@
+
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set subtitle = data.commonSubtitle ?? "" %}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="px-4 lg:px-8 text-white bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/gradient.png');">
+    <div class="container mx-auto py-24 md:py-32">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            {% if subtitle %}
+                <span class="inline-block px-6 py-2 rounded-full bg-white/20 text-white text-sm">
+                    {{ subtitle }}
+                </span>
+            {% endif %}
+
+            {% if title %}
+                <h1 class="text-white">{{ title|striptags|raw }}</h1>
+            {% endif %}
+
+            {% if description %}
+                <p class="text-white/80 max-w-3xl mx-auto">{{ description|striptags|raw }}</p>
+            {% endif %}
+
+            {% if link %}
+                <div>
+                    {% include 'components/button' with {
+                        href: link.url ?? '#',
+                        text: link.text ?? 'Learn More',
+                        variant: 'secondary',
+                    } %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

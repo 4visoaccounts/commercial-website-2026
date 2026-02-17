@@ -1,0 +1,40 @@
+color: orange
+description: null
+fieldLayouts:
+  60834f7f-5540-4698-8856-23992df5c134:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-09T13:01:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4981a52b-e429-46ec-82fe-0d3703337277
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d25d99d5-3166-42d1-8207-c48899919d9b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a1943f3f-5df0-42bf-b66f-4d623756c032
+        userCondition: null
+handle: bodyBlocks
+hasTitleField: false
+icon: columns-3
+name: 'Body: blocks'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

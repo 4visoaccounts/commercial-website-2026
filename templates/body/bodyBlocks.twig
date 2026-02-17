@@ -1,0 +1,33 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set blocks = data.commonBlocks ?? [] %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-20">
+    {% if blocks|length %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+            {% for block in blocks %}
+                <div>
+                    {% if block.commonSubtitle %}
+                        <span class="text-primary font-semibold uppercase mb-2 text-xs">
+                            {{ block.commonSubtitle }}
+                        </span>
+                    {% endif %}
+
+                    {% if block.commonTitle %}
+                        <h2 class="text-dark mb-6">{{ block.commonTitle }}</h2>
+                    {% endif %}
+
+                    {% if block.commonDescription %}
+                        <p class="text-dark">
+                            {{ block.commonDescription|striptags|nl2br }}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

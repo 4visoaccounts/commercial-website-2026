@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  7061f862-8ef8-4b21-a7d0-b0f756d067ad:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-17T18:58:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 86c486c8-5c50-4a74-a996-2450ae5e7d1c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T18:58:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a83f951-9912-4204-92d3-d2e3485590b2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a96a7e93-61c6-49b6-a74f-dc4f550f513a
+        userCondition: null
+handle: stakeholder
+hasTitleField: false
+icon: null
+name: stakeholder
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,22 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set sections = entry.commonSections.all() ?? [] %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+
+{% for slice in entry.commonBody.all() %}
+    {% set templatePath = 'body/' ~ slice.type ~ '.twig' %}
+    {% if craft.app.view.doesTemplateExist(templatePath) %}
+        <div data-slice="{{slice.type.handle}}">
+            {% include "/body/" ~ slice.type.handle ~".twig" with { 
+                data : slice
+            } %}
+        </div>
+    {% else %}
+        <p style="padding: 20px; background-color: red; border-radius: 10px; margin: 10px;">Template for "body/{{ slice.type }}.twig" not found.</p>
+    {% endif %}
+
+{% endfor %}

@@ -1,0 +1,53 @@
+color: orange
+description: null
+fieldLayouts:
+  98614e15-059e-45fd-bbaf-f8cb04d93383:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-10-30T15:59:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 63f83fbf-d9ca-4c17-b4cc-2deac3a93d72
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e3d1cb85-0cc0-45c9-9381-12a2c473f03c
+        userCondition: null
+handle: bodySplit
+hasTitleField: true
+icon: table-columns
+name: 'Body: split'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

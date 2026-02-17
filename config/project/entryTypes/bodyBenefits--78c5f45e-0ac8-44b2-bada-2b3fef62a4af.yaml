@@ -1,0 +1,91 @@
+color: green
+description: null
+fieldLayouts:
+  13068231-83d1-45b9-bf07-552cc4318711:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-17T19:21:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d76c55c5-f5a2-492f-ba42-b8776aa06dd7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T19:22:28+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 108c7042-81a6-43c0-a861-ffd99ca98581 # Benefits
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cb7e46be-3e18-490b-8dbc-a5528e522e46
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T19:21:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 91acd641-9e98-4bec-96cc-6d8f059e03a5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T19:21:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 69401879-4de8-4556-8952-b162a934bf5c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1115231e-7acb-449b-af10-7f30ae083bbc
+        userCondition: null
+handle: bodyBenefits
+hasTitleField: false
+icon: null
+name: 'Body: benefits'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  4da445f3-196b-44c2-b849-73322295e57b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-09T12:53:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a8c9fa47-8c66-411c-a9d6-c6e87ce47e0e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T12:53:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 21491c0f-66a3-4bfd-8893-52b36a86085d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b545aead-72fb-4c39-9c42-8061f6cd71d4
+        userCondition: null
+handle: heroDefault
+hasTitleField: false
+icon: archway
+name: 'Hero: default'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

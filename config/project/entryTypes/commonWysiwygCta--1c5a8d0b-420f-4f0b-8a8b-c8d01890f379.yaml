@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  eb05cce1-7ee8-4a9f-82e7-7fc843ff00b8:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-17T16:47:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3ad69cc2-a811-466d-bdac-0675b806d49e # Cta
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 07151423-8dc8-427d-b3be-7e5e4f42c8fc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e200bf97-c101-4cd6-976f-39498d9d51fa
+        userCondition: null
+handle: commonWysiwygCta
+hasTitleField: false
+icon: null
+name: 'Cta block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

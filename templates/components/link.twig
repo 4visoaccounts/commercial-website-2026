@@ -1,0 +1,30 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set href = href ?? '#' %}
+{% set text = text ?? '' %}
+{% set isWhite = isWhite ?? false %}
+{% set isUnderlined = isUnderlined ?? false %}
+{% set icon = icon ?? null %}
+{% set positionIcon = positionIcon ?? 'left' %}
+
+{# ========================================================================== #}
+{# :: Styles #}
+{# ========================================================================== #}
+{% set colorClasses = isWhite ? 'text-white hover:text-primary-light' : 'text-dark hover:text-primary' %}
+{% set underlineClasses = isUnderlined ? 'underline underline-offset-4' : 'no-underline' %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<a href="{{ href }}" class="inline-flex items-center gap-2 text-sm transition {{ colorClasses }} {{ underlineClasses }}">
+    {% if icon and positionIcon == 'left' %}
+        <i class="ph ph-{{ icon }}"></i>
+    {% endif %}
+
+    {{ text }}
+
+    {% if icon and positionIcon == 'right' %}
+        <i class="ph ph-{{ icon }}"></i>
+    {% endif %}
+</a>

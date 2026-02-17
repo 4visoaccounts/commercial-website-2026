@@ -1,0 +1,74 @@
+color: green
+description: null
+fieldLayouts:
+  28b2cc39-81bb-4c66-878b-d19457c67dc9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-17T18:40:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c7171c38-b4c9-41f1-b497-04a3b49c36f5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T18:40:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7af08685-174f-4989-9155-ceee751c58c3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T18:40:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bda68ce7-b54e-48ed-ab61-cc0375645e2e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 40c0986f-7bbe-4e2b-96bf-8e9b8e7fc0ee
+        userCondition: null
+handle: bodySchema
+hasTitleField: false
+icon: null
+name: 'Body: schema'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

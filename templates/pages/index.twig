@@ -1,0 +1,17 @@
+{# ========================================================================== #}
+{# Inheritance #}
+{# ========================================================================== #}
+{% extends "_layouts/base.twig" %}
+
+{# ========================================================================== #}
+{# Content #}
+{# ========================================================================== #}
+{% block content %}
+    {% cache globally using key "homepage" if not craft.app.config.general.devMode  %}
+        {# Hero #}
+        {% include "/hero/_index.twig" %}
+
+        {# Body #}
+        {% include "/body/_index.twig" %}
+    {% endcache %}
+{% endblock %}

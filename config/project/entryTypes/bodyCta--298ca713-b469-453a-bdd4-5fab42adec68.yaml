@@ -1,0 +1,40 @@
+color: orange
+description: null
+fieldLayouts:
+  843c6d13-3420-4f9d-a332-e9e7d9121e43:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-10-30T13:20:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3ad69cc2-a811-466d-bdac-0675b806d49e # Cta
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ea835d9-db4b-4b6e-b6c3-53ac94734c2e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 455d23cf-a759-460e-90e6-f77d38a57314
+        userCondition: null
+handle: bodyCta
+hasTitleField: false
+icon: album
+name: 'Body: cta'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

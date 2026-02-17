@@ -1,0 +1,9 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'sites.e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:read'
+  - 'sites.f2a3b4c5-6d7e-8f9a-0b1c-2d3e4f5a6b7c:read'
+  - 'sites.a3b4c5d6-7e8f-9a0b-1c2d-3e4f5a6b7c8d:read'
+  - 'sections.289f1239-4e1e-4a9e-b365-f1be0eb33d64:read'
+  - 'sections.76b9b340-6901-4b36-8142-34f7ca8a8380:read'
+  - 'sections.7554f5ee-e901-410e-b44f-0b6ea2edec24:read'

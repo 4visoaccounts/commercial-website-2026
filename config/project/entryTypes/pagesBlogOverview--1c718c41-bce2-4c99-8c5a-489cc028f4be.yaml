@@ -1,0 +1,97 @@
+color: lime
+description: null
+fieldLayouts:
+  f511aa9e-baee-4871-a624-8f5f70e759fe:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-19T07:37:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 95e2e1f9-ccd1-4f2a-aa95-2c2bf163da8b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-19T07:37:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3c0db815-178c-49a9-a72b-f56d2bc4b8a8 # Hero
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2954012-35ea-45b8-97b1-89dfaa1c16db
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-19T07:37:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1e2cfd0c-ef6a-41a8-978f-2787295face4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e1f10bac-3cf3-4c4e-a48c-40aea52693fd
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:40:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 384c6e1b-b0f3-4fce-8436-d5a9d801a552
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: d40ce767-846e-48cf-85a6-d82b3d4f9c3d
+        userCondition: null
+handle: pagesBlogOverview
+hasTitleField: false
+icon: blogger
+name: 'blog overview'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

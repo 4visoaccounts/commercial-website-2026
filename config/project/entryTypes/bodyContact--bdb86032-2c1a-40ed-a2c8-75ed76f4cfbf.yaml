@@ -1,0 +1,22 @@
+color: orange
+description: null
+fieldLayouts:
+  f4a8ad01-f1c5-42c7-92ad-32093c6c888b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        name: Content
+        uid: 8381f177-efe9-47d4-9f16-02b717d82da7
+        userCondition: null
+handle: bodyContact
+hasTitleField: false
+icon: address-card
+name: 'Body: contact'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,80 @@
+color: null
+description: null
+fieldLayouts:
+  652aa8d1-df50-4694-8e03-66cf6fb371dd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-10-30T12:28:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3c0db815-178c-49a9-a72b-f56d2bc4b8a8 # Hero
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f582e4a1-5f52-466a-80c8-89ac2e1083c5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-30T12:47:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1655aec0-53cb-4d8d-b8ab-8e955c4b2fc6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 86d78877-cad6-4b53-8e77-19b7ddef023a
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:41:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3467d470-9de9-4dcd-bb8f-01d5ac8af650
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: d8f5931e-649e-40b7-884b-d427c5062616
+        userCondition: null
+handle: home
+hasTitleField: false
+icon: house
+name: home
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

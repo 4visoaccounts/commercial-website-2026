@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Stack Sans Text", sans-serif;
+    font-style: normal;
+  }
+
+  h1 {
+    @apply font-stack-headline text-[60px] font-normal text-dark leading-none;
+  }
+
+  h2 {
+    @apply font-stack-headline text-[40px] font-normal text-dark leading-tight;
+  }
+
+  h3 {
+    @apply font-stack-headline text-[28px] font-bold text-dark leading-snug;
+  }
+
+  h4 {
+    @apply font-stack-headline text-[24px] font-normal text-dark leading-snug;
+  }
+
+  h5 {
+    @apply font-stack-headline text-[20px] font-normal text-dark leading-normal;
+  }
+
+  p {
+    @apply font-light text-[18px] text-dark leading-relaxed;
+  }
+
+  a {
+    @apply text-dark transition-colors underline cursor-pointer;
+  }
+}
+
+.s-wysiwyg {
+  ul {
+    list-style: disc;
+    margin-left: 16px;
+  }
+
+  table {
+    width: 100%;
+    
+    th, td {
+      padding: 5px 10px;
+      text-align: left;
+      color: #3B72C9;
+      border-bottom: 1px solid #3B72C9;
+    }
+
+    td {
+      border-color: #B5D2FF;
+      color: #000F28;
+    }
+
+    tr:last-child {
+      td {
+        border-color: white;
+      }
+    }
+    
+  }
+}
+
+blockquote p {
+  font-size: 21px;
+  color: #3B72C9;
+  border-left: 2px solid #3B72C9;
+  padding-left: 20px;
+}

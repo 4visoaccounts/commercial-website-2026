@@ -1,0 +1,98 @@
+fieldLayouts:
+  461cb868-77ba-4981-aba6-7c1cb57d3767:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-10-30T15:23:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 94a763f2-e57b-4935-af96-eec8b1710e03 # mail
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4aa94cbb-6251-4ae0-b870-32376ca77b42
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-30T15:23:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 598e3601-950d-468c-8fbf-d03d7a4c4b29 # phone
+            handle: commonPhone
+            includeInCards: false
+            instructions: null
+            label: phone
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dfbaf057-9e38-40e1-8b15-7766823ce738
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T20:55:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2e3dc8e8-0706-4278-9355-7b9a9d2157d4
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 968221bb-d419-442a-b443-5b60ef83159d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-22T07:53:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 86969438-8d1d-4ed2-b295-3cb890a11187 # Latitude
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8e7b4817-ae03-4f6b-a6c8-4b173dfa71f6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-22T07:53:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5e479818-3d04-47c4-90b4-1eb87829b75d # Longtitude
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f6bdbdc-07ed-4487-be26-5dde5fa02935
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3065d196-83fb-424a-baa7-f7cde9d7f321
+        userCondition: null
+handle: company
+name: company
+sortOrder: 4

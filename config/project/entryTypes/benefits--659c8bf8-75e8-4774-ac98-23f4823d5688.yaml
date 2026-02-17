@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  17a6c96b-fff4-4d40-926b-acdf4c16f9de:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-17T19:07:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d87315db-ccbc-48ae-9958-d91d39bb28ad # Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c6fc0d43-0f2f-4b9e-8f09-4b20c3080d16
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T19:07:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fd6abf52-9a4a-43fc-9bd0-3ba338ab837e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d809f2ed-f21c-44c4-a666-1b741d2605fb
+        userCondition: null
+handle: benefits
+hasTitleField: false
+icon: null
+name: benefits
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonDescription|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

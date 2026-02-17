@@ -1,0 +1,22 @@
+color: null
+description: null
+fieldLayouts:
+  af44a178-09bd-4f24-b5b6-5e6c2d77cc06:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        name: Content
+        uid: e7a40909-531f-4440-8b74-6975bc4d40da
+        userCondition: null
+handle: productContact
+hasTitleField: false
+icon: null
+name: Contact
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

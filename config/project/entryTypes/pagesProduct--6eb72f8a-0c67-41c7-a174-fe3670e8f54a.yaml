@@ -1,0 +1,97 @@
+color: green
+description: null
+fieldLayouts:
+  f297b9f3-8a59-488b-b368-543c58c138b4:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-16T19:16:02+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7286a0d4-1e4b-409b-975b-65b20a6681cb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-16T19:16:02+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3c0db815-178c-49a9-a72b-f56d2bc4b8a8 # Hero
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 72015902-609a-4d47-8246-6be1afa164a7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-16T19:16:02+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba16c42e-f1e0-419a-a4fd-63908ee1c942
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fa879482-73a6-4976-b6f7-6a4b30257884
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:39:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 559ef2e0-f9ea-4832-9fb6-09ee67543b34
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 8dd4c7d4-0791-4ac6-ab0c-c865d116ddb3
+        userCondition: null
+handle: pagesProduct
+hasTitleField: false
+icon: product-hunt
+name: 'product overview'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

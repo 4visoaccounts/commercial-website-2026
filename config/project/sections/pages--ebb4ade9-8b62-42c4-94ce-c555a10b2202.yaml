@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: f85d271c-0fce-49b6-bcf7-810054cf929f # pages
+  -
+    uid: 6eb72f8a-0c67-41c7-a174-fe3670e8f54a # product overview
+  -
+    uid: 1c718c41-bce2-4c99-8c5a-489cc028f4be # blog overview
+handle: pages
+maxAuthors: 1
+name: pages
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/entry.twig
+    uriFormat: '{slug}'
+type: channel

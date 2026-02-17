@@ -1,0 +1,40 @@
+color: orange
+description: null
+fieldLayouts:
+  caa8c090-0e23-4a82-baa6-2c03aba5186e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-17T16:19:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8babc851-e16d-441d-94f0-c0384a279ff3
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 787a420e-bb93-46ea-9e1f-0873e8fb6da5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a89b4215-183d-489c-81f7-456de3c4bbce
+        userCondition: null
+handle: bodyBlogs
+hasTitleField: false
+icon: newspaper
+name: 'Body: blogs'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

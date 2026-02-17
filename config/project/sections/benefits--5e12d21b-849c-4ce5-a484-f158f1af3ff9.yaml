@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 659c8bf8-75e8-4774-ac98-23f4823d5688 # benefits
+handle: benefits
+maxAuthors: 1
+name: benefits
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: true
+    template: benefits/_entry.twig
+    uriFormat: 'benefits/{slug}'
+type: channel

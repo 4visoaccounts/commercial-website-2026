@@ -1,0 +1,288 @@
+dateModified: 1771357042
+elementSources:
+  craft\elements\Entry:
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - status
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      heading: "Pagina's"
+      key: 'heading:5c7a5ba9-1f7d-447d-ab3e-bb579ac69a7f'
+      type: heading
+    -
+      defaultSort:
+        - title
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: singles
+      tableAttributes:
+        - status
+        - link
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:ebb4ade9-8b62-42c4-94ce-c555a10b2202' # pages
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      key: 'section:2058266b-11b6-419d-822b-8b1fd2a70177'
+      type: native
+    -
+      heading: 'Product catalogus'
+      key: 'heading:54845703-aaf8-4964-bff4-0c293675ef3c'
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:76b9b340-6901-4b36-8142-34f7ca8a8380'
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      key: 'section:7554f5ee-e901-410e-b44f-0b6ea2edec24'
+      type: native
+    -
+      key: 'section:289f1239-4e1e-4a9e-b365-f1be0eb33d64'
+      type: native
+    -
+      heading: 'Herbruikbare content'
+      key: 'heading:fbcdb2e5-c0b3-4de7-88d0-2895a163ac86'
+      type: heading
+    -
+      key: 'section:34295dc2-75ef-4bc0-994f-56d03ce2d68d'
+      type: native
+    -
+      key: 'section:a834e510-4e62-4af2-b49e-70bbab90fd13'
+      type: native
+    -
+      heading: ''
+      key: 'heading:01d6d80e-6827-4939-806b-f9f8b17cc6fd'
+      type: heading
+email:
+  fromEmail: $SMTP_USERNAME
+  fromName: 4Viso
+  replyToEmail: $SMTP_USERNAME
+  template: null
+  transportSettings:
+    host: $SMTP_HOST
+    password: ''
+    port: $SMTP_PORT
+    useAuthentication: '0'
+    username: ''
+  transportType: craft\mail\transportadapters\Smtp
+fs:
+  uploads:
+    hasUrls: true
+    name: uploads
+    settings:
+      path: $BASE_PATH
+    type: craft\fs\Local
+    url: $BASE_URL_PATH
+meta:
+  __names__:
+    0a31b237-aa73-445d-9320-929ee8a1f03d: 'Body: blocks' # Body: blocks
+    1baeb124-97b4-4010-b7d6-40823e074018: footer # footer
+    1c5a8d0b-420f-4f0b-8a8b-c8d01890f379: 'Cta block' # Cta block
+    1c718c41-bce2-4c99-8c5a-489cc028f4be: 'blog overview' # blog overview
+    1ca09b04-cf25-4f1f-9d76-06adf2d61ebb: Products # Products
+    2c8c87a3-c210-4bdd-abfd-8b4befb21e9c: Seo # Seo
+    3a4e8925-b372-4821-b28c-e88e30148bb3: Link # Link
+    3ad69cc2-a811-466d-bdac-0675b806d49e: Cta # Cta
+    3c0db815-178c-49a9-a72b-f56d2bc4b8a8: Hero # Hero
+    3c6a4345-fb2a-447d-98bc-4edffcdf3c86: teammember # teammember
+    3e983e41-c453-461a-b6db-e6b7ecbb96c9: teammember # teammember
+    5a36f40f-36d1-4024-9faf-2d81e971fabe: Product # Product
+    5e12d21b-849c-4ce5-a484-f158f1af3ff9: benefits # benefits
+    5e479818-3d04-47c4-90b4-1eb87829b75d: Longtitude # Longtitude
+    6cc69bec-e0c9-4963-b6d9-cf4fe71e259a: homepage # homepage
+    6e8d296e-8b80-4b94-96b3-6ae6e854ca88: Asset # Asset
+    6eb72f8a-0c67-41c7-a174-fe3670e8f54a: 'product overview' # product overview
+    6f19950e-4c14-47e7-bf82-6260bec49f8f: 'blog detail' # blog detail
+    8c6f1534-ce1f-44c0-84d6-d6d49356de4f: 'Body: features' # Body: features
+    9a7cb8ca-07a2-4e19-87d3-3494a4a1d499: 'Body: features' # Body: features
+    9d84ffbb-ea75-490b-b03e-1d022d921c7c: 'Body: blogs' # Body: blogs
+    9ec578d1-f37f-43c3-a06e-4b54e927e7b4: 'Hero: default' # Hero: default
+    35a07891-bdfe-4e96-be8d-a63b5ac50ee6: 'Product cta block' # Product cta block
+    48e6ce49-4871-427c-b4ff-0ef9174c66bb: Content # Content
+    58f658f6-060f-4c83-b626-4c6383fafb40: home # home
+    78c5f45e-0ac8-44b2-bada-2b3fef62a4af: 'Body: benefits' # Body: benefits
+    94a763f2-e57b-4935-af96-eec8b1710e03: mail # mail
+    98e44ba6-a246-4b68-812e-20cf411a268c: stakeholder # stakeholder
+    108c7042-81a6-43c0-a861-ffd99ca98581: Benefits # Benefits
+    298ca713-b469-453a-bdd4-5fab42adec68: 'Body: cta' # Body: cta
+    365c9d07-5bc9-4680-bd19-2683c2980c5c: stakeholder # stakeholder
+    598e3601-950d-468c-8fbf-d03d7a4c4b29: phone # phone
+    659c8bf8-75e8-4774-ac98-23f4823d5688: benefits # benefits
+    6124d975-df50-49ef-aa61-26b3cbfd7bb1: features # features
+    8681a8af-cec3-4d7e-8e2b-f4382d1a06eb: Subtitle # Subtitle
+    10046dbd-da89-4e46-9f3a-cd859f2a715a: Contact # Contact
+    30551bd8-a388-4d4a-bab0-1e0b8784660b: Link # Link
+    286086d8-f228-41fa-a0b1-827ab3d4b335: 'Body: products' # Body: products
+    301731a9-b38d-4992-a061-7d879939300c: Features # Features
+    73975570-1a97-419c-9a10-5c59e76d584d: 'Image block' # Image block
+    86969438-8d1d-4ed2-b295-3cb890a11187: Latitude # Latitude
+    a3d2dfb2-a180-4539-8709-386ec9206ffd: Wysiwyg # Wysiwyg
+    a84b3d5c-e3cf-42e5-8e7c-9cf2c13b70d9: Columns # Columns
+    a96bdc50-6743-41da-a246-44735b3d6c1d: 'Body: stakeholder' # Body: stakeholder
+    a930058f-c792-404b-aed8-42a307d8e25c: feature # feature
+    ab2e69ff-aecb-4b09-bc05-c3d5b32a84a9: 'Body: wysiwyg' # Body: wysiwyg
+    ae63c3ca-80e0-45c1-8c4c-c4af049f52fc: 'Body: video' # Body: video
+    aee79a3b-946e-40e2-a4ba-b0af695dd334: Simple # Simple
+    b2af86f0-daa8-45e1-9813-a0dbf67dc0d1: 'Product subcategory' # Product subcategory
+    b2fd6268-2e91-41e0-aef5-c6f5cec40b27: Blocks # Blocks
+    b516e068-66a6-43d5-88dd-10fc8fe05cd3: 'Body: product categories' # Body: product categories
+    ba8f430f-1b62-4162-a61d-1e4053e27320: 'Public Schema' # Public Schema
+    bad0c6cc-8fde-4e48-aaf0-096539894de8: uploads # uploads
+    bdb86032-2c1a-40ed-a2c8-75ed76f4cfbf: 'Body: contact' # Body: contact
+    c0d795b6-4dbf-4b79-b067-e631a2d53c9e: 'Video block' # Video block
+    c4cc5c42-ac52-40a8-9249-f5fc84f5e7d9: header # header
+    c4ead6f3-971c-471a-89e8-3eafa9f029c9: Body # Body
+    c5cb5eb9-1223-4bcd-9ae1-caacafb794c6: 'Only bold' # Only bold
+    ccf52594-aa01-4682-8db5-b69ba3070658: 'Body: logos' # Body: logos
+    cda21870-0257-401e-b49e-8c4988c4289f: Title # Title
+    ce705e3c-b417-4928-a23c-47761737f752: Description # Description
+    d850e25b-b1a3-4ccd-85dc-f9c90962b6f5: subfooter # subfooter
+    d8720af2-1cb3-43ab-9002-165abfcf8d18: company # company
+    d77514af-bb71-43e5-aa5b-6e18ea8bab04: Stakeholder # Stakeholder
+    d87315db-ccbc-48ae-9958-d91d39bb28ad: Icon # Icon
+    e02962d9-9c10-4c54-b77c-37e43e575b16: 'Product category' # Product category
+    e5debc2e-300d-47e9-86db-5a469e3376ef: 'Body: schema' # Body: schema
+    e8bd65e7-c796-4706-9b03-4a4ef0c33ff5: 'Block with only title/description' # Block with only title/description
+    e9553650-6944-44af-870a-dbedcc0e3a49: 'Body: split' # Body: split
+    eb1fe321-4bb0-403f-9d7f-de5de38200c3: feature # feature
+    ebb4ade9-8b62-42c4-94ce-c555a10b2202: pages # pages
+    ecbb43c5-da90-4373-aca2-0423827abcdf: 'Wysiwyg block' # Wysiwyg block
+    f0bfd79a-6e02-40d1-a782-827e48b71ed0: 'Hero: home' # Hero: home
+    f85d271c-0fce-49b6-bcf7-810054cf929f: pages # pages
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: false
+      allowedMessageFields: null
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from 4Viso'
+      successFlashMessage: 'Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.'
+      toEmail: collinvdv@gmail.com
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  linkit:
+    edition: standard
+    enabled: true
+    licenseKey: 2NZU93ZB672DT41ZBJ250YUY
+    schemaVersion: 1.2.0
+  neo:
+    edition: standard
+    enabled: true
+    licenseKey: DF1G8KOG5DOAZM8D0KGRCFMZ
+    schemaVersion: 5.1.0.1
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
+    settings:
+      description: ''
+      facebookAppId: ''
+      metaTemplate: ''
+      removeAlternateUrls: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
+      sitemapLimit: '1000'
+      sitemapName: sitemap
+      socialImage: ''
+      title:
+        -
+          __assoc__:
+            -
+              - key
+              - '1'
+            -
+              - locked
+              - '0'
+            -
+              - template
+              - '{title}'
+        -
+          __assoc__:
+            -
+              - key
+              - '2'
+            -
+              - locked
+              - '1'
+            -
+              - template
+              - ' - Medson'
+      titleSuffix: null
+      twitterHandle: ''
+siteGroups:
+  b4c5d6e7-8f9a-0b1c-2d3e-4f5a6b7c8d9e:
+    name: Medson
+sites:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    baseUrl: $PRIMARY_SITE_URL
+    enabled: true
+    handle: nl
+    hasUrls: true
+    language: en-US
+    name: '4viso Commercial'
+    primary: true
+    siteGroup: b4c5d6e7-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+    sortOrder: 1
+system:
+  edition: solo
+  live: true
+  name: 4Viso
+  retryDuration: null
+  schemaVersion: 5.8.0.3
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

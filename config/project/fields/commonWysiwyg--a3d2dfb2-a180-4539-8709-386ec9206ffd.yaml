@@ -1,0 +1,61 @@
+columnSuffix: null
+handle: commonWysiwyg
+instructions: null
+name: Wysiwyg
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - ecbb43c5-da90-4373-aca2-0423827abcdf # Wysiwyg block
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 1c5a8d0b-420f-4f0b-8a8b-c8d01890f379 # Cta block
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 73975570-1a97-419c-9a10-5c59e76d584d # Image block
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - c0d795b6-4dbf-4b79-b067-e631a2d53c9e # Video block
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 35a07891-bdfe-4e96-be8d-a63b5ac50ee6 # Product cta block
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

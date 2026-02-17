@@ -1,0 +1,209 @@
+color: null
+description: null
+fieldLayouts:
+  23f3242c-9a49-48de-af20-4d21d9e25d0d:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-09T21:16:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e798a05b-1f91-4c26-80a2-0ccdacc76e6d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T21:18:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2a0ea6e8-f0bc-4ffe-bdbf-b941a250af1d
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0c44f3e-e029-4ccf-a0f3-c6c203a1751e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-12T16:04:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9378b3c8-4a53-4143-a37b-ecb8b3d9d7f7
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5e41299e-abe5-49c6-9380-5ac8872be537
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-16T21:50:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 9ce68374-2113-424b-b473-d1fd1e42070d
+            userCondition: null
+          -
+            dateAdded: '2025-11-09T21:16:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6e8d296e-8b80-4b94-96b3-6ae6e854ca88 # Asset
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: efc2aaee-0f01-4fe9-9f87-b6b69ec740a2
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-11-16T21:47:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 77e97a04-fb0b-4049-9140-448b483aa0b7
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9fff8fe7-3307-4316-9618-4880519fadcd
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-11-16T19:51:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ad1a777-6f27-4665-a617-4d176e191cba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-16T21:50:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: ed360985-7c80-474c-b325-7a8fb5230d02
+            userCondition: null
+          -
+            dateAdded: '2025-11-16T21:51:25+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: "BV: \r\nProducteigenschappen\r\nDeze handige hechtdraadorganizer bespaart tijd tijdens klepimplantaties door de uiteinden van de hechtdraden geordend en klitvrij te houden."
+            type: craft\fieldlayoutelements\Tip
+            uid: 1f88efcd-1ccb-4096-ae53-c79f39e2e0e6
+            userCondition: null
+          -
+            dateAdded: '2025-11-16T21:22:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9086fcb4-fa0c-42dc-9770-16b085894dba
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 4aef57cb-7027-453d-98a1-57521d00c610
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:40:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f7eff1c-e0c7-49a4-b428-838ffb32dab7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: c88d0952-99f2-493b-a3e9-8b78efa4c570
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-25T18:55:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3e552d89-88ae-46b7-b1dd-a6c05c9d5314
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d164de47-185c-4a34-a8c5-258e48cd72b7
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Hidden words'
+        uid: 3c3013de-49a9-4a5f-b71a-62e064071142
+        userCondition: null
+handle: product
+hasTitleField: false
+icon: null
+name: Product
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

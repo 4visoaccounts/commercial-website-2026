@@ -1,0 +1,23 @@
+
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8">
+    <div class="bg-primary rounded-lg py-20 md:py-28 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-8 text-center space-y-6 relative z-10">
+            {% if title %}
+                <h1 class="text-white">{{ title }}</h1>
+            {% endif %}
+
+            {% if description %}
+                <p class="text-white text-lg leading-relaxed font-light">{{ description|striptags|nl2br }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

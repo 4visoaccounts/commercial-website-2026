@@ -1,0 +1,2 @@
+// Add your custom JavaScript here
+console.log('Craft CMS with Tailwind CSS and Laravel Mix');

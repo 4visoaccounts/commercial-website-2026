@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  c7fb4b64-5fa3-462c-a95f-e5216a62286b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-17T16:47:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2ce11b56-cd2e-4aec-8f6e-af4148965890
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f4a53a4f-06cf-429a-906c-548674c48535
+        userCondition: null
+handle: commonWysiwygBlock
+hasTitleField: false
+icon: null
+name: 'Wysiwyg block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

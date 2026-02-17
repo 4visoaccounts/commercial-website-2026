@@ -1,0 +1,131 @@
+color: emerald
+description: null
+fieldLayouts:
+  4f592a2f-f51b-4543-9d69-057e2e897786:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-09T21:11:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed5f77e8-98b7-40f3-a936-3624986fd662
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T21:11:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b28b06e8-97d5-4467-a74b-deab89d6ea57
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-09T21:35:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ca2208f9-a050-4d32-816d-163c73b7ef71
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-12T16:00:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9378b3c8-4a53-4143-a37b-ecb8b3d9d7f7
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d6e408b0-a0fb-4306-92c0-1f08006ae7ec
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-22T09:42:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6e8d296e-8b80-4b94-96b3-6ae6e854ca88 # Asset
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3bee07ac-a01e-4b2d-ac8e-f9f818fe7a37
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 240c5c0b-c1c7-492a-bd02-089f1a8b14b8
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:40:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: df5edfd5-44ae-49e7-8e5c-29a9d9791bc0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 82f43de9-c93b-4524-a4c9-31f9046f275e
+        userCondition: null
+handle: productCategory
+hasTitleField: false
+icon: null
+name: 'Product category'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

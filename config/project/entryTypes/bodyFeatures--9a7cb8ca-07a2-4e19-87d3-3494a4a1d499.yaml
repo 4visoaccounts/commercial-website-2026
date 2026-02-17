@@ -1,0 +1,57 @@
+color: orange
+description: null
+fieldLayouts:
+  97476b35-07be-4b5a-a8dc-50eb1c112d23:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-10-30T12:41:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4631fa00-c835-426c-bd3a-320e87ed9a11
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-30T12:45:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4cd11c77-b248-44a6-9cfb-20f5fc391d7f
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11a8a4fc-ef5c-4aa8-8898-7328be8f6e0e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b23237a9-00f5-4e6b-8e7d-427475c7ebb2
+        userCondition: null
+handle: bodyFeatures
+hasTitleField: false
+icon: hexagon-check
+name: 'Body: features'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

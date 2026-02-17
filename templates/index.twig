@@ -1,0 +1,67 @@
+{% extends "_layouts/base.twig" %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div class="max-w-4xl w-full bg-white rounded-lg shadow-xl overflow-hidden md:flex">
+        <div class="md:w-1/2 p-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Welcome to Craft CMS</h1>
+            <p class="text-gray-700 mb-4">Thanks for installing Craft CMS with Tailwind CSS!</p>
+            <p class="text-gray-700 mb-4">
+                You're looking at the <code class="px-2 py-1 bg-gray-100 text-red-500 rounded text-sm font-mono">index.twig</code> template file located in your
+                <code class="px-2 py-1 bg-gray-100 text-red-500 rounded text-sm font-mono">templates/</code> folder. Once you're ready to start building out your site's
+                front end, you can replace this with something custom.
+            </p>
+            <p class="text-gray-700 mb-6">
+                If you're new to Craft CMS, take some time to check out the resources on the right
+                when you get a chance—especially
+                <a href="https://craftcms.com/discord" target="_blank" class="text-blue-600 hover:underline">Discord</a>
+                and <a href="http://craftcms.stackexchange.com/" target="_blank" class="text-blue-600 hover:underline">Stack Exchange</a>.
+                The Craft community is full of smart, friendly, and helpful people!
+            </p>
+            <a href="{{ cpUrl('') }}" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Go to your control panel
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="md:w-1/2 bg-gray-50 p-8">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Popular Resources</h2>
+            <ul class="space-y-3">
+                <li>
+                    <a href="https://craftcms.com/docs/getting-started-tutorial/" target="_blank" class="text-blue-600 hover:underline font-medium">Tutorial</a>
+                    <p class="text-sm text-gray-600">Learn the basics.</p>
+                </li>
+                <li>
+                    <a href="https://craftcms.com/docs/5.x/" target="_blank" class="text-blue-600 hover:underline font-medium">Documentation</a>
+                    <p class="text-sm text-gray-600">Read the official docs.</p>
+                </li>
+                <li>
+                    <a href="https://craftcms.com/guides" target="_blank" class="text-blue-600 hover:underline font-medium">Knowledge Base</a>
+                    <p class="text-sm text-gray-600">Find answers to common problems.</p>
+                </li>
+                <li>
+                    <a href="https://craftcms.com/newsletter/subscribe" target="_blank" class="text-blue-600 hover:underline font-medium">Newsletter</a>
+                    <p class="text-sm text-gray-600">Get official news and community updates.</p>
+                </li>
+                <li>
+                    <a href="https://craftcms.com/events" target="_blank" class="text-blue-600 hover:underline font-medium">Events</a>
+                    <p class="text-sm text-gray-600">Upcoming community events.</p>
+                </li>
+                <li>
+                    <a href="https://craftcms.com/discord" target="_blank" class="text-blue-600 hover:underline font-medium">Discord</a>
+                    <p class="text-sm text-gray-600">Meet the community.</p>
+                </li>
+                <li>
+                    <a href="http://craftcms.stackexchange.com/" target="_blank" class="text-blue-600 hover:underline font-medium">Stack Exchange</a>
+                    <p class="text-sm text-gray-600">Get help and help others.</p>
+                </li>
+                <li>
+                    <a href="https://craftquest.io/" target="_blank" class="text-blue-600 hover:underline font-medium">CraftQuest</a>
+                    <p class="text-sm text-gray-600">Watch unlimited video lessons and courses.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

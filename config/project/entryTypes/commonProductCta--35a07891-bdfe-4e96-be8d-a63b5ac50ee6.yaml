@@ -1,0 +1,74 @@
+color: null
+description: null
+fieldLayouts:
+  13fba270-0682-4586-9b42-895fecac8c86:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-13T11:52:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 30dac077-6a88-402d-b9b1-e8ff0b4b6611
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 96172982-80fb-4553-8e40-ddef13808a6d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-13T11:55:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 37890c0e-49f7-439a-afcc-ff6b4af898d8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-13T11:55:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46d7a323-4e88-449f-94fc-a58696b4a28c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 26e19fc6-3fee-4bc2-b928-ceebe37f66a4
+        userCondition: null
+handle: commonProductCta
+hasTitleField: false
+icon: null
+name: 'Product cta block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

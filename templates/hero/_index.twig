@@ -1,0 +1,16 @@
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+{% if entry.commonHero %}
+    {% for slice in entry.commonHero.all() %}
+        {% set templatePath = 'hero/' ~ slice.type ~ '.twig' %}
+        {% if craft.app.view.doesTemplateExist(templatePath) %}
+            {% include "/hero/" ~ slice.type.handle ~".twig" with { 
+                data : slice
+            } %}
+        {% else %}
+            <p style="padding: 20px; background-color: red; border-radius: 10px; margin: 10px;">Template for "hero/{{ slice.type }}.twig" not found.</p>
+        {% endif %}
+    {% endfor %}
+{% endif %}

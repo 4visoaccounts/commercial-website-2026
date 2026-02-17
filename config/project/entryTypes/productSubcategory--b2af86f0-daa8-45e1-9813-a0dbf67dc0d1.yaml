@@ -1,0 +1,80 @@
+color: null
+description: null
+fieldLayouts:
+  7d3d4a5f-c6f2-4b43-b731-9f1059bf52ec:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-12T15:58:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 207a691c-dc23-488b-8fc5-0e45d6bb8f78
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-16T21:38:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f4fd089a-e872-4b34-9ebf-5254994489c5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 8343686b-1142-4cc5-8207-e77e6702711b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-24T12:41:08+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bfe30458-742c-4c6c-b5f2-ff3b67b3c2fd
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 572dbe73-77d5-4288-aed8-8dbf38e05a3f
+        userCondition: null
+handle: productSubcategory
+hasTitleField: false
+icon: null
+name: 'Product subcategory'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

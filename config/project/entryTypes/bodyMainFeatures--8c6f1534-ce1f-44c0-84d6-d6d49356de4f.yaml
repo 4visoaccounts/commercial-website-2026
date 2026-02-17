@@ -1,0 +1,74 @@
+color: green
+description: null
+fieldLayouts:
+  867e6769-b6a3-4590-9ff8-e0a05e085760:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-17T18:46:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bab5189a-fe04-4d80-8687-bd1103ba963f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T18:46:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8abc2eec-7999-4e75-a4ee-3f86993020ce
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-17T18:46:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 301731a9-b38d-4992-a061-7d879939300c # Features
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 613bd144-393b-4360-94b1-01408b765428
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 03fb1dd1-f6f5-44a0-8269-31db0269121e
+        userCondition: null
+handle: bodyMainFeatures
+hasTitleField: false
+icon: null
+name: 'Body: features'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

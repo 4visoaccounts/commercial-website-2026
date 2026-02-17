@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 3e983e41-c453-461a-b6db-e6b7ecbb96c9 # teammember
+handle: teammember
+maxAuthors: 1
+name: teammember
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: true
+    template: teammember/_entry.twig
+    uriFormat: 'teammember/{slug}'
+type: channel
