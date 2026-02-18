@@ -1,4 +1,4 @@
-dateModified: 1771441677
+dateModified: 1771442757
 elementSources:
   craft\elements\Entry:
     -
@@ -139,6 +139,7 @@ meta:
     365c9d07-5bc9-4680-bd19-2683c2980c5c: stakeholder # stakeholder
     598e3601-950d-468c-8fbf-d03d7a4c4b29: phone # phone
     659c8bf8-75e8-4774-ac98-23f4823d5688: benefits # benefits
+    3708c7a4-a20f-42d3-9b53-fac379217006: Link # Link
     6124d975-df50-49ef-aa61-26b3cbfd7bb1: features # features
     8681a8af-cec3-4d7e-8e2b-f4382d1a06eb: Subtitle # Subtitle
     10046dbd-da89-4e46-9f3a-cd859f2a715a: Contact # Contact
@@ -181,6 +182,7 @@ meta:
     ecbb43c5-da90-4373-aca2-0423827abcdf: 'Wysiwyg block' # Wysiwyg block
     f0bfd79a-6e02-40d1-a782-827e48b71ed0: 'Hero: home' # Hero: home
     f85d271c-0fce-49b6-bcf7-810054cf929f: pages # pages
+    fa10e20e-af48-4184-9f2b-050e7fdda65e: Links # Links
 plugins:
   ckeditor:
     edition: standard

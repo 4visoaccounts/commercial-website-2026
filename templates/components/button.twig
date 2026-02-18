@@ -12,6 +12,8 @@
 {# ========================================================================== #}
 {% if variant == 'secondary' %}
     {% set btnClasses = 'bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white' %}
+{% elseif variant == 'white' %}
+    {% set btnClasses = 'bg-white text-primary-pine hover:bg-white/90' %}
 {% else %}
     {% set btnClasses = 'bg-primary-pine text-white hover:bg-primary' %}
 {% endif %}

@@ -2,7 +2,70 @@
 {# :: Variables #}
 {# ========================================================================== #}
 {% set hideMenu = hideMenu is defined ? hideMenu : false %}
+{% set links = header.commonLinks.all() ?? [] %}
 
 {# ========================================================================== #}
 {# Header Index #}
 {# ========================================================================== #}
+<header class="absolute top-0 left-0 w-full z-50" x-data="{ open: false }">
+    <div class="container mx-auto px-4 lg:px-8">
+        <nav class="flex items-center justify-between py-6">
+            {# Logo #}
+            <a href="/" class="no-underline">
+                {% include "/logos/logo.twig" with { customClass: 'h-12'} %}
+            </a>
+
+            {# Desktop navigation #}
+            {% if not hideMenu and links|length %}
+                <div class="hidden md:flex items-center gap-8">
+                    {% for item in links %}
+                        {% set link = item.commonLink ?? null %}
+                        {% if link %}
+                            {% if loop.last %}
+                                {% include 'components/button' with {
+                                    href: link.url ?? '#',
+                                    text: link.text ?? '',
+                                    variant: 'white',
+                                } %}
+                            {% else %}
+                                <a href="{{ link.url ?? '#' }}" class="text-white no-underline text-[16px] font-medium hover:text-white/80 transition-colors">
+                                    {{ link.text }}
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {# Mobile hamburger #}
+            <button @click="open = !open" class="md:hidden text-white" aria-label="Toggle menu">
+                <i x-show="!open" data-lucide="menu" class="w-6 h-6"></i>
+                <i x-show="open" data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </nav>
+
+        {# Mobile navigation #}
+        {% if not hideMenu and links|length %}
+            <div x-show="open" x-cloak class="md:hidden pb-6">
+                <div class="flex flex-col gap-4">
+                    {% for item in links %}
+                        {% set link = item.commonLink ?? null %}
+                        {% if link %}
+                            {% if loop.last %}
+                                {% include 'components/button' with {
+                                    href: link.url ?? '#',
+                                    text: link.text ?? '',
+                                    variant: 'white',
+                                } %}
+                            {% else %}
+                                <a href="{{ link.url ?? '#' }}" class="text-white no-underline text-[16px] font-medium hover:text-white/80">
+                                    {{ link.text }}
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</header>
