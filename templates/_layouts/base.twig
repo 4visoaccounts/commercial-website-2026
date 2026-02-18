@@ -29,6 +29,7 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
         />
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
         {# Compiled CSS #}
         <link rel="stylesheet" href="/css/app.css">
@@ -51,5 +52,7 @@
 
         {# Footer #}
         {% include "/footer/_index.twig" %}
+
+        <script>lucide.createIcons();</script>
     </body>
 </html>

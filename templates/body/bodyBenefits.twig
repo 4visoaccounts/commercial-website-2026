@@ -1,0 +1,57 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set benefits = data.commonBenefits.all() ?? [] %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative">
+    {# Background vertical lines #}
+    <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
+        {% for i in 1..6 %}
+            <div class="h-full w-px bg-schema-line"></div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% if title %}
+            <h2 class="text-center mb-16">{{ title|striptags|raw }}</h2>
+        {% endif %}
+
+        {% if benefits|length %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                {% for benefit in benefits %}
+                    <div class="bg-schema-bg border border-card-border rounded p-8 py-10 flex flex-col">
+                        {% if benefit.commonIcon ?? null %}
+                            <i data-lucide="{{ benefit.commonIcon }}" class="w-6 h-6 text-primary mb-6" stroke-width="2.5"></i>
+                        {% endif %}
+
+                        {% if benefit.commonDescription ?? null %}
+                            <p class="!text-[16px] text-dark">{{ benefit.commonDescription|raw }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if description or link %}
+            <div class="text-center space-y-6">
+                {% if description %}
+                    <h4>{{ description|striptags }}</h4>
+                {% endif %}
+
+                {% if link %}
+                    {% include 'components/button' with {
+                        href: link.url ?? '#',
+                        text: link.text ?? 'Request a Demo',
+                        variant: 'primary',
+                    } %}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

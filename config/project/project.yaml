@@ -1,4 +1,4 @@
-dateModified: 1771357042
+dateModified: 1771441677
 elementSources:
   craft\elements\Entry:
     -
@@ -105,6 +105,7 @@ fs:
     url: $BASE_URL_PATH
 meta:
   __names__:
+    0a27ac66-ce0f-493b-b744-3e9a411a9e54: Teammembers # Teammembers
     0a31b237-aa73-445d-9320-929ee8a1f03d: 'Body: blocks' # Body: blocks
     1baeb124-97b4-4010-b7d6-40823e074018: footer # footer
     1c5a8d0b-420f-4f0b-8a8b-c8d01890f379: 'Cta block' # Cta block
@@ -142,6 +143,7 @@ meta:
     8681a8af-cec3-4d7e-8e2b-f4382d1a06eb: Subtitle # Subtitle
     10046dbd-da89-4e46-9f3a-cd859f2a715a: Contact # Contact
     30551bd8-a388-4d4a-bab0-1e0b8784660b: Link # Link
+    47957c38-67fa-4b6e-934b-41b7a37dc822: 'Body: about' # Body: about
     286086d8-f228-41fa-a0b1-827ab3d4b335: 'Body: products' # Body: products
     301731a9-b38d-4992-a061-7d879939300c: Features # Features
     73975570-1a97-419c-9a10-5c59e76d584d: 'Image block' # Image block

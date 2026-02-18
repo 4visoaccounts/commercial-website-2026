@@ -1,31 +1,14 @@
-color: null
+color: green
 description: null
 fieldLayouts:
-  0dd506a3-e0df-4452-9308-eea133c36db0:
+  c33b1d92-70e5-41a2-bae2-3bd464124188:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-02-17T18:53:27+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 6e8d296e-8b80-4b94-96b3-6ae6e854ca88 # Asset
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 98fbf95d-71ef-4a9e-927f-167e41314fcc
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-02-17T18:53:15+00:00'
+            dateAdded: '2026-02-18T19:04:32+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
@@ -37,12 +20,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b446111e-52a5-4303-b0ed-1f6da400d5c8
+            uid: 55d16975-e218-4a78-bf99-18e70e64e4c3
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-17T18:53:15+00:00'
+            dateAdded: '2026-02-18T09:15:37+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
@@ -54,12 +37,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c25f1138-df02-470a-8079-4eab9e7cd584
+            uid: c0106a44-001a-4e9d-9372-a4c590bcaa2f
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-18T09:16:21+00:00'
+            dateAdded: '2026-02-18T09:15:37+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
@@ -71,18 +54,35 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 55a8e73c-3282-437a-8455-0a2a68c7dade
+            uid: 0c6a1841-9d82-4cdf-b08c-0bce8d795089
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-18T19:04:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0a27ac66-ce0f-493b-b744-3e9a411a9e54 # Teammembers
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5110d75d-bc9b-4a61-854e-7e36254e0f41
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 35ad4ed7-f5e0-44fe-b394-bf5efb1625da
+        uid: 6a250cb7-daac-4e3b-a4fa-6faf98e7af9b
         userCondition: null
-handle: teammember
+handle: bodyAbout
 hasTitleField: false
 icon: null
-name: teammember
-showSlugField: false
+name: 'Body: about'
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
