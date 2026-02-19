@@ -28,6 +28,14 @@ settings:
       __assoc__:
         -
           - uid
+          - b8bf8ba8-f3f5-4b4e-ade3-ae8a16885069 # Body: contact
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
           - 8c6f1534-ce1f-44c0-84d6-d6d49356de4f # Body: features
         -
           - group
@@ -45,6 +53,14 @@ settings:
         -
           - uid
           - a96bdc50-6743-41da-a246-44735b3d6c1d # Body: stakeholder
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 74516331-f41c-439b-9c67-850bae4dff02 # Body: waiting list
         -
           - group
           - General

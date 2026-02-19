@@ -1,4 +1,4 @@
-dateModified: 1771442757
+dateModified: 1771509278
 elementSources:
   craft\elements\Entry:
     -
@@ -148,6 +148,7 @@ meta:
     286086d8-f228-41fa-a0b1-827ab3d4b335: 'Body: products' # Body: products
     301731a9-b38d-4992-a061-7d879939300c: Features # Features
     73975570-1a97-419c-9a10-5c59e76d584d: 'Image block' # Image block
+    74516331-f41c-439b-9c67-850bae4dff02: 'Body: waiting list' # Body: waiting list
     86969438-8d1d-4ed2-b295-3cb890a11187: Latitude # Latitude
     a3d2dfb2-a180-4539-8709-386ec9206ffd: Wysiwyg # Wysiwyg
     a84b3d5c-e3cf-42e5-8e7c-9cf2c13b70d9: Columns # Columns
@@ -158,6 +159,7 @@ meta:
     aee79a3b-946e-40e2-a4ba-b0af695dd334: Simple # Simple
     b2af86f0-daa8-45e1-9813-a0dbf67dc0d1: 'Product subcategory' # Product subcategory
     b2fd6268-2e91-41e0-aef5-c6f5cec40b27: Blocks # Blocks
+    b8bf8ba8-f3f5-4b4e-ade3-ae8a16885069: 'Body: contact' # Body: contact
     b516e068-66a6-43d5-88dd-10fc8fe05cd3: 'Body: product categories' # Body: product categories
     ba8f430f-1b62-4162-a61d-1e4053e27320: 'Public Schema' # Public Schema
     bad0c6cc-8fde-4e48-aaf0-096539894de8: uploads # uploads

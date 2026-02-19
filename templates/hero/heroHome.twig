@@ -10,8 +10,15 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="px-4 lg:px-8 text-white bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/gradient.png');">
-    <div class="container mx-auto py-24 md:py-56">
+<section class="px-4 lg:px-8 text-white bg-cover bg-center bg-no-repeat relative" style="background-image: url('/assets/gradient.png');">
+    {# Repeating logo pattern #}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-40 flex flex-wrap content-start gap-8 p-6">
+        {% for i in 1..2000 %}
+            {% include "/shapes/logo.twig" with { customClass: 'w-2 h-2 shrink-0' } %}
+        {% endfor %}
+    </div>
+
+    <div class="container mx-auto py-24 md:py-56 relative">
         <div class="max-w-4xl mx-auto text-center space-y-8">
             {% if subtitle %}
                 <span class="s-hero-pill inline-block px-6 py-2 rounded-full text-white text-sm">

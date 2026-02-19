@@ -1,0 +1,74 @@
+color: green
+description: null
+fieldLayouts:
+  5b713c88-df73-464f-9ae4-cf249a419f99:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-02-19T13:50:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8027a386-6ebf-424e-9a8b-79d905f59c34
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-19T13:51:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 886ef21b-8822-47c4-9cbd-7c3eed1231ee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-19T13:50:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: edb7be9d-5bdf-45e9-821a-90c9be02e697
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ed1820c9-a237-4ef5-ae78-6cd7fa793c47
+        userCondition: null
+handle: bodyContactBlock
+hasTitleField: false
+icon: null
+name: 'Body: contact'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

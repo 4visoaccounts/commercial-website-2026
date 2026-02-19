@@ -1,0 +1,86 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative">
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+        {# Left side: title, description, email #}
+        <div class="w-full md:w-1/3 md:pt-8">
+            {% if title %}
+                <h2 class="mb-6">{{ title|striptags|raw }}</h2>
+            {% endif %}
+
+            {% if description %}
+                <p class="text-grey mb-8">{{ description|striptags }}</p>
+            {% endif %}
+
+            {% if link %}
+                <div class="flex items-center gap-3">
+                    <i data-lucide="mail" class="w-5 h-5 text-primary-pine"></i>
+                    <span class="text-dark text-[16px]">Or just email on <a href="mailto:{{ link.text ?? link.url }}" class="text-primary-pine font-semibold">{{ link.text ?? link.url }}</a></span>
+                </div>
+            {% endif %}
+        </div>
+
+        {# Right side: contact form #}
+        <div class="w-full md:w-2/3">
+            <div class="bg-schema-bg rounded p-8 md:p-12 relative overflow-hidden">
+                {# Logo pattern behind form #}
+                <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-40 flex flex-wrap content-start gap-8 p-6">
+                    {% for i in 1..200 %}
+                        {% include "/shapes/logo.twig" with { customClass: 'w-2 h-2 shrink-0' } %}
+                    {% endfor %}
+                </div>
+
+                <form method="post" accept-charset="UTF-8" class="relative space-y-6">
+                    {{ csrfInput() }}
+                    {{ actionInput('contact-form/send') }}
+                    {{ redirectInput(craft.app.request.url ~ '?success=1') }}
+
+                    {# Honeypot #}
+                    <div style="position: absolute; left: -9999px;">
+                        <label for="beesknees">Leave this empty</label>
+                        <input type="text" name="beesknees" id="beesknees" value="">
+                    </div>
+
+                    <div>
+                        <label for="firstName" class="block text-dark text-[16px] mb-2 no-underline">First Name<span class="text-primary">*</span></label>
+                        <input type="text" name="message[firstName]" id="firstName" required class="w-full px-4 py-3 rounded bg-white border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                    </div>
+
+                    <div>
+                        <label for="lastName" class="block text-dark text-[16px] mb-2 no-underline">Last Name<span class="text-primary">*</span></label>
+                        <input type="text" name="message[lastName]" id="lastName" required class="w-full px-4 py-3 rounded bg-white border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                    </div>
+
+                    <div>
+                        <label for="fromEmail" class="block text-dark text-[16px] mb-2 no-underline">Email Address<span class="text-primary">*</span></label>
+                        <input type="email" name="fromEmail" id="fromEmail" required class="w-full px-4 py-3 rounded bg-white border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-dark text-[16px] mb-2 no-underline">Phone Number<span class="text-primary">*</span></label>
+                        <input type="tel" name="message[phone]" id="phone" required class="w-full px-4 py-3 rounded bg-white border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" name="message[agree]" id="agree" required class="mt-1.5 w-4 h-4 accent-primary-pine">
+                        <label for="agree" class="text-dark text-[14px] no-underline cursor-pointer">I agree with 4VISO's <a href="/terms" class="text-primary-pine font-semibold">terms of agreement</a>.</label>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary cursor-pointer">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
