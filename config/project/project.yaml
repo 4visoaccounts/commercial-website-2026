@@ -1,4 +1,4 @@
-dateModified: 1771509278
+dateModified: 1771576596
 elementSources:
   craft\elements\Entry:
     -
@@ -136,6 +136,7 @@ meta:
     98e44ba6-a246-4b68-812e-20cf411a268c: stakeholder # stakeholder
     108c7042-81a6-43c0-a861-ffd99ca98581: Benefits # Benefits
     298ca713-b469-453a-bdd4-5fab42adec68: 'Body: cta' # Body: cta
+    351ca9ec-c237-4655-94ff-e464febdf235: 'Body numbers' # Body numbers
     365c9d07-5bc9-4680-bd19-2683c2980c5c: stakeholder # stakeholder
     598e3601-950d-468c-8fbf-d03d7a4c4b29: phone # phone
     659c8bf8-75e8-4774-ac98-23f4823d5688: benefits # benefits
@@ -171,7 +172,9 @@ meta:
     ccf52594-aa01-4682-8db5-b69ba3070658: 'Body: logos' # Body: logos
     cda21870-0257-401e-b49e-8c4988c4289f: Title # Title
     ce705e3c-b417-4928-a23c-47761737f752: Description # Description
+    d044be7a-944b-44ba-a236-eb51dbe83bb1: 'Block with icon, title and description' # Block with icon, title and description
     d850e25b-b1a3-4ccd-85dc-f9c90962b6f5: subfooter # subfooter
+    d3730f48-19e3-4503-8043-6d367924f9c6: 'Body: timeline' # Body: timeline
     d8720af2-1cb3-43ab-9002-165abfcf8d18: company # company
     d77514af-bb71-43e5-aa5b-6e18ea8bab04: Stakeholder # Stakeholder
     d87315db-ccbc-48ae-9958-d91d39bb28ad: Icon # Icon

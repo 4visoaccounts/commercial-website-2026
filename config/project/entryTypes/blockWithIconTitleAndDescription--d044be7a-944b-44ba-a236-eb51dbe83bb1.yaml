@@ -1,14 +1,31 @@
 color: null
 description: null
 fieldLayouts:
-  f019f843-a46a-4dc5-b822-564d381d559f:
+  f90655cd-a66c-4998-965f-3126f0468426:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-02-17T18:42:24+00:00'
+            dateAdded: '2026-02-20T08:36:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d87315db-ccbc-48ae-9958-d91d39bb28ad # Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 10be56f9-c70a-426d-a8be-c2388c03b474
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-20T08:36:32+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
@@ -20,12 +37,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7e8655d5-2544-46f1-8d32-1884f17966ff
+            uid: 437810ab-c728-4c08-976f-ad8f253d38b9
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-17T18:42:24+00:00'
+            dateAdded: '2026-02-20T08:36:32+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
@@ -37,17 +54,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4ba212a0-82fe-4b33-8bae-af9997122d56
+            uid: 20dba5e9-47b4-4094-bb65-8c417d15b443
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 3c7448a1-d764-4ae2-a9be-265a85d6579c
+        uid: f3bfff95-98fb-4ce3-8948-a97d509b6be5
         userCondition: null
-handle: blockWithOnlyTitleDescription
+handle: blockWithIconTitleAndDescription
 hasTitleField: false
 icon: null
-name: 'Block with only title/description'
+name: 'Block with icon, title and description'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

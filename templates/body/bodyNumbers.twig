@@ -1,0 +1,48 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set title = data.commonTitle ?? "" %}
+{% set blocks = data.commonBlocks.all() ?? [] %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32">
+    {% if title %}
+        <h2 class="text-center mb-12">{{ title|striptags|raw }}</h2>
+    {% endif %}
+
+    {% if blocks|length %}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {% for block in blocks %}
+                <div class="bg-schema-bg border border-card-border rounded p-8">
+                    {% if block.commonTitle ?? null %}
+                        <h2 class="mb-4">{{ block.commonTitle|striptags }}</h2>
+                    {% endif %}
+
+                    {% if block.commonDescription ?? null %}
+                        <p class="text-grey text-[16px]">{{ block.commonDescription|striptags }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if description or link %}
+        <div class="text-center mt-12 space-y-4">
+            {% if description %}
+                <h5>{{ description|striptags }}</h5>
+            {% endif %}
+
+            {% if link %}
+                {% include 'components/button' with {
+                    href: link.url ?? '#',
+                    text: link.text ?? 'Learn More',
+                    variant: 'primary',
+                } %}
+            {% endif %}
+        </div>
+    {% endif %}
+</section>

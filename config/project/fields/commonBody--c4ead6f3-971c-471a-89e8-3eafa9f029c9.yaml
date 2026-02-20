@@ -44,6 +44,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 351ca9ec-c237-4655-94ff-e464febdf235 # Body numbers
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
           - e5debc2e-300d-47e9-86db-5a469e3376ef # Body: schema
         -
           - group
@@ -53,6 +61,14 @@ settings:
         -
           - uid
           - a96bdc50-6743-41da-a246-44735b3d6c1d # Body: stakeholder
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - d3730f48-19e3-4503-8043-6d367924f9c6 # Body: timeline
         -
           - group
           - General

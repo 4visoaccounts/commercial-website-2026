@@ -16,6 +16,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - d044be7a-944b-44ba-a236-eb51dbe83bb1 # Block with icon, title and description
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

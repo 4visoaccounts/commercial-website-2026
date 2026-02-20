@@ -1,12 +1,14 @@
+color: green
+description: null
 fieldLayouts:
-  dbc2b214-1e46-475f-b87a-a952267fe938:
+  6a37ae0a-65bd-4246-97a2-67624861642d:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-10-30T15:02:45+00:00'
+            dateAdded: '2026-02-20T08:31:14+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
@@ -18,15 +20,15 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4e0e8209-b831-4d86-a293-cc002bd867d8
+            uid: 0089f003-a570-4313-8e57-4961f423ed25
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-20T08:21:58+00:00'
+            dateAdded: '2026-02-20T08:31:14+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: fa10e20e-af48-4184-9f2b-050e7fdda65e # Links
+            fieldUid: b2fd6268-2e91-41e0-aef5-c6f5cec40b27 # Blocks
             handle: null
             includeInCards: false
             instructions: null
@@ -35,15 +37,15 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 241f47d1-d0de-4269-89f5-83386be52c6d
+            uid: df15358b-73b1-44ff-b59e-b2a73865f37b
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-10-30T15:02:45+00:00'
+            dateAdded: '2026-02-20T08:31:14+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 79b4c55e-6c63-44b0-ab9f-a8e585d0e4f7
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
             handle: null
             includeInCards: false
             instructions: null
@@ -52,13 +54,38 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 447d8adc-d248-4a07-8016-80b97528fbc0
+            uid: 20e85ff3-1731-4e5d-8c96-851b18469c47
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-20T08:31:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d83b6f27-b7c5-4718-b589-86b2cd365541
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 29c6a0b0-bb51-4f72-8979-db974d53b84f
+        uid: d827a352-03c4-4bbe-80c5-6934472b5cfc
         userCondition: null
-handle: subfooter
-name: subfooter
-sortOrder: 2
+handle: bodyNumbers
+hasTitleField: false
+icon: null
+name: 'Body numbers'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
