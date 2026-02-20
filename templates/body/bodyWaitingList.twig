@@ -16,11 +16,11 @@
             {% endfor %}
         </div>
 
-        <div class="relative flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+        <div class="relative flex flex-col md:flex-row gap-12 md:gap-20">
             {# Left side: title + description #}
             <div class="w-full md:w-1/2">
                 {% if title %}
-                    <h2 class="text-white italic mb-6">{{ title|striptags|raw }}</h2>
+                    <h2 class="text-white mt-12">{{ title|striptags|raw }}</h2>
                 {% endif %}
 
                 {% if description %}

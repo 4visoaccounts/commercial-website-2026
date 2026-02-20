@@ -17,13 +17,13 @@
             {% endif %}
 
             {% if description %}
-                <p class="text-grey mb-8">{{ description|striptags }}</p>
+                <h5 class="mb-8">{{ description|striptags }}</h5>
             {% endif %}
 
             {% if link %}
                 <div class="flex items-center gap-3">
                     <i data-lucide="mail" class="w-5 h-5 text-primary-pine"></i>
-                    <span class="text-dark text-[16px]">Or just email on <a href="mailto:{{ link.text ?? link.url }}" class="text-primary-pine font-semibold">{{ link.text ?? link.url }}</a></span>
+                    <span class="text-dark text-[18px]">{{link.text }} <a href="mailto:{{link.url }}" class="text-primary-pine font-semibold">{{ link.url }}</a></span>
                 </div>
             {% endif %}
         </div>
