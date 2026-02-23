@@ -4,16 +4,16 @@ use craft\helpers\App;
 
 return [
     // The email address(es) that the contact form submissions should be sent to
-    'toEmail' => App::env('CONTACT_FORM_TO_EMAIL') ?: 'info@medson.com',
+    'toEmail' => App::env('CONTACT_FORM_TO_EMAIL') ?: 'info@4viso.com',
 
     // The email address that the contact form submissions should be sent from
-    'fromEmail' => App::env('CONTACT_FORM_FROM_EMAIL') ?: 'noreply@medson.com',
+    'fromEmail' => App::env('CONTACT_FORM_FROM_EMAIL') ?: 'noreply@4viso.com',
 
     // The "name" that should be used for the "from" email address
-    'fromName' => App::env('CONTACT_FORM_FROM_NAME') ?: 'Medson Contact Form',
+    'fromName' => App::env('CONTACT_FORM_FROM_NAME') ?: '4Viso Contact Form',
 
     // The subject line of the contact form submission email
-    'subject' => 'New contact form submission from Medson website',
+    'subject' => 'New contact form submission from 4Viso website',
 
     // The success message flash to display on successful submission
     'successFlashMessage' => 'Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.',

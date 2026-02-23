@@ -41,7 +41,7 @@
                     {% set photo = member.commonAsset.one() ?? null %}
                     {% set memberLink = member.commonLink ?? null %}
 
-                    <div class="relative rounded overflow-hidden aspect-[300/350]{% if photo %} bg-cover bg-center{% endif %}"{% if photo %} style="background-image: url('{{ photo.url }}')"{% endif %}>
+                    <div class="relative rounded overflow-hidden aspect-[300/350]{% if photo %} bg-cover bg-center{% endif %}"{% if photo %} style="background-image: url('{{ photo.getUrl({ width: 600, format: 'webp', quality: 80 }) }}')"{% endif %}>
 
                         {# Gradient overlay #}
                         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>

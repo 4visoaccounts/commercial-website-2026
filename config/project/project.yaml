@@ -265,12 +265,12 @@ plugins:
               - '1'
             -
               - template
-              - ' - Medson'
+              - ' - 4Viso'
       titleSuffix: null
       twitterHandle: ''
 siteGroups:
   b4c5d6e7-8f9a-0b1c-2d3e-4f5a6b7c8d9e:
-    name: Medson
+    name: 4Viso
 sites:
   e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
     baseUrl: $PRIMARY_SITE_URL

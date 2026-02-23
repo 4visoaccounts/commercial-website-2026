@@ -1,0 +1,54 @@
+{# ========================================================================== #}
+{# :: Performant Image Component                                            #}
+{# :: Usage: {% include 'components/image' with {                           #}
+{#      asset: myAsset,                                                     #}
+{#      alt: 'Description',                                                 #}
+{#      sizes: '(max-width: 768px) 100vw, 50vw',                          #}
+{#      class: 'w-full rounded',                                           #}
+{#      lazy: true,                                                         #}
+{#      widths: [400, 800, 1200],                                          #}
+{#    } %}                                                                  #}
+{# ========================================================================== #}
+
+{% set asset = asset ?? null %}
+{% set alt = alt ?? (asset ? asset.title : '') %}
+{% set sizes = sizes ?? '100vw' %}
+{% set customClass = class ?? '' %}
+{% set lazy = lazy ?? true %}
+{% set widths = widths ?? [400, 800, 1200] %}
+
+{% if asset %}
+    {% set fallbackTransform = { width: widths[1], format: 'webp', quality: 80 } %}
+
+    {# Build WebP srcset #}
+    {% set webpSrcset = [] %}
+    {% for w in widths %}
+        {% set webpSrcset = webpSrcset|merge([asset.getUrl({ width: w, format: 'webp', quality: 80 }) ~ ' ' ~ w ~ 'w']) %}
+    {% endfor %}
+
+    {# Build original format srcset as fallback #}
+    {% set origSrcset = [] %}
+    {% for w in widths %}
+        {% set origSrcset = origSrcset|merge([asset.getUrl({ width: w, quality: 85 }) ~ ' ' ~ w ~ 'w']) %}
+    {% endfor %}
+
+    <picture>
+        <source
+            type="image/webp"
+            srcset="{{ webpSrcset|join(', ') }}"
+            sizes="{{ sizes }}"
+        >
+        <source
+            srcset="{{ origSrcset|join(', ') }}"
+            sizes="{{ sizes }}"
+        >
+        <img
+            src="{{ asset.getUrl(fallbackTransform) }}"
+            alt="{{ alt }}"
+            width="{{ asset.width }}"
+            height="{{ asset.height }}"
+            class="{{ customClass }}"
+            {% if lazy %}loading="lazy" decoding="async"{% endif %}
+        >
+    </picture>
+{% endif %}
