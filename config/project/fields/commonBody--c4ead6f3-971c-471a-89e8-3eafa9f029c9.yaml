@@ -44,6 +44,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 62a27c9b-03eb-4dd1-945f-60b246036b24 # Body: featured blocks
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
           - 351ca9ec-c237-4655-94ff-e464febdf235 # Body numbers
         -
           - group

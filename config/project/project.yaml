@@ -1,4 +1,4 @@
-dateModified: 1771576596
+dateModified: 1771579142
 elementSources:
   craft\elements\Entry:
     -
@@ -131,6 +131,7 @@ meta:
     35a07891-bdfe-4e96-be8d-a63b5ac50ee6: 'Product cta block' # Product cta block
     48e6ce49-4871-427c-b4ff-0ef9174c66bb: Content # Content
     58f658f6-060f-4c83-b626-4c6383fafb40: home # home
+    62a27c9b-03eb-4dd1-945f-60b246036b24: 'Body: featured blocks' # Body: featured blocks
     78c5f45e-0ac8-44b2-bada-2b3fef62a4af: 'Body: benefits' # Body: benefits
     94a763f2-e57b-4935-af96-eec8b1710e03: mail # mail
     98e44ba6-a246-4b68-812e-20cf411a268c: stakeholder # stakeholder
