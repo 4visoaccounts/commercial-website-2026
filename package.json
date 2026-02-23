@@ -1,7 +1,7 @@
 {
-  "name": "medson",
+  "name": "4Viso",
   "version": "1.0.0",
-  "description": "Medson Craft CMS with Tailwind CSS",
+  "description": "4Viso Craft CMS with Tailwind CSS",
   "scripts": {
     "dev": "mix",
     "watch": "mix watch",
