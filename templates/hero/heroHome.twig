@@ -21,21 +21,21 @@
     <div class="container mx-auto py-24 md:py-56 relative">
         <div class="max-w-4xl mx-auto text-center space-y-10">
             {% if subtitle %}
-                <span class="s-hero-pill inline-block px-6 py-2 rounded-full text-white text-sm">
+                <span class="s-hero-pill inline-block px-6 py-2 rounded-full text-white text-sm animate-fade-up [animation-delay:0ms]">
                     {{ subtitle }}
                 </span>
             {% endif %}
 
             {% if title %}
-                <h1 class="text-white [&_strong]:text-peach">{{ title|striptags('<strong>')|raw }}</h1>
+                <h1 class="text-white [&_strong]:text-peach animate-fade-up [animation-delay:150ms]">{{ title|striptags('<strong>')|raw }}</h1>
             {% endif %}
 
             {% if description %}
-                <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7]">{{ description|striptags('<strong>')|raw }}</p>
+                <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7] animate-fade-up [animation-delay:300ms]">{{ description|striptags('<strong>')|raw }}</p>
             {% endif %}
 
             {% if link %}
-                <div>
+                <div class="animate-fade-up [animation-delay:450ms]">
                     {% include 'components/button' with {
                         href: link.url ?? '#',
                         text: link.text ?? 'Learn More',
