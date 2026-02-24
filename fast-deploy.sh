@@ -1,5 +1,5 @@
 # full deploy
-git pull origin master
+git pull origin main
 
 # 3. Build production assets
 echo "Building production assets..."

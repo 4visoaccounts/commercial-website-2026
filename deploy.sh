@@ -1,5 +1,5 @@
 # full deploy
-git pull origin master
+git pull origin main
 
 # 1. Install PHP dependencies
 echo "Installing Composer dependencies..."
