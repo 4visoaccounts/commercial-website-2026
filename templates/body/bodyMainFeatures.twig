@@ -55,7 +55,7 @@
                 </div>
 
                 {# Right side: feature image #}
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-1/2 bg-peach-light rounded p-16">
                     {% for feature in features %}
                         {% set image = feature.commonAsset.one() ?? null %}
                         {% if image %}

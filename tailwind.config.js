@@ -12,6 +12,7 @@ module.exports = {
         'primary-pine': '#1A5140',
         'primary-mint': '#5CA87C',
         'primary-lightest-green': '#B7E5BA',
+        'primary-dotted-line': '#9DCBB0',
         'grey': '#666666',
         'white': '#ffffff',
         'secondary': '#25BC7A',
