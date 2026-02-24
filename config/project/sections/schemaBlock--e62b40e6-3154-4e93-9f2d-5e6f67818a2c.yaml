@@ -18,4 +18,7 @@ siteSettings:
     hasUrls: true
     template: schema-block/_entry.twig
     uriFormat: 'schema-block/{slug}'
-type: channel
+structure:
+  maxLevels: null
+  uid: 7344c328-bc76-4233-b985-f4683f4524fd
+type: structure
