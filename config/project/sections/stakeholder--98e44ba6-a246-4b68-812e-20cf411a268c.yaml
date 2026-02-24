@@ -18,4 +18,7 @@ siteSettings:
     hasUrls: true
     template: stakeholder/_entry.twig
     uriFormat: 'stakeholder/{slug}'
-type: channel
+structure:
+  maxLevels: null
+  uid: abf0f8d4-c331-4d52-bf3d-bb95b78a2e32
+type: structure
