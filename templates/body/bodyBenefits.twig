@@ -26,7 +26,10 @@
         {% if benefits|length %}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 {% for benefit in benefits %}
-                    <div class="{% if loop.index0 is even %}bg-peach-light{% else %}bg-schema-bg{% endif %} border border-card-border rounded p-8 py-10 flex flex-col">
+                    {% set col = loop.index0 % 4 %}
+                    {% set row = (loop.index0 // 4) % 2 %}
+                    {% set isPeach = (row == 0 and col is even) or (row == 1 and col is odd) %}
+                    <div class="{% if isPeach %}bg-peach-light{% else %}bg-schema-bg{% endif %} rounded p-8 py-10 flex flex-col">
                         {% if benefit.commonIcon ?? null %}
                             <i data-lucide="{{ benefit.commonIcon }}" class="w-6 h-6 text-primary mb-6" stroke-width="2.5"></i>
                         {% endif %}
