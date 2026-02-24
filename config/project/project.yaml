@@ -1,4 +1,4 @@
-dateModified: 1771579142
+dateModified: 1771961349
 elementSources:
   craft\elements\Entry:
     -
@@ -151,6 +151,7 @@ meta:
     301731a9-b38d-4992-a061-7d879939300c: Features # Features
     73975570-1a97-419c-9a10-5c59e76d584d: 'Image block' # Image block
     74516331-f41c-439b-9c67-850bae4dff02: 'Body: waiting list' # Body: waiting list
+    76632528-a976-4c20-b4a9-aa98f9d07874: ID # ID
     86969438-8d1d-4ed2-b295-3cb890a11187: Latitude # Latitude
     a3d2dfb2-a180-4539-8709-386ec9206ffd: Wysiwyg # Wysiwyg
     a84b3d5c-e3cf-42e5-8e7c-9cf2c13b70d9: Columns # Columns
@@ -182,9 +183,11 @@ meta:
     e02962d9-9c10-4c54-b77c-37e43e575b16: 'Product category' # Product category
     e5debc2e-300d-47e9-86db-5a469e3376ef: 'Body: schema' # Body: schema
     e8bd65e7-c796-4706-9b03-4a4ef0c33ff5: 'Block with only title/description' # Block with only title/description
+    e62b40e6-3154-4e93-9f2d-5e6f67818a2c: 'schema block' # schema block
     e9553650-6944-44af-870a-dbedcc0e3a49: 'Body: split' # Body: split
     eb1fe321-4bb0-403f-9d7f-de5de38200c3: feature # feature
     ebb4ade9-8b62-42c4-94ce-c555a10b2202: pages # pages
+    eca69990-a706-4bb6-bd0d-3cbb761cd63f: 'Schema block' # Schema block
     ecbb43c5-da90-4373-aca2-0423827abcdf: 'Wysiwyg block' # Wysiwyg block
     f0bfd79a-6e02-40d1-a782-827e48b71ed0: 'Hero: home' # Hero: home
     f85d271c-0fce-49b6-bcf7-810054cf929f: pages # pages

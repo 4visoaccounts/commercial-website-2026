@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: eca69990-a706-4bb6-bd0d-3cbb761cd63f # Schema block
+handle: schemaBlock
+maxAuthors: 1
+name: 'schema block'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: true
+    template: schema-block/_entry.twig
+    uriFormat: 'schema-block/{slug}'
+type: channel

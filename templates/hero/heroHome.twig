@@ -27,11 +27,11 @@
             {% endif %}
 
             {% if title %}
-                <h1 class="text-white">{{ title|striptags|raw }}</h1>
+                <h1 class="text-white [&_strong]:text-peach">{{ title|striptags('<strong>')|raw }}</h1>
             {% endif %}
 
             {% if description %}
-                <p class="text-white max-w-3xl mx-auto">{{ description|striptags|raw }}</p>
+                <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach">{{ description|striptags('<strong>')|raw }}</p>
             {% endif %}
 
             {% if link %}

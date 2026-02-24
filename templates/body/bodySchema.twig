@@ -1,14 +1,16 @@
 {# ========================================================================== #}
 {# :: Variables #}
 {# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
 {% set link = data.commonLink ?? null %}
+{% set schemaBlocks = craft.entries.section('schemaBlock').all() %}
 
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-40 relative">
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-40 relative" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none">
         {% for i in 1..6 %}
@@ -16,7 +18,6 @@
         {% endfor %}
     </div>
     <div class="bg-schema-bg rounded p-8 md:p-16 md:py-28 relative overflow-hidden">
-        
 
         {# Content #}
         <div class="relative z-10 text-center space-y-8">
@@ -24,8 +25,173 @@
                 <h2>{{ title|striptags|raw }}</h2>
             {% endif %}
 
-            {# Schema image placeholder #}
-            <div class="py-16 md:py-24"></div>
+            {# Schema diagram #}
+            {% if schemaBlocks|length >= 4 %}
+                <div class="overflow-x-auto">
+                    <div class="relative min-w-[900px] py-8 md:py-16">
+                        {# CSS Grid: 5 cols x 3 rows #}
+                        <div class="grid gap-y-6" style="grid-template-columns: 1fr minmax(180px, 220px) minmax(160px, 240px) minmax(180px, 220px) 1fr; grid-template-rows: auto 100px auto;">
+
+                            {# ===== ROW 1: Top modules ===== #}
+
+                            {# Top-left pills - bracket style #}
+                            <div class="flex flex-col items-end justify-center" style="grid-column: 1; grid-row: 1;">
+                                <div class="relative flex flex-col gap-3 w-full items-end">
+                                    {# Vertical bracket line spanning pill group #}
+                                    <div class="absolute right-0 top-[18px] bottom-[18px] border-r border-dashed border-primary/40 pointer-events-none"></div>
+                                    {% for block in schemaBlocks[0].commonBlocks.all() %}
+                                        <div class="flex items-center">
+                                            <span class="inline-block rounded-full px-5 py-2 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags }}</span>
+                                            <div class="w-4 shrink-0 border-t border-dashed border-primary/40"></div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            {# Top-left module card #}
+                            <div class="relative flex items-center justify-center pl-4" style="grid-column: 2; grid-row: 1;">
+                                {# Connector from bracket to card #}
+                                <div class="absolute left-0 top-1/2 w-4 border-t border-dashed border-primary/40 pointer-events-none -translate-y-px"></div>
+                                <div class="bg-white rounded border border-card-border px-6 py-4 flex items-center gap-3 w-full justify-center">
+                                    {% if schemaBlocks[0].commonIcon ?? null %}
+                                        <i data-lucide="{{ schemaBlocks[0].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
+                                    {% endif %}
+                                    <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[0].commonTitle|striptags }}</span>
+                                </div>
+                            </div>
+
+                            {# Top horizontal arrow #}
+                            <div class="flex items-center justify-center" style="grid-column: 3; grid-row: 1;">
+                                <svg class="w-full h-4 text-primary/40" viewBox="0 0 120 16" fill="none">
+                                    <line x1="10" y1="8" x2="110" y2="8" stroke="currentColor" stroke-width="1.5"/>
+                                    <polygon points="10,8 16,4 16,12" fill="currentColor"/>
+                                    <polygon points="110,8 104,4 104,12" fill="currentColor"/>
+                                </svg>
+                            </div>
+
+                            {# Top-right module card #}
+                            <div class="relative flex items-center justify-center pr-4" style="grid-column: 4; grid-row: 1;">
+                                {# Connector from card to right bracket #}
+                                <div class="absolute right-0 top-1/2 w-4 border-t border-dashed border-primary/40 pointer-events-none -translate-y-px"></div>
+                                <div class="bg-white rounded border border-card-border px-6 py-4 flex items-center gap-3 w-full justify-center">
+                                    {% if schemaBlocks[1].commonIcon ?? null %}
+                                        <i data-lucide="{{ schemaBlocks[1].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
+                                    {% endif %}
+                                    <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[1].commonTitle|striptags }}</span>
+                                </div>
+                            </div>
+
+                            {# Top-right pills - bracket style #}
+                            <div class="flex flex-col items-start justify-center" style="grid-column: 5; grid-row: 1;">
+                                <div class="relative flex flex-col gap-3 w-full items-start">
+                                    {# Vertical bracket line spanning pill group #}
+                                    <div class="absolute left-0 top-[18px] bottom-[18px] border-l border-dashed border-primary/40 pointer-events-none"></div>
+                                    {% for block in schemaBlocks[1].commonBlocks.all() %}
+                                        <div class="flex items-center">
+                                            <div class="w-4 shrink-0 border-t border-dashed border-primary/40"></div>
+                                            <span class="inline-block bg-peach rounded-full px-5 py-2 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            {# ===== ROW 2: Center row with vertical arrows and logo ===== #}
+
+                            {# Empty left #}
+                            <div style="grid-column: 1; grid-row: 2;"></div>
+
+                            {# Left vertical arrow #}
+                            <div class="flex justify-center" style="grid-column: 2; grid-row: 2;">
+                                <svg class="h-full w-4" viewBox="0 0 16 80" fill="none">
+                                    <line x1="8" y1="10" x2="8" y2="70" stroke="currentColor" stroke-width="1.5" class="text-primary/40"/>
+                                    <polygon points="8,10 4,16 12,16" fill="currentColor" class="text-primary/40"/>
+                                    <polygon points="8,70 4,64 12,64" fill="currentColor" class="text-primary/40"/>
+                                </svg>
+                            </div>
+
+                            {# Center logo #}
+                            <div class="flex items-center justify-center" style="grid-column: 3; grid-row: 2;">
+                                {% include "/logos/logo-green.twig" with { customClass: 'h-10' } %}
+                            </div>
+
+                            {# Right vertical arrow #}
+                            <div class="flex justify-center" style="grid-column: 4; grid-row: 2;">
+                                <svg class="h-full w-4" viewBox="0 0 16 80" fill="none">
+                                    <line x1="8" y1="10" x2="8" y2="70" stroke="currentColor" stroke-width="1.5" class="text-primary/40"/>
+                                    <polygon points="8,10 4,16 12,16" fill="currentColor" class="text-primary/40"/>
+                                    <polygon points="8,70 4,64 12,64" fill="currentColor" class="text-primary/40"/>
+                                </svg>
+                            </div>
+
+                            {# Empty right #}
+                            <div style="grid-column: 5; grid-row: 2;"></div>
+
+                            {# ===== ROW 3: Bottom modules ===== #}
+
+                            {# Bottom-left pills - bracket style #}
+                            <div class="flex flex-col items-end justify-center" style="grid-column: 1; grid-row: 3;">
+                                <div class="relative flex flex-col gap-3 w-full items-end">
+                                    {# Vertical bracket line spanning pill group #}
+                                    <div class="absolute right-0 top-[18px] bottom-[18px] border-r border-dashed border-primary/40 pointer-events-none"></div>
+                                    {% for block in schemaBlocks[2].commonBlocks.all() %}
+                                        <div class="flex items-center">
+                                            <span class="inline-block rounded-full px-5 py-2 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags }}</span>
+                                            <div class="w-4 shrink-0 border-t border-dashed border-primary/40"></div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            {# Bottom-left module card #}
+                            <div class="relative flex items-center justify-center pl-4" style="grid-column: 2; grid-row: 3;">
+                                {# Connector from bracket to card #}
+                                <div class="absolute left-0 top-1/2 w-4 border-t border-dashed border-primary/40 pointer-events-none -translate-y-px"></div>
+                                <div class="bg-white rounded border border-card-border px-6 py-4 flex items-center gap-3 w-full justify-center">
+                                    {% if schemaBlocks[2].commonIcon ?? null %}
+                                        <i data-lucide="{{ schemaBlocks[2].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
+                                    {% endif %}
+                                    <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[2].commonTitle|striptags }}</span>
+                                </div>
+                            </div>
+
+                            {# Bottom horizontal arrow #}
+                            <div class="flex items-center justify-center" style="grid-column: 3; grid-row: 3;">
+                                <svg class="w-full h-4 text-primary/40" viewBox="0 0 120 16" fill="none">
+                                    <line x1="10" y1="8" x2="110" y2="8" stroke="currentColor" stroke-width="1.5"/>
+                                    <polygon points="10,8 16,4 16,12" fill="currentColor"/>
+                                    <polygon points="110,8 104,4 104,12" fill="currentColor"/>
+                                </svg>
+                            </div>
+
+                            {# Bottom-right module card #}
+                            <div class="relative flex items-center justify-center pr-4" style="grid-column: 4; grid-row: 3;">
+                                {# Connector from card to right bracket #}
+                                <div class="absolute right-0 top-1/2 w-4 border-t border-dashed border-primary/40 pointer-events-none -translate-y-px"></div>
+                                <div class="bg-white rounded border border-card-border px-6 py-4 flex items-center gap-3 w-full justify-center">
+                                    {% if schemaBlocks[3].commonIcon ?? null %}
+                                        <i data-lucide="{{ schemaBlocks[3].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
+                                    {% endif %}
+                                    <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[3].commonTitle|striptags }}</span>
+                                </div>
+                            </div>
+
+                            {# Bottom-right pills - bracket style #}
+                            <div class="flex flex-col items-start justify-center" style="grid-column: 5; grid-row: 3;">
+                                <div class="relative flex flex-col gap-3 w-full items-start">
+                                    {# Vertical bracket line spanning pill group #}
+                                    <div class="absolute left-0 top-[18px] bottom-[18px] border-l border-dashed border-primary/40 pointer-events-none"></div>
+                                    {% for block in schemaBlocks[3].commonBlocks.all() %}
+                                        <div class="flex items-center">
+                                            <div class="w-4 shrink-0 border-t border-dashed border-primary/40"></div>
+                                            <span class="inline-block bg-peach rounded-full px-5 py-2 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if description %}
                 <h4 class="max-w-2xl mx-auto">{{ description|striptags|raw }}</h4>

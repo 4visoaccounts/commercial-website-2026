@@ -1,6 +1,7 @@
 {# ========================================================================== #}
 {# :: Variables #}
 {# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
 {% set features = data.commonFeatures.all() ?? [] %}
@@ -8,7 +9,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="bg-primary py-16 md:py-32">
+<section class="bg-primary py-16 md:py-32" id="{{id}}">
     <div class="container mx-auto px-4 lg:px-8">
         {% if title or description %}
             <div class="text-center mb-16 max-w-3xl mx-auto">
@@ -36,7 +37,7 @@
                                     {% if feature.commonIcon ?? null %}
                                         <i class="ph ph-{{ feature.commonIcon }} text-primary-lightest-green text-2xl" stroke-width="2.5"></i>
                                     {% endif %}
-                                    <h3 class="text-white">{{ feature.commonTitle|striptags }} - {{ feature.commonIcon }}</h3>
+                                    <h3 class="text-white">{{ feature.commonTitle|striptags }}</h3>
                                 </div>
 
                                 <div x-show="active === {{ loop.index0 }}">

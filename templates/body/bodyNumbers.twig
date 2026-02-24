@@ -1,6 +1,7 @@
 {# ========================================================================== #}
 {# :: Variables #}
 {# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set blocks = data.commonBlocks.all() ?? [] %}
 {% set description = data.commonDescription ?? "" %}
@@ -9,7 +10,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32">
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
     {% if title %}
         <h2 class="text-center mb-12">{{ title|striptags|raw }}</h2>
     {% endif %}

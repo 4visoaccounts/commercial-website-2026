@@ -19,6 +19,8 @@ module.exports = {
         'card-border': '#DEEEE5',
         'schema-bg': '#DEEEE5',
         'schema-line': '#E9F3EF',
+        'peach': '#FAC090',
+        'peach-light': '#FDEADA'
         
       },
       spacing: {

@@ -1,14 +1,14 @@
-color: green
+color: null
 description: null
 fieldLayouts:
-  b29a9a94-eefc-40c4-aa90-c6f5ff1e82ab:
+  57877b44-7c0f-4215-8d0e-6e7dca759660:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-02-20T09:18:42+00:00'
+            dateAdded: '2026-02-24T18:55:39+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
@@ -20,15 +20,15 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 725a8801-e1a0-48d9-b89c-184f4f0213d1
+            uid: ffa900c0-5e00-4451-9ca7-47de4a0effc8
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-20T09:18:42+00:00'
+            dateAdded: '2026-02-24T18:59:19+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            fieldUid: d87315db-ccbc-48ae-9958-d91d39bb28ad # Icon
             handle: null
             includeInCards: false
             instructions: null
@@ -37,12 +37,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9b394359-f3d2-4590-a25d-3426f3a20e32
+            uid: 4d0c0d2a-3182-4328-98f6-276322c36655
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-02-20T09:18:42+00:00'
+            dateAdded: '2026-02-24T18:55:39+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: b2fd6268-2e91-41e0-aef5-c6f5cec40b27 # Blocks
@@ -54,40 +54,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1a5dae21-a146-4323-88ce-41451898e03f
+            uid: fec7032b-dd55-4eb9-be9c-bdb660888eb1
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 8e3b545d-1574-430e-8e7d-0e32d3a4bedf
+        uid: e775b7a0-40a6-49a1-86b8-c6564bbb08bf
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2026-02-24T19:26:23+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 76632528-a976-4c20-b4a9-aa98f9d07874 # ID
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 658f8f45-4f1f-416a-819d-9c9bd93d4ec1
-            userCondition: null
-            warning: null
-            width: 100
-        name: Settings
-        uid: edf82941-84e1-47f6-b5db-3d624b35e566
-        userCondition: null
-handle: bodyFeaturedBlocks
+handle: schemaBlock
 hasTitleField: false
 icon: null
-name: 'Body: featured blocks'
+name: 'Schema block'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

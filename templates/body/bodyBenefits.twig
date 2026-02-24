@@ -1,6 +1,7 @@
 {# ========================================================================== #}
 {# :: Variables #}
 {# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set benefits = data.commonBenefits.all() ?? [] %}
 {% set description = data.commonDescription ?? "" %}
@@ -9,7 +10,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative">
+<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
         {% for i in 1..6 %}
@@ -25,7 +26,7 @@
         {% if benefits|length %}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 {% for benefit in benefits %}
-                    <div class="bg-schema-bg border border-card-border rounded p-8 py-10 flex flex-col">
+                    <div class="{% if loop.index0 is even %}bg-peach-light{% else %}bg-schema-bg{% endif %} border border-card-border rounded p-8 py-10 flex flex-col">
                         {% if benefit.commonIcon ?? null %}
                             <i data-lucide="{{ benefit.commonIcon }}" class="w-6 h-6 text-primary mb-6" stroke-width="2.5"></i>
                         {% endif %}
