@@ -8,8 +8,10 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
-    <div class="bg-primary rounded p-8 md:p-16 relative overflow-hidden">
+<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
+    <div class="bg-primary rounded p-8 md:p-16 relative overflow-hidden"
+        style="opacity: 0; transform: translateY(24px);"
+        :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">
         {# Repeating logo pattern #}
         <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
             {% for i in 1..2000 %}

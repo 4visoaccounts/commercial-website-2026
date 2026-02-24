@@ -10,7 +10,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-40 relative" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-40 relative" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none">
         {% for i in 1..6 %}
@@ -22,12 +22,14 @@
         {# Content #}
         <div class="relative z-10 text-center space-y-8">
             {% if title %}
-                <h2>{{ title|striptags|raw }}</h2>
+                <h2 style="opacity: 0; transform: translateY(24px);" :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">{{ title|striptags|raw }}</h2>
             {% endif %}
 
             {# Schema diagram #}
             {% if schemaBlocks|length >= 4 %}
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto"
+                    style="opacity: 0; transform: translateY(24px);"
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
                     <div class="relative min-w-[900px] py-8 md:py-16">
                         {# CSS Grid: 5 cols x 3 rows #}
                         <div class="grid gap-y-6" style="grid-template-columns: 1fr minmax(180px, 220px) minmax(160px, 240px) minmax(180px, 220px) 1fr; grid-template-rows: auto 100px auto;">
@@ -194,11 +196,13 @@
             {% endif %}
 
             {% if description %}
-                <h4 class="max-w-2xl mx-auto">{{ description|striptags|raw }}</h4>
+                <h4 class="max-w-2xl mx-auto"
+                    style="opacity: 0; transform: translateY(24px);"
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 300ms ease-out, transform 0.7s 300ms ease-out;`">{{ description|striptags|raw }}</h4>
             {% endif %}
 
             {% if link %}
-                <div>
+                <div style="opacity: 0; transform: translateY(24px);" :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 400ms ease-out, transform 0.7s 400ms ease-out;`">
                     {% include 'components/button' with {
                         href: link.url ?? '#',
                         text: link.text ?? 'Request a Demo',

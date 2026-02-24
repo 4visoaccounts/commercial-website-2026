@@ -10,15 +10,19 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
     {% if title %}
-        <h2 class="text-center mb-12">{{ title|striptags|raw }}</h2>
+        <h2 class="text-center mb-12"
+            style="opacity: 0; transform: translateY(24px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">{{ title|striptags|raw }}</h2>
     {% endif %}
 
     {% if blocks|length %}
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             {% for block in blocks %}
-                <div class="bg-schema-bg border border-card-border rounded p-8">
+                <div class="bg-schema-bg border border-card-border rounded p-8"
+                    style="opacity: 0; transform: translateY(24px);"
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ loop.index * 100 }}ms ease-out, transform 0.7s {{ loop.index * 100 }}ms ease-out;`">
                     {% if block.commonTitle ?? null %}
                         <h2 class="mb-4">{{ block.commonTitle|striptags }}</h2>
                     {% endif %}
@@ -32,7 +36,9 @@
     {% endif %}
 
     {% if description or link %}
-        <div class="text-center mt-12 space-y-4">
+        <div class="text-center mt-12 space-y-4"
+            style="opacity: 0; transform: translateY(24px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 500ms ease-out, transform 0.7s 500ms ease-out;`">
             {% if description %}
                 <h5>{{ description|striptags }}</h5>
             {% endif %}

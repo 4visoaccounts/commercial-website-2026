@@ -34,16 +34,16 @@ module.exports = {
         'DEFAULT': '10px',
       },
       animation: {
-        'fade-up': 'fadeUp 0.8s ease-out both',
-        'fade-down': 'fadeDown 0.6s ease-out both',
+        'fade-up': 'fadeUp 0.6s ease-out both',
+        'fade-down': 'fadeDown 0.5s ease-out both',
       },
       keyframes: {
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeDown: {
-          '0%': { opacity: '0', transform: 'translateY(-16px)' },
+          '0%': { opacity: '0', transform: 'translateY(-8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
