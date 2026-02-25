@@ -77,7 +77,7 @@
                                 {% endif %}
                             </div>
                             {% if member.commonDescription ?? null %}
-                                <p class="text-white text-sm mt-1">{{ member.commonDescription|striptags }}</p>
+                                <p class="text-white text-sm mt-1">{{ member.commonDescription|striptags|raw }}</p>
                             {% endif %}
                         </div>
                     </div>
