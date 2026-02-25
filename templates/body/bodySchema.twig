@@ -196,9 +196,9 @@
             {% endif %}
 
             {% if description %}
-                <h4 class="max-w-2xl mx-auto"
+                <h5 class="max-w-2xl mx-auto"
                     style="opacity: 0; transform: translateY(24px);"
-                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 300ms ease-out, transform 0.7s 300ms ease-out;`">{{ description|striptags|raw }}</h4>
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 300ms ease-out, transform 0.7s 300ms ease-out;`">{{ description|striptags('<strong><br><br/>')|raw }}</h5>
             {% endif %}
 
             {% if link %}
