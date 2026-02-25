@@ -27,11 +27,11 @@
             {% endif %}
 
             {% if title %}
-                <h1 class="text-white [&_strong]:text-peach animate-fade-up [animation-delay:100ms]">{{ title|striptags('<strong>')|raw }}</h1>
+                <h1 class="text-white [&_strong]:text-peach animate-fade-up [animation-delay:100ms]">{{ title|striptags('<strong><br>')|raw }}</h1>
             {% endif %}
 
             {% if description %}
-                <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7] animate-fade-up [animation-delay:200ms]">{{ description|striptags('<strong>')|raw }}</p>
+                <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7] animate-fade-up [animation-delay:200ms]">{{ description|striptags('<strong><br><br/>')|raw }}</p>
             {% endif %}
 
             {% if link %}

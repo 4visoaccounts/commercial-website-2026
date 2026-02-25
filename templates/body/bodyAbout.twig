@@ -31,7 +31,7 @@
 
                 <div class="w-full md:w-2/3 space-y-6">
                     {% if description %}
-                        <p class="text-white text-xl leading-[1.7]">{{ description|striptags()|nl2br }}</p>
+                        <p class="text-white text-xl leading-[1.7]">{{ description|striptags('<strong><br><br/>')|raw }}</p>
                     {% endif %}
 
                     {% if link %}
