@@ -49,15 +49,15 @@
                                 <div class="flex items-center gap-3 mb-4">
                                     <i data-lucide="{{ block.commonIcon }}" class="w-6 h-6 text-primary-mint" stroke-width="2.5"></i>
                                     {% if block.commonTitle ?? null %}
-                                        <h4 class="font-bold">{{ block.commonTitle|striptags }}</h4>
+                                        <h4 class="font-bold">{{ block.commonTitle|striptags|raw }}</h4>
                                     {% endif %}
                                 </div>
                             {% elseif block.commonTitle ?? null %}
-                                <h5 class="font-bold mb-4">{{ block.commonTitle|striptags }}</h5>
+                                <h5 class="font-bold mb-4">{{ block.commonTitle|striptags|raw }}</h5>
                             {% endif %}
 
                             {% if block.commonDescription ?? null %}
-                                <p class="">{{ block.commonDescription|striptags }}</p>
+                                <p class="">{{ block.commonDescription|striptags|raw }}</p>
                             {% endif %}
                         </div>
                     </div>
