@@ -83,8 +83,7 @@
                 }
                 await new Promise(r => setTimeout(r, 1500));
                 this.segOpacity = 0;
-                path[0].classList.remove('hero-logo-active');
-                path[path.length-1].classList.remove('hero-logo-active');
+                path.forEach(el => el.classList.remove('hero-logo-active','hero-logo-visited'));
                 await new Promise(r => setTimeout(r, 1000));
                 this.segments = [];
                 this.segOpacity = 1;
