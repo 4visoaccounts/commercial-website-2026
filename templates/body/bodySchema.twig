@@ -43,7 +43,7 @@
                                     <div class="absolute right-0 top-[24px] bottom-[24px] border-r-2 border-dashed border-primary-dotted-line pointer-events-none"></div>
                                     {% for block in schemaBlocks[0].commonBlocks.all() %}
                                         <div class="flex items-center">
-                                            <span class="inline-block rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags }}</span>
+                                            <span class="inline-block rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags|raw }}</span>
                                             <div class="w-12 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
                                         </div>
                                     {% endfor %}
@@ -85,7 +85,7 @@
                                     {% for block in schemaBlocks[1].commonBlocks.all() %}
                                         <div class="flex items-center">
                                             <div class="w-12 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
-                                            <span class="inline-block bg-peach rounded-full relative px-6 py-3 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags }}</span>
+                                            <span class="inline-block bg-peach rounded-full relative px-6 py-3 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -131,7 +131,7 @@
                                     <div class="absolute right-0 top-[24px] bottom-[24px] border-r-2 border-dashed border-primary-dotted-line pointer-events-none"></div>
                                     {% for block in schemaBlocks[2].commonBlocks.all() %}
                                         <div class="flex items-center">
-                                            <span class="inline-block rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags }}</span>
+                                            <span class="inline-block rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags|raw }}</span>
                                             <div class="w-12 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
                                         </div>
                                     {% endfor %}
@@ -173,7 +173,7 @@
                                     {% for block in schemaBlocks[3].commonBlocks.all() %}
                                         <div class="flex items-center">
                                             <div class="w-12 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
-                                            <span class="inline-block bg-peach rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags }}</span>
+                                            <span class="inline-block bg-peach rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
                                         </div>
                                     {% endfor %}
                                 </div>
