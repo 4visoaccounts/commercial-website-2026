@@ -14,12 +14,12 @@
     {# Animated logo grid with supply-chain transport animation #}
     <div
         x-data="{
-            segments: [],
-            segId: 0,
-            segOpacity: 1,
-            activeLogos: [],
+            segments1: [], segId1: 0, segOpacity1: 1, activeLogos1: [],
+            segments2: [], segId2: 0, segOpacity2: 1, activeLogos2: [],
             cols: 0,
             logoArray: [],
+            _startJourney2: false,
+            _gen: 0,
             lineGeom(from, to) {
                 const c = this.$el.getBoundingClientRect();
                 const f = from.getBoundingClientRect();
@@ -48,11 +48,13 @@
                 if (path[path.length-1] !== b) path.push(b);
                 return path.map(i => all[i]).filter(Boolean);
             },
-            async _doJourney() {
-                this.activeLogos.forEach(el => el.classList.remove('hero-logo-active','hero-logo-transit','hero-logo-visited'));
-                this.activeLogos = [];
-                this.segments = [];
-                this.segOpacity = 1;
+            async _doJourney(slot, gen) {
+                if (this._gen !== gen) return;
+                const aKey = `activeLogos${slot}`, sKey = `segments${slot}`, oKey = `segOpacity${slot}`, iKey = `segId${slot}`;
+                this[aKey].forEach(el => el.classList.remove('hero-logo-active','hero-logo-transit','hero-logo-visited'));
+                this[aKey] = [];
+                this[sKey] = [];
+                this[oKey] = 1;
                 const all = this.$el.querySelectorAll('.hero-logo');
                 if (!all.length) return;
                 let a, b, attempts = 0;
@@ -65,16 +67,17 @@
                 } while (++attempts < 200);
                 const path = this.buildPath(a, b, all);
                 if (path.length < 2) { await new Promise(r=>setTimeout(r,1000)); return; }
-                this.activeLogos = path;
+                this[aKey] = path;
                 path[0].classList.add('hero-logo-active');
                 path[path.length-1].classList.add('hero-logo-active');
                 await new Promise(r => setTimeout(r, 500));
                 for (let i = 0; i < path.length-1; i++) {
+                    if (this._gen !== gen) return;
                     const isLastHop = i === path.length-2;
                     if (!isLastHop) path[i+1].classList.add('hero-logo-transit');
                     const geom = this.lineGeom(path[i], path[i+1]);
-                    this.segments.push({...geom, id: ++this.segId});
-                    await new Promise(r => setTimeout(r, 380));
+                    this[sKey].push({...geom, id: ++this[iKey]});
+                    await new Promise(r => setTimeout(r, 500));
                     if (i > 0) { path[i].classList.remove('hero-logo-active','hero-logo-transit'); path[i].classList.add('hero-logo-visited'); }
                     if (!isLastHop) {
                         path[i+1].classList.remove('hero-logo-transit');
@@ -82,24 +85,50 @@
                     }
                 }
                 await new Promise(r => setTimeout(r, 1500));
-                this.segOpacity = 0;
+                if (slot === 1) this._startJourney2 = true;
+                this[oKey] = 0;
                 path.forEach(el => el.classList.remove('hero-logo-active','hero-logo-visited'));
                 await new Promise(r => setTimeout(r, 1000));
-                this.segments = [];
-                this.segOpacity = 1;
+                this[sKey] = [];
+                this[oKey] = 1;
                 await new Promise(r => setTimeout(r, 400));
             },
-            init() {
-                this.$nextTick(async () => {
-                    const rect = this.$el.getBoundingClientRect();
-                    const cell = 40;  // w-2 (8px) + gap-8 (32px)
-                    const pad  = 48;  // p-6 (24px) each side
-                    const cols = Math.floor((rect.width  - pad + 32) / cell);
-                    const rows = Math.ceil( (rect.height - pad + 32) / cell) + 1;
-                    this.cols = cols;
-                    this.logoArray = Array.from({length: cols * rows}, (_, i) => i);
+            _launch() {
+                const rect = this.$el.getBoundingClientRect();
+                const cell = 40;  // w-2 (8px) + gap-8 (32px)
+                const pad  = 48;  // p-6 (24px) each side
+                const cols = Math.floor((rect.width  - pad + 32) / cell);
+                const rows = Math.ceil( (rect.height - pad + 32) / cell) + 1;
+                this.cols = cols;
+                this.logoArray = Array.from({length: cols * rows}, (_, i) => i);
+                this._startJourney2 = false;
+                const gen = ++this._gen;
+                // Journey 1 — starts after initial delay
+                (async () => {
                     await new Promise(r => setTimeout(r, 1000));
-                    while (true) { await this._doJourney(); }
+                    while (this._gen === gen) { await this._doJourney(1, gen); }
+                })();
+                // Journey 2 — starts when journey 1 enters its hold phase
+                (async () => {
+                    await new Promise(r => { const chk = () => (this._startJourney2 || this._gen !== gen) ? r() : setTimeout(chk, 50); chk(); });
+                    while (this._gen === gen) { await this._doJourney(2, gen); }
+                })();
+            },
+            init() {
+                this.$nextTick(() => this._launch());
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        this.segments1 = []; this.segments2 = [];
+                        this.segOpacity1 = 1; this.segOpacity2 = 1;
+                        this._launch();
+                        setTimeout(() => {
+                            this.$el.querySelectorAll('.hero-logo').forEach(el =>
+                                el.classList.remove('hero-logo-active','hero-logo-transit','hero-logo-visited'));
+                            this.activeLogos1 = []; this.activeLogos2 = [];
+                        }, 150);
+                    }, 300);
                 });
             }
         }"
@@ -119,9 +148,17 @@
             </template>
         </div>
 
-        {# Accumulated route segments — fade as a group via segOpacity wrapper #}
-        <div :style="`opacity: ${segOpacity}; transition: opacity 1s ease;`" class="absolute inset-0 pointer-events-none">
-            <template x-for="seg in segments" :key="seg.id">
+        {# Accumulated route segments — two independent journeys #}
+        <div :style="`opacity: ${segOpacity1}; transition: opacity 1s ease;`" class="absolute inset-0 pointer-events-none">
+            <template x-for="seg in segments1" :key="seg.id">
+                <div
+                    class="hero-connection-seg absolute pointer-events-none"
+                    :style="`left:${seg.x}px; top:${seg.y}px; width:${seg.len}px; transform:rotate(${seg.angle}deg);`"
+                ></div>
+            </template>
+        </div>
+        <div :style="`opacity: ${segOpacity2}; transition: opacity 1s ease;`" class="absolute inset-0 pointer-events-none">
+            <template x-for="seg in segments2" :key="seg.id">
                 <div
                     class="hero-connection-seg absolute pointer-events-none"
                     :style="`left:${seg.x}px; top:${seg.y}px; width:${seg.len}px; transform:rotate(${seg.angle}deg);`"
@@ -131,11 +168,11 @@
     </div>
 
     <style>
-        .hero-logo { opacity: 0.4; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
-        .hero-logo-active { opacity: 0.8; transform: scale(1.3); filter: brightness(0) invert(1); }
-        .hero-logo-transit { opacity: 0.6; transform: scale(1.3); filter: brightness(0) invert(1); }
-        .hero-logo-visited { opacity: 0.5; filter: brightness(0) invert(1); }
-        .hero-connection-seg { height: 2px; transform-origin: 0 50%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0, rgba(255,255,255,0.5) 6px, transparent 6px, transparent 10px); }
+        .hero-logo { opacity: 0.2; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
+        .hero-logo-active { opacity: 0.5; transform: scale(1.3); filter: brightness(0) invert(1); }
+        .hero-logo-transit { opacity: 0.4; transform: scale(1.3); filter: brightness(0) invert(1); }
+        .hero-logo-visited { opacity: 0.3; filter: brightness(0) invert(1); }
+        .hero-connection-seg { height: 2px; transform-origin: 0 50%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 6px, transparent 6px, transparent 10px); }
     </style>
 
     <div class="container mx-auto py-24 md:py-56 relative">

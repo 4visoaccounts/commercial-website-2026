@@ -1,9 +1,4 @@
-* Altijd lijntjes achter witte blokken
 * heroHome
-  * Niet door de tekst gaan
-  * h1 veel groter 
-  * Start 2de animatie 
-  * label van boven zie je de icoontjes iets te hard 
   * Iets van waiting list bij aan toevoegen 
 * schema
   * De labels veel groter 

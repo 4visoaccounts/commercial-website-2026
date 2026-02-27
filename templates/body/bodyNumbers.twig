@@ -10,7 +10,13 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
+    {# Background vertical lines #}
+    <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
+        {% for i in 1..6 %}
+            <div class="h-full w-px bg-schema-line"></div>
+        {% endfor %}
+    </div>
     {% if title %}
         <h2 class="text-center mb-12"
             style="opacity: 0; transform: translateY(24px);"

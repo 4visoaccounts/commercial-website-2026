@@ -38,9 +38,6 @@
                                 :class="active === {{ loop.index0 }} ? 'bg-white/10' : 'hover:bg-white/5'"
                             >
                                 <div class="flex items-center gap-3">
-                                    {% if feature.commonIcon ?? null %}
-                                        <i class="ph ph-{{ feature.commonIcon }} text-primary-lightest-green text-2xl" stroke-width="2.5"></i>
-                                    {% endif %}
                                     <h3 class="text-white">{{ feature.commonTitle|striptags }}</h3>
                                 </div>
 
