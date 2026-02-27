@@ -55,9 +55,6 @@
                                 {# Connector from bracket to card #}
                                 <div class="absolute left-0 top-1/2 w-12 border-t-2 border-dashed border-primary-dotted-line pointer-events-none -translate-y-px"></div>
                                 <div class="inline-flex gap-2 border-primary border-2 bg-schema-bg relative rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">
-                                    {% if schemaBlocks[0].commonIcon ?? null %}
-                                        <i data-lucide="{{ schemaBlocks[0].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
-                                    {% endif %}
                                     <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[0].commonTitle|striptags }}</span>
                                 </div>
                             </div>
@@ -76,9 +73,6 @@
                                 {# Connector from card to right bracket #}
                                 <div class="absolute right-0 top-1/2 w-4 border-t-2 border-dashed border-primary-dotted-line pointer-events-none -translate-y-px"></div>
                                 <div class="inline-flex gap-2 border-primary border-2 bg-schema-bg relative rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">
-                                    {% if schemaBlocks[1].commonIcon ?? null %}
-                                        <i data-lucide="{{ schemaBlocks[1].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
-                                    {% endif %}
                                     <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[1].commonTitle|striptags }}</span>
                                 </div>
                             </div>
@@ -149,9 +143,6 @@
                                 {# Connector from bracket to card #}
                                 <div class="absolute left-0 top-1/2 w-12 border-t-2 border-dashed border-primary-dotted-line pointer-events-none -translate-y-px"></div>
                                 <div class="inline-flex gap-2 border-primary border-2 bg-schema-bg relative rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">
-                                    {% if schemaBlocks[2].commonIcon ?? null %}
-                                        <i data-lucide="{{ schemaBlocks[2].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
-                                    {% endif %}
                                     <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[2].commonTitle|striptags }}</span>
                                 </div>
                             </div>
@@ -170,9 +161,6 @@
                                 {# Connector from card to right bracket #}
                                 <div class="absolute right-0 top-1/2 w-4 border-t-2 border-dashed border-primary-dotted-line pointer-events-none -translate-y-px"></div>
                                 <div class="relative inline-flex gap-2 border-primary bg-schema-bg  border-2 rounded-full px-6 py-3 text-md font-medium text-dark whitespace-nowrap">
-                                    {% if schemaBlocks[3].commonIcon ?? null %}
-                                        <i data-lucide="{{ schemaBlocks[3].commonIcon }}" class="w-5 h-5 text-primary-pine" stroke-width="2"></i>
-                                    {% endif %}
                                     <span class="font-bold text-dark whitespace-nowrap">{{ schemaBlocks[3].commonTitle|striptags }}</span>
                                 </div>
                             </div>
@@ -196,7 +184,7 @@
             {% endif %}
 
             {% if description %}
-                <h5 class="max-w-2xl mx-auto"
+                <h5 class="mx-auto"
                     style="opacity: 0; transform: translateY(24px);"
                     :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 300ms ease-out, transform 0.7s 300ms ease-out;`">{{ description|striptags('<strong><br><br/>')|raw }}</h5>
             {% endif %}

@@ -1,3 +1,4 @@
+
 * heroHome
   * Iets van waiting list bij aan toevoegen 
 * schema
@@ -5,7 +6,6 @@
   * De mini labels iets kleiner 
   * toch die label 
   * &amp; moet opgelost worden 
-  * icoontjes skippen
   * tekst volledige breedte
 * product roadmap 
   * automatisch naar de volgende 
