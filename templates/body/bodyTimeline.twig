@@ -30,52 +30,71 @@
     {% endif %}
 
     {% if blocks|length %}
-        <div class="overflow-x-auto"
-            style="opacity: 0; transform: translateY(24px);"
+        <div style="opacity: 0; transform: translateY(24px);"
             :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 200ms ease-out, transform 0.7s 200ms ease-out;`">
-            <div class="relative min-w-[800px] px-4">
-                {# Horizontal line #}
-                <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex items-center">
-                    <div class="flex-1 h-[2px] bg-primary/30"></div>
-                    <svg class="w-3 h-3 text-primary/30 -ml-px" viewBox="0 0 12 12" fill="currentColor"><polygon points="0,0 12,6 0,12"/></svg>
-                </div>
 
-                {# Timeline items #}
-                <div class="relative flex">
-                    {% for block in blocks %}
-                        {% set isOdd = loop.index is odd %}
-                        {% set milestone = block.commonTitle ?? "" %}
-                        {% set date = block.commonDescription ?? "" %}
+            {# Mobile: vertical timeline #}
+            <div class="md:hidden relative pl-8">
+                {# Vertical line #}
+                <div class="absolute left-[11px] top-0 bottom-0 w-[2px] bg-primary/30"></div>
 
-                        <div class="flex-1 flex flex-col items-center text-center">
-                            {# Above area #}
-                            <div class="h-28 flex flex-col items-center justify-end pb-2">
-                                {% if not isOdd %}
-                                    {# Even: pill above #}
-                                    <span class="inline-block bg-schema-bg border border-card-border rounded-full px-5 py-2 text-sm text-dark whitespace-nowrap mb-2">{{ date }}</span>
-                                    <div class="w-px h-6 border-l border-dashed border-primary/50"></div>
-                                {% else %}
-                                    {# Odd: date above #}
-                                    <span class="text-[13px] text-grey whitespace-nowrap">{{ milestone }}</span>
-                                {% endif %}
-                            </div>
-
-                            {# Dot #}
-                            <div class="w-3 h-3 rounded-full bg-primary relative z-10 shrink-0"></div>
-
-                            {# Below area #}
-                            <div class="h-28 flex flex-col items-center justify-start pt-2">
-                                {% if isOdd %}
-                                    {# Odd: pill below #}
-                                    <div class="w-px h-6 border-l border-dashed border-primary/50"></div>
-                                    <span class="inline-block bg-schema-bg border border border-card-border rounded-full px-5 py-2 text-sm text-dark whitespace-nowrap mt-2">{{ date }}</span>
-                                {% else %}
-                                    {# Even: date below #}
-                                    <span class="text-[13px] text-grey whitespace-nowrap">{{ milestone }}</span>
-                                {% endif %}
-                            </div>
+                {% for block in blocks %}
+                    {% set milestone = block.commonTitle ?? "" %}
+                    {% set date = block.commonDescription ?? "" %}
+                    <div class="relative flex items-start gap-4 pb-10 last:pb-0">
+                        {# Dot #}
+                        <div class="absolute -left-8 mt-1 w-3 h-3 rounded-full bg-primary shrink-0 z-10"></div>
+                        {# Content #}
+                        <div>
+                            <span class="inline-block bg-schema-bg border border-card-border rounded-full px-4 py-1.5 text-sm text-dark mb-2">{{ date }}</span>
+                            <p class="text-[14px] text-grey leading-snug">{{ milestone }}</p>
                         </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {# Desktop: horizontal timeline #}
+            <div class="hidden md:block overflow-x-auto">
+                <div class="relative min-w-[800px] px-4">
+                    {# Horizontal line #}
+                    <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex items-center">
+                        <div class="flex-1 h-[2px] bg-primary/30"></div>
+                        <svg class="w-3 h-3 text-primary/30 -ml-px" viewBox="0 0 12 12" fill="currentColor"><polygon points="0,0 12,6 0,12"/></svg>
+                    </div>
+
+                    {# Timeline items #}
+                    <div class="relative flex">
+                        {% for block in blocks %}
+                            {% set isOdd = loop.index is odd %}
+                            {% set milestone = block.commonTitle ?? "" %}
+                            {% set date = block.commonDescription ?? "" %}
+
+                            <div class="flex-1 flex flex-col items-center text-center">
+                                {# Above area #}
+                                <div class="h-28 flex flex-col items-center justify-end pb-2">
+                                    {% if not isOdd %}
+                                        <span class="inline-block bg-schema-bg border border-card-border rounded-full px-5 py-2 text-sm text-dark whitespace-nowrap mb-2">{{ date }}</span>
+                                        <div class="w-px h-6 border-l border-dashed border-primary/50"></div>
+                                    {% else %}
+                                        <span class="text-[13px] text-grey whitespace-nowrap">{{ milestone }}</span>
+                                    {% endif %}
+                                </div>
+
+                                {# Dot #}
+                                <div class="w-3 h-3 rounded-full bg-primary relative z-10 shrink-0"></div>
+
+                                {# Below area #}
+                                <div class="h-28 flex flex-col items-center justify-start pt-2">
+                                    {% if isOdd %}
+                                        <div class="w-px h-6 border-l border-dashed border-primary/50"></div>
+                                        <span class="inline-block bg-schema-bg border border-card-border rounded-full px-5 py-2 text-sm text-dark whitespace-nowrap mt-2">{{ date }}</span>
+                                    {% else %}
+                                        <span class="text-[13px] text-grey whitespace-nowrap">{{ milestone }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

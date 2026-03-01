@@ -41,7 +41,7 @@
         <div class="w-full md:w-2/3"
             style="opacity: 0; transform: translateY(24px);"
             :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
-            <div class="relative">
+            <div class="relative overflow-hidden">
                 <div class="flex gap-6 flex-col absolute -top-[40px] -right-[40px] -z-10">
                     {% for i in 1..6 %}
                         <div class="flex gap-6">

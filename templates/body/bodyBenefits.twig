@@ -30,8 +30,9 @@
                 {% for benefit in benefits %}
                     {% set col = loop.index0 % 4 %}
                     {% set row = (loop.index0 // 4) % 2 %}
-                    {% set isPeach = (row == 0 and col is even) or (row == 1 and col is odd) %}
-                    <div class="{% if isPeach %}bg-peach-light{% else %}bg-schema-bg{% endif %} rounded p-8 py-10 flex flex-col"
+                    {% set isMobilePeach = loop.index0 is even %}
+                    {% set isDesktopPeach = (row == 0 and col is even) or (row == 1 and col is odd) %}
+                    <div class="{% if isMobilePeach %}bg-peach-light{% else %}bg-schema-bg{% endif %} {% if isDesktopPeach %}sm:bg-peach-light{% else %}sm:bg-schema-bg{% endif %} rounded p-8 py-10 flex flex-col"
                         style="opacity: 0; transform: translateY(24px);"
                         :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ (loop.index - 1) * 75 }}ms ease-out, transform 0.7s {{ (loop.index - 1) * 75 }}ms ease-out;`">
                         {% if benefit.commonIcon ?? null %}

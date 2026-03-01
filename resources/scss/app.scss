@@ -9,27 +9,27 @@
   }
 
   h1 {
-    @apply font-stack-headline text-[84px] font-normal text-dark leading-none;
+    @apply font-stack-headline text-[44px] md:text-[64px] lg:text-[84px] font-normal text-dark leading-none;
   }
 
   h2 {
-    @apply font-stack-headline text-[40px] font-normal text-dark leading-tight;
+    @apply font-stack-headline text-[28px] md:text-[34px] lg:text-[40px] font-normal text-dark leading-tight;
   }
 
   h3 {
-    @apply font-stack-headline text-[28px] font-bold text-dark leading-snug;
+    @apply font-stack-headline text-[20px] md:text-[24px] lg:text-[28px] font-bold text-dark leading-snug;
   }
 
   h4 {
-    @apply font-stack-headline text-[24px] font-normal text-dark leading-snug;
+    @apply font-stack-headline text-[18px] md:text-[21px] lg:text-[24px] font-normal text-dark leading-snug;
   }
 
   h5 {
-    @apply font-stack-headline text-[20px] font-normal text-dark leading-normal;
+    @apply font-stack-headline text-[16px] md:text-[18px] lg:text-[20px] font-normal text-dark leading-normal;
   }
 
   p {
-    @apply font-light text-[18px] text-dark leading-relaxed;
+    @apply font-light text-[16px] md:text-[18px] text-dark leading-relaxed;
   }
 
   a {
