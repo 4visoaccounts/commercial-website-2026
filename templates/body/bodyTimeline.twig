@@ -9,7 +9,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="relative container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="relative container mx-auto px-4 lg:px-8 py-16 md:py-32" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
         {% for i in 1..6 %}
@@ -19,19 +19,19 @@
 
     {% if title %}
         <h2 class="text-center mb-4"
-            style="opacity: 0; transform: translateY(24px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">{{ title|striptags|raw }}</h2>
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">{{ title|striptags|raw }}</h2>
     {% endif %}
 
     {% if description %}
         <p class="text-center max-w-3xl mx-auto mb-16"
-            style="opacity: 0; transform: translateY(24px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 100ms ease-out, transform 0.7s 100ms ease-out;`">{{ description|striptags }}</p>
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 100ms ease-out, transform 0.5s 100ms ease-out;`">{{ description|striptags }}</p>
     {% endif %}
 
     {% if blocks|length %}
-        <div style="opacity: 0; transform: translateY(24px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 200ms ease-out, transform 0.7s 200ms ease-out;`">
+        <div style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 200ms ease-out, transform 0.5s 200ms ease-out;`">
 
             {# Mobile: vertical timeline #}
             <div class="md:hidden relative pl-8">

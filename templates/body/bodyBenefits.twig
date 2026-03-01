@@ -10,7 +10,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
         {% for i in 1..6 %}
@@ -21,8 +21,8 @@
     <div>
         {% if title %}
             <h2 class="text-center mb-16"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">{{ title|striptags|raw }}</h2>
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">{{ title|striptags|raw }}</h2>
         {% endif %}
 
         {% if benefits|length %}
@@ -33,8 +33,8 @@
                     {% set isMobilePeach = loop.index0 is even %}
                     {% set isDesktopPeach = (row == 0 and col is even) or (row == 1 and col is odd) %}
                     <div class="{% if isMobilePeach %}bg-peach-light{% else %}bg-schema-bg{% endif %} {% if isDesktopPeach %}sm:bg-peach-light{% else %}sm:bg-schema-bg{% endif %} rounded p-8 py-10 flex flex-col"
-                        style="opacity: 0; transform: translateY(24px);"
-                        :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ (loop.index - 1) * 75 }}ms ease-out, transform 0.7s {{ (loop.index - 1) * 75 }}ms ease-out;`">
+                        style="opacity: 0; transform: translateY(40px);"
+                        :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (loop.index - 1) * 75 }}ms ease-out, transform 0.5s {{ (loop.index - 1) * 75 }}ms ease-out;`">
                         {% if benefit.commonIcon ?? null %}
                             <i data-lucide="{{ benefit.commonIcon }}" class="w-6 h-6 text-primary mb-6" stroke-width="2.5"></i>
                         {% endif %}
@@ -49,8 +49,8 @@
 
         {% if description or link %}
             <div class="text-center space-y-6"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 400ms ease-out, transform 0.7s 400ms ease-out;`">
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 400ms ease-out, transform 0.5s 400ms ease-out;`">
                 {% if description %}
                     <h4>{{ description|striptags }}</h4>
                 {% endif %}

@@ -57,7 +57,7 @@
             window.addEventListener('resize', () => this.computeLines());
         }
     }"
-    x-intersect.once="visible = true"
+    x-intersect.once.margin.0px.0px.-100px.0px="visible = true"
     class="bg-primary py-16 md:py-32 relative overflow-hidden"
     id="{{id}}">
 
@@ -101,8 +101,8 @@
     <div class="container mx-auto px-4 lg:px-8 relative">
         {% if title or description %}
             <div class="text-center mb-16 max-w-3xl mx-auto"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
                 {% if title %}
                     <h2 class="text-white mb-6">{{ title|striptags|raw }}</h2>
                 {% endif %}
@@ -116,8 +116,8 @@
 
             {# Mobile: stacked cards (image + title + description) #}
             <div class="md:hidden space-y-8"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
                 {% for feature in features %}
                     {% set image = feature.commonAsset.one() ?? null %}
                     <div class="bg-cover bg-center bg-no-repeat rounded p-6 relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
@@ -174,8 +174,8 @@
                     }
                 }"
                 class="hidden md:flex flex-row items-center"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
 
                 {# Left side: clickable features #}
                 <div class="w-1/2">

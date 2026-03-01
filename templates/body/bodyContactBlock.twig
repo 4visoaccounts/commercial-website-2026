@@ -9,7 +9,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative" id="{{id}}">
     {# Background vertical lines #}
     <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
         {% for i in 1..6 %}
@@ -19,8 +19,8 @@
     <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
         {# Left side: title, description, email #}
         <div class="w-full md:w-1/3 md:pt-8"
-            style="opacity: 0; transform: translateY(24px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
             {% if title %}
                 <h2 class="mb-6">{{ title|striptags|raw }}</h2>
             {% endif %}
@@ -39,8 +39,8 @@
 
         {# Right side: contact form #}
         <div class="w-full md:w-2/3"
-            style="opacity: 0; transform: translateY(24px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
             <div class="relative overflow-hidden">
                 <div class="flex gap-6 flex-col absolute -top-[40px] -right-[40px] -z-10">
                     {% for i in 1..6 %}

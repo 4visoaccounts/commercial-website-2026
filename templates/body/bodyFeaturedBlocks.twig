@@ -9,18 +9,18 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="bg-primary relative overflow-hidden" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="bg-primary relative overflow-hidden" id="{{id}}">
     <div class="container mx-auto px-4 lg:px-8 py-16 md:py-32 relative">
         {% if title %}
             <h2 class="text-white text-center mb-4"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s ease-out, transform 0.7s ease-out;`">{{ title|striptags|raw }}</h2>
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">{{ title|striptags|raw }}</h2>
         {% endif %}
 
         {% if description %}
             <p class="text-white text-center max-w-3xl mx-auto mb-12"
-                style="opacity: 0; transform: translateY(24px);"
-                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 100ms ease-out, transform 0.7s 100ms ease-out;`">{{ description|striptags }}</p>
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 100ms ease-out, transform 0.5s 100ms ease-out;`">{{ description|striptags }}</p>
         {% endif %}
 
         {% if blocks|length %}
@@ -43,8 +43,8 @@
 
                         {# Card #}
                         <div class="bg-card-border rounded p-12"
-                            style="opacity: 0; transform: translateY(24px);"
-                            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ loop.index * 100 }}ms ease-out, transform 0.7s {{ loop.index * 100 }}ms ease-out;`">
+                            style="opacity: 0; transform: translateY(40px);"
+                            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ loop.index * 100 }}ms ease-out, transform 0.5s {{ loop.index * 100 }}ms ease-out;`">
                             {% if block.commonIcon ?? null %}
                                 <div class="flex items-center gap-3 mb-4">
                                     <i data-lucide="{{ block.commonIcon }}" class="w-6 h-6 text-primary-mint" stroke-width="2.5"></i>
