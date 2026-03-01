@@ -9,8 +9,8 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="bg-primary py-16 md:py-32" id="{{id}}">
-    <div class="container mx-auto px-4 lg:px-8">
+<section x-data="{ visible: false }" x-intersect.once="visible = true" class="bg-primary py-16 md:py-32 relative overflow-hidden" id="{{id}}">
+    <div class="container mx-auto px-4 lg:px-8 relative">
         {% if title or description %}
             <div class="text-center mb-16 max-w-3xl mx-auto"
                 style="opacity: 0; transform: translateY(24px);"
@@ -25,7 +25,33 @@
         {% endif %}
 
         {% if features|length %}
-            <div x-data="{ active: 0 }" class="flex flex-col md:flex-row items-center"
+            <div x-data="{
+                    active: 0,
+                    total: {{ features|length }},
+                    autoplay: true,
+                    timer: null,
+                    startAutoplay() {
+                        if (!this.autoplay || this.timer) return;
+                        this.timer = setInterval(() => {
+                            this.active = (this.active + 1) % this.total;
+                        }, 4000);
+                    },
+                    stopAutoplay() {
+                        this.autoplay = false;
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    },
+                    init() {
+                        const observer = new IntersectionObserver((entries) => {
+                            if (entries[0].isIntersecting) {
+                                this.startAutoplay();
+                                observer.disconnect();
+                            }
+                        }, { threshold: 0.3 });
+                        observer.observe(this.$el);
+                    }
+                }"
+                class="flex flex-col md:flex-row items-center"
                 style="opacity: 0; transform: translateY(24px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
                 {# Left side: clickable features #}
@@ -33,7 +59,7 @@
                     <div class="border-t border-white/40">
                         {% for feature in features %}
                             <div
-                                @click="active = {{ loop.index0 }}"
+                                @click="stopAutoplay(); active = {{ loop.index0 }}"
                                 class="cursor-pointer p-6  py-12 transition-all border-b border-white/40"
                                 :class="active === {{ loop.index0 }} ? 'bg-white/10' : 'hover:bg-white/5'"
                             >
@@ -52,11 +78,18 @@
                 </div>
 
                 {# Right side: feature image #}
-                <div class="w-full md:w-1/2 bg-peach-light rounded p-16">
+                <div class="w-full md:w-1/2 bg-cover bg-center bg-no-repeat rounded p-16 relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
+                    {# Repeating logo background pattern #}
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
+                        {% for i in 1..2000 %}
+                            {% include "/shapes/logo.twig" with { customClass: 'w-2 h-2 shrink-0', customColor: "#fff" } %}
+                        {% endfor %}
+                    </div>
+
                     {% for feature in features %}
                         {% set image = feature.commonAsset.one() ?? null %}
                         {% if image %}
-                            <div x-show="active === {{ loop.index0 }}" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                            <div x-show="active === {{ loop.index0 }}" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="relative">
                                 {% include 'components/image' with {
                                     asset: image,
                                     alt: feature.commonTitle|striptags,

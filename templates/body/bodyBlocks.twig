@@ -7,11 +7,11 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-20" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.threshold.30="visible = true" class="container mx-auto px-4 lg:px-8 py-16 md:py-20" id="{{id}}">
     {% if blocks|length %}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             {% for block in blocks %}
-                <div style="opacity: 0; transform: translateY(24px);" :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ (loop.index - 1) * 150 }}ms ease-out, transform 0.7s {{ (loop.index - 1) * 150 }}ms ease-out;`">
+                <div style="opacity: 0; transform: translateY(24px);" :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s {{ (loop.index - 1) * 150 + 400 }}ms ease-out, transform 0.7s {{ (loop.index - 1) * 150 + 400 }}ms ease-out;`">
                     {% if block.commonSubtitle %}
                         <span class="text-primary font-semibold uppercase mb-2 text-xs">
                             {{ block.commonSubtitle }}

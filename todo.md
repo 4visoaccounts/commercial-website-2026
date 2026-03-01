@@ -6,9 +6,6 @@
   * De mini labels iets kleiner
   * toch die pijl
 * product roadmap
-  * automatisch naar de volgende
-  * wanneer je er op klikt moet de autoplay stoppen
-  * mag pas starten wanneer je naar een component gaat
   * coming soon per
   * icoontjes oranje
 * featured component
