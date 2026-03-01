@@ -9,7 +9,95 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once="visible = true" class="bg-primary py-16 md:py-32 relative overflow-hidden" id="{{id}}">
+<section x-data="{
+        visible: false,
+        lines: [],
+        anchorPos: null,
+        computeLines() {
+            const ext1 = this.$refs.ext1;
+            const ext2 = this.$refs.ext2;
+            const tileBg = this.$el.querySelector('.bm-tile-container');
+            if (!ext1 || !ext2 || !tileBg) return;
+
+            const tiles = [...tileBg.children];
+            const rowMap = new Map();
+            tiles.forEach(t => {
+                const top = Math.round(t.getBoundingClientRect().top);
+                if (!rowMap.has(top)) rowMap.set(top, []);
+                rowMap.get(top).push(t);
+            });
+            const rows = [...rowMap.entries()].sort((a, b) => a[0] - b[0]);
+
+            let anchorEl = this.$el.querySelector('.bm-anchor-fallback');
+            if (rows.length >= 2) {
+                const row2 = rows[1][1];
+                const target = row2[row2.length - 2] || row2[row2.length - 1];
+                if (target) anchorEl = target;
+            }
+
+            const sr  = this.$el.getBoundingClientRect();
+            const ar  = anchorEl.getBoundingClientRect();
+            const e1r = ext1.getBoundingClientRect();
+            const e2r = ext2.getBoundingClientRect();
+
+            const ac  = { x: ar.left  + ar.width  / 2 - sr.left, y: ar.top  + ar.height  / 2 - sr.top };
+            const e1c = { x: e1r.left + e1r.width / 2 - sr.left, y: e1r.top + e1r.height / 2 - sr.top };
+            const e2c = { x: e2r.left + e2r.width / 2 - sr.left, y: e2r.top + e2r.height / 2 - sr.top };
+
+            this.anchorPos = ac;
+            this.lines = [
+                { x1: e1c.x, y1: e1c.y, x2: e2c.x, y2: e2c.y },
+                { x1: e1c.x, y1: e1c.y, x2: ac.x,  y2: ac.y  },
+                { x1: e2c.x, y1: e2c.y, x2: ac.x,  y2: ac.y  }
+            ];
+        },
+        init() {
+            this.$nextTick(() => this.computeLines());
+            this.$watch('visible', v => { if (v) setTimeout(() => this.computeLines(), 100); });
+            window.addEventListener('resize', () => this.computeLines());
+        }
+    }"
+    x-intersect.once="visible = true"
+    class="bg-primary py-16 md:py-32 relative overflow-hidden"
+    id="{{id}}">
+
+    <style>
+        @keyframes bm-float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-10px); }
+        }
+    </style>
+
+    {# SVG lines (overflow:visible to span across the full section) #}
+    <svg class="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
+         style="overflow: visible; z-index: 40;" fill="none">
+        <template x-for="(line, i) in lines" :key="i">
+            <line :x1="line.x1" :y1="line.y1" :x2="line.x2" :y2="line.y2"
+                  stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        </template>
+    </svg>
+
+    {# Visible anchor logo — repositioned by Alpine to sit over the targeted tile #}
+    <div class="absolute pointer-events-none hidden md:block"
+         style="z-index: 45; transition: opacity 0.3s;"
+         :style="anchorPos ? `left: ${anchorPos.x - 16}px; top: ${anchorPos.y - 16}px; opacity: 1;` : 'opacity: 0;'">
+        {% include "/shapes/logo.twig" with { customClass: 'w-8 h-8', customColor: "#fff" } %}
+    </div>
+
+    {# External logo 1 — upper-right green area, outside the gradient box #}
+    <div x-ref="ext1"
+         class="absolute pointer-events-none hidden md:block"
+         style="top: 2rem; right: 3rem; z-index: 50; animation: bm-float 4s ease-in-out infinite;">
+        {% include "/shapes/logo.twig" with { customClass: 'w-9 h-9', customColor: "#fff" } %}
+    </div>
+
+    {# External logo 2 — lower-right green area, outside the gradient box #}
+    <div x-ref="ext2"
+         class="absolute pointer-events-none hidden md:block"
+         style="bottom: 2rem; right: 5rem; z-index: 50; animation: bm-float 5s ease-in-out infinite 1.2s;">
+        {% include "/shapes/logo.twig" with { customClass: 'w-6 h-6', customColor: "#fff" } %}
+    </div>
+
     <div class="container mx-auto px-4 lg:px-8 relative">
         {% if title or description %}
             <div class="text-center mb-16 max-w-3xl mx-auto"
@@ -54,6 +142,7 @@
                 class="flex flex-col md:flex-row items-center"
                 style="opacity: 0; transform: translateY(24px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 24}px); transition: opacity 0.7s 150ms ease-out, transform 0.7s 150ms ease-out;`">
+
                 {# Left side: clickable features #}
                 <div class="w-full md:w-1/2">
                     <div class="border-t border-white/40">
@@ -63,8 +152,11 @@
                                 class="cursor-pointer p-6  py-12 transition-all border-b border-white/40"
                                 :class="active === {{ loop.index0 }} ? 'bg-white/10' : 'hover:bg-white/5'"
                             >
-                                <div class="flex items-center gap-3">
+                                <div class="flex items-center gap-3 flex-wrap">
                                     <h3 class="text-white">{{ feature.commonTitle|striptags }}</h3>
+                                    {% if feature.commonIsComingSoon ?? false %}
+                                        <span class="inline-block px-3 py-1 rounded-full bg-peach text-black text-xs font-semibold uppercase tracking-wide">Coming soon</span>
+                                    {% endif %}
                                 </div>
 
                                 <div x-show="active === {{ loop.index0 }}">
@@ -79,10 +171,16 @@
 
                 {# Right side: feature image #}
                 <div class="w-full md:w-1/2 bg-cover bg-center bg-no-repeat rounded p-16 relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
-                    {# Repeating logo background pattern #}
-                    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
+
+                    {# Fallback anchor (used before tile rows are detected) #}
+                    <div class="bm-anchor-fallback absolute pointer-events-none" style="top: 32%; left: 22%;"></div>
+
+                    {# Tile background — each logo wrapped in .bm-tile for row detection #}
+                    <div class="bm-tile-container absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
                         {% for i in 1..2000 %}
-                            {% include "/shapes/logo.twig" with { customClass: 'w-2 h-2 shrink-0', customColor: "#fff" } %}
+                            <div class="bm-tile w-2 h-2 shrink-0">
+                                {% include "/shapes/logo.twig" with { customClass: 'w-full h-full', customColor: "#fff" } %}
+                            </div>
                         {% endfor %}
                     </div>
 

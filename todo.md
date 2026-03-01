@@ -7,7 +7,6 @@
   * toch die pijl
 * product roadmap
   * coming soon per
-  * icoontjes oranje
 * featured component
   * geen slideshow op mobile eerder afbeelding 
 * benefits
