@@ -64,6 +64,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-03-03T07:17:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: bea4e7f4-d198-4768-aebd-0619edf5a4f0 # Spacing
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2d150702-858a-499b-9bbb-4388cff1e286
+            userCondition: null
+            warning: null
+            width: 100
         name: Settings
         uid: b81ce870-d031-45cb-a7a3-1b34808e58ed
         userCondition: null

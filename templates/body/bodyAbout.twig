@@ -6,11 +6,21 @@
 {% set description = data.commonDescription ?? "" %}
 {% set link = data.commonLink ?? null %}
 {% set teammembers = data.commonTeammembers.all() ?? [] %}
+{% set spacing = data.commonSpacing ?? "default" %}
+{% if spacing == "small" %}
+    {% set spacingClass = "py-8 md:py-16" %}
+{% elseif spacing == "smallTopDefaultBottom" %}
+    {% set spacingClass = "pt-8 md:pt-16 pb-16 md:pb-32" %}
+{% elseif spacing == "smallBottomDefaultTop" %}
+    {% set spacingClass = "pt-16 md:pt-32 pb-8 md:pb-16" %}
+{% else %}
+    {% set spacingClass = "py-16 md:py-32" %}
+{% endif %}
 
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="py-16 md:py-32 bg-no-repeat relative" style="background-image: url('/assets/gradient.png'); background-size: 200% 100%; background-position: center;" id="{{id}}">
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="{{ spacingClass }} bg-no-repeat relative" style="background-image: url('/assets/gradient.png'); background-size: 200% 100%; background-position: center;" id="{{id}}">
     {# Repeating logo pattern #}
     <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
         {% for i in 1..2000 %}

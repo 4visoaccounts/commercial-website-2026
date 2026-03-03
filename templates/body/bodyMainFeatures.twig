@@ -5,6 +5,16 @@
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
 {% set features = data.commonFeatures.all() ?? [] %}
+{% set spacing = data.commonSpacing ?? "default" %}
+{% if spacing == "small" %}
+    {% set spacingClass = "py-8 md:py-16" %}
+{% elseif spacing == "smallTopDefaultBottom" %}
+    {% set spacingClass = "pt-8 md:pt-16 pb-16 md:pb-32" %}
+{% elseif spacing == "smallBottomDefaultTop" %}
+    {% set spacingClass = "pt-16 md:pt-32 pb-8 md:pb-16" %}
+{% else %}
+    {% set spacingClass = "py-16 md:py-32" %}
+{% endif %}
 
 {# ========================================================================== #}
 {# :: Component #}
@@ -58,7 +68,7 @@
         }
     }"
     x-intersect.once.margin.0px.0px.-100px.0px="visible = true"
-    class="bg-primary py-16 md:py-32 relative overflow-hidden"
+    class="bg-primary {{ spacingClass }} relative overflow-hidden"
     id="{{id}}">
 
     <style>

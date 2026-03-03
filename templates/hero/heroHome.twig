@@ -5,7 +5,6 @@
 {% set subtitle = data.commonSubtitle ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
-{% set link = data.commonLink ?? null %}
 
 {# ========================================================================== #}
 {# :: Component #}
@@ -168,10 +167,10 @@
     </div>
 
     <style>
-        .hero-logo { opacity: 0.2; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
+        .hero-logo { opacity: 0.3; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
         .hero-logo-active { opacity: 0.35; transform: scale(1.3); filter: brightness(0) invert(1); }
         .hero-logo-transit { opacity: 0.25; transform: scale(1.3); filter: brightness(0) invert(1); }
-        .hero-logo-visited { opacity: 0.15; filter: brightness(0) invert(1); }
+        .hero-logo-visited { opacity: 0.3; filter: brightness(0) invert(1); }
         .hero-connection-seg { height: 2px; transform-origin: 0 50%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 6px, transparent 6px, transparent 10px); }
     </style>
 
@@ -191,15 +190,56 @@
                 <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7] animate-fade-up [animation-delay:200ms]">{{ description|striptags('<strong><br><br/>')|raw }}</p>
             {% endif %}
 
-            {% if link %}
-                <div class="animate-fade-up [animation-delay:300ms]">
-                    {% include 'components/button' with {
-                        href: link.url ?? '#',
-                        text: link.text ?? 'Learn More',
-                        variant: 'secondary',
-                    } %}
+            <div class="animate-fade-up [animation-delay:300ms]" x-data="{ submitted: {{ craft.app.request.param('success') == '1' ? 'true' : 'false' }} }">
+                {# Success state #}
+                <div x-show="submitted" x-cloak class="text-white/90 text-lg">
+                    You're on the list — we'll be in touch soon.
                 </div>
-            {% endif %}
+
+                {# Waitlist form #}
+                <form x-show="!submitted" method="post" accept-charset="UTF-8">
+                    {{ csrfInput() }}
+                    {{ actionInput('contact-form/send') }}
+                    {{ redirectInput(craft.app.request.url ~ '?success=1') }}
+                    <input type="hidden" name="subject" value="New waiting list signup">
+
+                    {# Honeypot #}
+                    <div style="position: absolute; left: -9999px;">
+                        <label for="beesknees-hero">Leave this empty</label>
+                        <input type="text" name="beesknees" id="beesknees-hero" value="">
+                    </div>
+
+                    {# Email + submit inline #}
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input
+                            type="email"
+                            name="fromEmail"
+                            id="hero-email"
+                            required
+                            placeholder="your@email.com"
+                            class="flex-1 px-4 py-3 rounded bg-white/10 border border-white/30 text-white placeholder-white/50 text-[16px] focus:outline-none focus:border-white backdrop-blur-sm"
+                        >
+                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white cursor-pointer whitespace-nowrap">
+                            Join the waitlist
+                        </button>
+                    </div>
+
+                    {# Privacy policy checkbox #}
+                    <div class="flex items-start gap-2 mt-4">
+                        <input
+                            type="checkbox"
+                            id="hero-privacy"
+                            name="message[privacyAccepted]"
+                            value="yes"
+                            required
+                            class="mt-0.5 w-4 h-4 rounded accent-primary-lightest-green cursor-pointer shrink-0"
+                        >
+                        <label for="hero-privacy" class="text-white/70 text-sm leading-snug cursor-pointer">
+                            I accept the privacy policy
+                        </label>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
