@@ -9,7 +9,7 @@ use yii\web\Response;
 
 class LeadController extends Controller
 {
-    protected array|bool|int $allowAnonymous = ['submit'];
+    protected array|bool|int $allowAnonymous = ['submit', 'waitlist'];
 
     public function actionSubmit(): Response
     {
@@ -28,7 +28,7 @@ class LeadController extends Controller
             'company'     => $request->getBodyParam('company'),
             'email'       => $request->getBodyParam('email'),
             'phone'       => $request->getBodyParam('phone'),
-            'description' => $request->getBodyParam('description'),
+            'description' => $request->getBodyParam('description') ? 'contact form: ' . $request->getBodyParam('description') : null,
         ]);
 
         $apiKey  = App::env('ZOHO_API_KEY');
@@ -67,6 +67,67 @@ class LeadController extends Controller
             ]);
         } catch (\Throwable $e) {
             Craft::error('Zoho lead submission failed: ' . $e->getMessage(), __METHOD__);
+
+            return $this->asJson([
+                'success' => false,
+                'error'   => 'Submission failed, please try again.',
+            ]);
+        }
+    }
+
+    public function actionWaitlist(): Response
+    {
+        $this->requirePostRequest();
+
+        $request = Craft::$app->getRequest();
+
+        // Honeypot check — bots fill hidden fields, humans don't
+        if ($request->getBodyParam('_gotcha') !== null && $request->getBodyParam('_gotcha') !== '') {
+            return $this->asJson(['success' => true]);
+        }
+
+        $payload = array_filter([
+            'first_name'  => '--To be filled in--',
+            'last_name'   => '--To be filled in--',
+            'email'       => $request->getBodyParam('email'),
+            'description' => 'waitlist',
+        ]);
+
+        $apiKey  = App::env('ZOHO_API_KEY');
+        $zohoUrl = 'https://www.zohoapis.eu/crm/v7/functions/create_lead_from_website/actions/execute'
+                 . '?' . http_build_query(array_merge(['auth_type' => 'apikey', 'zapikey' => $apiKey], $payload));
+
+        try {
+            $client   = Craft::createGuzzleClient();
+            $response = $client->post($zohoUrl, [
+                'http_errors' => false,
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            $body       = json_decode((string) $response->getBody(), true);
+
+            Craft::info('Zoho waitlist response [' . $statusCode . ']: ' . json_encode($body), __METHOD__);
+
+            $zohoCode = $body['code'] ?? null;
+
+            if ($statusCode >= 200 && $statusCode < 300 && $zohoCode === 'success') {
+                return $this->asJson([
+                    'success' => true,
+                    'zoho'    => $body,
+                ]);
+            }
+
+            $zohoMessage = $body['message'] ?? ($body['details']['output'] ?? 'Submission failed, please try again.');
+
+            Craft::warning('Zoho waitlist rejected [' . $statusCode . ']: ' . json_encode($body), __METHOD__);
+
+            return $this->asJson([
+                'success' => false,
+                'error'   => $zohoMessage,
+                'zoho'    => $body,
+            ]);
+        } catch (\Throwable $e) {
+            Craft::error('Zoho waitlist failed: ' . $e->getMessage(), __METHOD__);
 
             return $this->asJson([
                 'success' => false,

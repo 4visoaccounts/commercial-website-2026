@@ -201,7 +201,7 @@
                         this.submitting = true;
                         this.error = '';
                         try {
-                            const res = await fetch('/actions/lead/lead/submit', {
+                            const res = await fetch('/actions/lead/lead/waitlist', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
