@@ -38,6 +38,7 @@
 }
 .schema-logo-travel-2 { animation-delay: -30s; }
 .schema-logo-travel-3 { animation-delay: -60s; }
+.schema-center-wrapper { display: contents; }
 </style>
 
 {# ========================================================================== #}
@@ -60,15 +61,55 @@
 
             {# Schema diagram #}
             {% if schemaBlocks|length >= 4 %}
-                <div class="overflow-x-auto"
+
+                {# Mobile layout: 2×2 card grid with hub connector #}
+                <div class="md:hidden"
                     style="opacity: 0; transform: translateY(40px);"
                     :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
-                    <div class="relative min-w-[1000px] py-8 md:py-16">
+                    <div class="flex flex-col gap-3">
+                        {# Top row: modules 0 + 1 #}
+                        <div class="grid grid-cols-2 gap-3">
+                            {% for block in schemaBlocks|slice(0, 2) %}
+                                <div class="bg-schema-bg border-2 border-primary rounded-xl p-3 flex flex-col gap-2 text-left">
+                                    <div class="font-bold text-dark text-sm leading-tight">{{ block.commonTitle|striptags }}</div>
+                                    <div class="flex flex-col gap-1.5 items-start">
+                                        {% for subBlock in block.commonBlocks.all() %}
+                                            <span class="inline-block bg-peach rounded-full px-2 py-0.5 text-xs font-medium text-dark leading-snug">{{ subBlock.commonTitle|striptags|raw }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {# Center logo #}
+                        <div class="flex justify-center items-center py-1">
+                            {% include "/logos/logo-green.twig" with { customClass: 'h-8' } %}
+                        </div>
+                        {# Bottom row: modules 2 + 3 #}
+                        <div class="grid grid-cols-2 gap-3">
+                            {% for block in schemaBlocks|slice(2, 2) %}
+                                <div class="bg-schema-bg border-2 border-primary rounded-xl p-3 flex flex-col gap-2 text-left">
+                                    <div class="font-bold text-dark text-sm leading-tight">{{ block.commonTitle|striptags }}</div>
+                                    <div class="flex flex-col gap-1.5 items-start">
+                                        {% for subBlock in block.commonBlocks.all() %}
+                                            <span class="inline-block bg-peach rounded-full px-2 py-0.5 text-xs font-medium text-dark leading-snug">{{ subBlock.commonTitle|striptags|raw }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                {# Desktop layout: circle diagram #}
+                <div class="hidden md:block md:overflow-x-auto"
+                    style="opacity: 0; transform: translateY(40px);"
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+                    <div class="relative md:min-w-[1000px] py-4 md:py-16">
                         {# Flex layout: left pills | circle diagram | right pills #}
                         <div class="flex flex-row justify-center">
 
                             {# Left pill column (schemaBlocks[0] top, schemaBlocks[2] bottom) #}
-                            <div class="relative flex-shrink-0" style="width: 200px; height: 420px;">
+                            <div class="hidden md:block relative flex-shrink-0" style="width: 200px; height: 420px;">
                                 {# Top-left pills (schemaBlocks[0]) centered around y=80px #}
                                 <div class="absolute flex flex-col items-end justify-center" style="top: 0; height: 152px; left: 0; right: 0;">
                                     <div class="relative flex flex-col gap-2 items-end">
@@ -96,7 +137,8 @@
                             </div>
 
                             {# Center: dashed circle + 4 module cards + logo #}
-                            <div class="relative flex-shrink-0" style="width: 600px; height: 420px;">
+                            <div class="schema-center-wrapper">
+                            <div class="schema-center-inner relative flex-shrink-0" style="width: 600px; height: 420px;">
                                 {# Dashed circle SVG with clockwise arrowheads at cardinal points #}
                                 <svg viewBox="0 0 600 420" fill="none" class="absolute inset-0 w-full h-full pointer-events-none text-primary-dotted-line">
                                     <circle cx="300" cy="210" r="190" stroke="currentColor" stroke-width="2" stroke-dasharray="8 5"/>
@@ -118,11 +160,11 @@
                                     </div>
                                 </div>
                                 {# Connector lines: left edge → TL/BL cards #}
-                                <div class="absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="left: 0; width: 100px; top: 76px;"></div>
-                                <div class="absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="left: 0; width: 100px; top: 344px;"></div>
+                                <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="left: 0; width: 100px; top: 76px;"></div>
+                                <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="left: 0; width: 100px; top: 344px;"></div>
                                 {# Connector lines: TR/BR cards → right edge #}
-                                <div class="absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 76px;"></div>
-                                <div class="absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 344px;"></div>
+                                <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 76px;"></div>
+                                <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 344px;"></div>
                                 {# TL module card: schemaBlocks[0] at (166, 76) #}
                                 <div class="absolute inline-flex border-primary border-2 bg-schema-bg rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 166px; top: 76px; transform: translate(-50%, -50%);">
                                     {{ schemaBlocks[0].commonTitle|striptags }}
@@ -144,9 +186,10 @@
                                     {% include "/logos/logo-green.twig" with { customClass: 'h-10' } %}
                                 </div>
                             </div>
+                            </div>{# end schema-center-wrapper #}
 
                             {# Right pill column (schemaBlocks[1] top, schemaBlocks[3] bottom) #}
-                            <div class="relative flex-shrink-0" style="width: 200px; height: 420px;">
+                            <div class="hidden md:block relative flex-shrink-0" style="width: 200px; height: 420px;">
                                 {# Top-right pills (schemaBlocks[1]) centered around y=80px #}
                                 <div class="absolute flex flex-col items-start justify-center" style="top: 0; height: 152px; left: 0; right: 0;">
                                     <div class="relative flex flex-col gap-2 items-start">
