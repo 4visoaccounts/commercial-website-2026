@@ -27,6 +27,7 @@ return [
     'modules' => [
         'coming-soon' => \modules\ComingSoonModule::class,
         'product-url' => \modules\ProductUrlModule::class,
+        'lead'        => \modules\LeadModule::class,
     ],
     'bootstrap' => ['coming-soon', 'product-url'],
 ];

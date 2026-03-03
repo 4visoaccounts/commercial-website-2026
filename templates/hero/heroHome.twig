@@ -190,38 +190,59 @@
                 <p class="text-white max-w-3xl mx-auto [&_strong]:text-peach text-xl font-normal leading-[1.7] animate-fade-up [animation-delay:200ms]">{{ description|striptags('<strong><br><br/>')|raw }}</p>
             {% endif %}
 
-            <div class="animate-fade-up [animation-delay:300ms]" x-data="{ submitted: {{ craft.app.request.param('success') == '1' ? 'true' : 'false' }} }">
+            <div class="animate-fade-up [animation-delay:300ms]"
+                x-data="{
+                    email: '',
+                    privacyAccepted: false,
+                    submitting: false,
+                    submitted: false,
+                    error: '',
+                    async handleSubmit() {
+                        this.submitting = true;
+                        this.error = '';
+                        try {
+                            const res = await fetch('/actions/lead/lead/submit', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'X-CSRF-Token': '{{ craft.app.request.csrfToken }}'
+                                },
+                                body: JSON.stringify({ email: this.email })
+                            });
+                            const data = await res.json();
+                            if (!data.success) throw new Error(data.error || 'Submission failed');
+                            this.submitted = true;
+                        } catch(e) {
+                            this.error = e.message || 'Something went wrong, please try again.';
+                        } finally {
+                            this.submitting = false;
+                        }
+                    }
+                }">
                 {# Success state #}
                 <div x-show="submitted" x-cloak class="text-white/90 text-lg">
                     You're on the list — we'll be in touch soon.
                 </div>
 
                 {# Waitlist form #}
-                <form x-show="!submitted" method="post" accept-charset="UTF-8">
-                    {{ csrfInput() }}
-                    {{ actionInput('contact-form/send') }}
-                    {{ redirectInput(craft.app.request.url ~ '?success=1') }}
-                    <input type="hidden" name="subject" value="New waiting list signup">
-
-                    {# Honeypot #}
-                    <div style="position: absolute; left: -9999px;">
-                        <label for="beesknees-hero">Leave this empty</label>
-                        <input type="text" name="beesknees" id="beesknees-hero" value="">
-                    </div>
-
+                <form x-show="!submitted" @submit.prevent="handleSubmit">
                     {# Email + submit inline #}
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input
                             type="email"
-                            name="fromEmail"
+                            x-model="email"
                             id="hero-email"
                             required
                             placeholder="your@email.com"
                             class="flex-1 px-4 py-3 rounded bg-white/10 border border-white/30 text-white placeholder-white/50 text-[16px] focus:outline-none focus:border-white backdrop-blur-sm"
                         >
-                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white cursor-pointer whitespace-nowrap">
-                            Join the waitlist
-                        </button>
+                        <button
+                            type="submit"
+                            :disabled="submitting"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
+                            x-text="submitting ? 'Sending…' : 'Join the waitlist'"
+                        ></button>
                     </div>
 
                     {# Privacy policy checkbox #}
@@ -229,15 +250,17 @@
                         <input
                             type="checkbox"
                             id="hero-privacy"
-                            name="message[privacyAccepted]"
-                            value="yes"
+                            x-model="privacyAccepted"
                             required
                             class="mt-0.5 w-4 h-4 rounded accent-primary-lightest-green cursor-pointer shrink-0"
                         >
                         <label for="hero-privacy" class="text-white/70 text-sm leading-snug cursor-pointer">
-                            I accept the privacy policy
+                            I accept the <a href="/privacy-policy" class="text-white underline hover:text-primary-lightest-green transition">privacy policy</a>
                         </label>
                     </div>
+
+                    {# Error message #}
+                    <p x-show="error" x-text="error" x-cloak class="text-red-300 text-sm mt-3"></p>
                 </form>
             </div>
         </div>
