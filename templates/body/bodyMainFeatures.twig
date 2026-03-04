@@ -107,7 +107,7 @@
 
                 {# Left side: clickable features #}
                 <div class="w-1/2">
-                    <div class="border-t border-white/40">
+                    <div class="border-t border-white/40 my-12">
                         {% for feature in features %}
                             <div
                                 @click="stopAutoplay(); active = {{ loop.index0 }}"
@@ -132,7 +132,7 @@
                 </div>
 
                 {# Right side: feature image #}
-                <div class="w-1/2 bg-cover bg-center bg-no-repeat rounded p-16 relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
+                <div class="w-1/2 self-stretch bg-cover bg-center bg-no-repeat rounded p-16 relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
 
                     {# Fallback anchor (used before tile rows are detected) #}
                     <div class="bm-anchor-fallback absolute pointer-events-none" style="top: 32%; left: 22%;"></div>
@@ -146,21 +146,19 @@
                         {% endfor %}
                     </div>
 
-                    {% for feature in features %}
-                        {% set image = feature.commonAsset.one() ?? null %}
-                        {% if image %}
-                            <div x-show="active === {{ loop.index0 }}" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="relative">
-                                {% include 'components/image' with {
-                                    asset: image,
-                                    alt: feature.commonTitle|striptags,
-                                    sizes: '50vw',
-                                    class: 'w-full rounded',
-                                    lazy: false,
-                                    widths: [400, 800, 1200],
-                                } %}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                    <div class="h-full">
+                        {% for feature in features %}
+                            {% set image = feature.commonAsset.one() ?? null %}
+                            {% if image %}
+                                <div x-show="active === {{ loop.index0 }}"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0"
+                                    x-transition:enter-end="opacity-100"
+                                    class="absolute inset-0 bg-contain bg-center bg-no-repeat"
+                                    style="background-image: url('{{ image.url }}');"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         {% endif %}
