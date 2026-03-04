@@ -1,3 +1,6 @@
+# Remove all the git changes
+git checkout -- . 
+
 # full deploy
 git pull origin main
 
