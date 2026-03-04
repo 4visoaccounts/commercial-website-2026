@@ -123,7 +123,7 @@
 
                                 <div x-show="active === {{ loop.index0 }}">
                                     {% if feature.commonDescription ?? null %}
-                                        <p class="text-white mt-6">{{ feature.commonDescription|striptags }}</p>
+                                        <p class="text-white mt-6 min-h-20">{{ feature.commonDescription|striptags }}</p>
                                     {% endif %}
                                 </div>
                             </div>
