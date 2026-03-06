@@ -137,14 +137,9 @@
                     {# Fallback anchor (used before tile rows are detected) #}
                     <div class="bm-anchor-fallback absolute pointer-events-none" style="top: 32%; left: 22%;"></div>
 
-                    {# Tile background — each logo wrapped in .bm-tile for row detection #}
-                    <div class="bm-tile-container absolute inset-0 overflow-hidden pointer-events-none opacity-10 flex flex-wrap content-start gap-8 p-6">
-                        {% for i in 1..2000 %}
-                            <div class="bm-tile w-2 h-2 shrink-0">
-                                {% include "/shapes/logo.twig" with { customClass: 'w-full h-full', customColor: "#fff" } %}
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {# Tile background — CSS repeat instead of looping elements #}
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10"
+                        style="background-image: url('/assets/logo-tile.svg'); background-size: 40px 40px; background-repeat: repeat;"></div>
 
                     <div class="h-full">
                         {% for feature in features %}

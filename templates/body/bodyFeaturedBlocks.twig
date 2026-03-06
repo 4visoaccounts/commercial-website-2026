@@ -67,7 +67,9 @@
                             {% endif %}
 
                             {% if block.commonDescription ?? null %}
-                                <p class="">{{ block.commonDescription|striptags|raw }}</p>
+                                <div class="s-mainfeatures">
+                                    {{ block.commonDescription|raw }}
+                                </div>
                             {% endif %}
                         </div>
                     </div>
