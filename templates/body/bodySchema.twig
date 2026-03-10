@@ -116,7 +116,7 @@
                                         <div class="absolute right-0 top-[14px] bottom-[14px] border-r-2 border-dashed border-primary-dotted-line pointer-events-none"></div>
                                         {% for block in schemaBlocks[0].commonBlocks.all() %}
                                             <div class="flex items-center">
-                                                <span class="inline-block rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags|raw }}</span>
+                                                <span class="inline-block rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap bg-schema-bg border-2 border-primary">{{ block.commonTitle|striptags|raw }}</span>
                                                 <div class="w-6 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
                                             </div>
                                         {% endfor %}
@@ -128,7 +128,7 @@
                                         <div class="absolute right-0 top-[14px] bottom-[14px] border-r-2 border-dashed border-primary-dotted-line pointer-events-none"></div>
                                         {% for block in schemaBlocks[2].commonBlocks.all() %}
                                             <div class="flex items-center">
-                                                <span class="inline-block rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap bg-peach">{{ block.commonTitle|striptags|raw }}</span>
+                                                <span class="inline-block rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap bg-schema-bg border-2 border-primary">{{ block.commonTitle|striptags|raw }}</span>
                                                 <div class="w-6 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
                                             </div>
                                         {% endfor %}
@@ -166,19 +166,19 @@
                                 <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 76px;"></div>
                                 <div class="hidden md:block absolute border-t-2 border-dashed border-primary-dotted-line pointer-events-none" style="right: 0; width: 100px; top: 344px;"></div>
                                 {# TL module card: schemaBlocks[0] at (166, 76) #}
-                                <div class="absolute inline-flex border-primary border-2 bg-schema-bg rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 166px; top: 76px; transform: translate(-50%, -50%);">
+                                <div class="absolute inline-flex border-peach border-2 bg-peach rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 166px; top: 76px; transform: translate(-50%, -50%);">
                                     {{ schemaBlocks[0].commonTitle|striptags }}
                                 </div>
                                 {# TR module card: schemaBlocks[1] at (434, 76) #}
-                                <div class="absolute inline-flex border-primary border-2 bg-schema-bg rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 434px; top: 76px; transform: translate(-50%, -50%);">
+                                <div class="absolute inline-flex border-peach border-2 bg-peach rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 434px; top: 76px; transform: translate(-50%, -50%);">
                                     {{ schemaBlocks[1].commonTitle|striptags }}
                                 </div>
                                 {# BL module card: schemaBlocks[2] at (166, 344) #}
-                                <div class="absolute inline-flex border-primary border-2 bg-schema-bg rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 166px; top: 344px; transform: translate(-50%, -50%);">
+                                <div class="absolute inline-flex border-peach border-2 bg-peach rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 166px; top: 344px; transform: translate(-50%, -50%);">
                                     {{ schemaBlocks[2].commonTitle|striptags }}
                                 </div>
                                 {# BR module card: schemaBlocks[3] at (434, 344) #}
-                                <div class="absolute inline-flex border-primary border-2 bg-schema-bg rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 434px; top: 344px; transform: translate(-50%, -50%);">
+                                <div class="absolute inline-flex border-peach border-2 bg-peach rounded-full px-6 py-3 font-bold text-dark whitespace-nowrap text-md" style="left: 434px; top: 344px; transform: translate(-50%, -50%);">
                                     {{ schemaBlocks[3].commonTitle|striptags }}
                                 </div>
                                 {# Center logo #}
@@ -197,7 +197,7 @@
                                         {% for block in schemaBlocks[1].commonBlocks.all() %}
                                             <div class="flex items-center">
                                                 <div class="w-6 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
-                                                <span class="inline-block bg-peach rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
+                                                <span class="inline-block bg-schema-bg border-2 border-primary rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
                                             </div>
                                         {% endfor %}
                                     </div>
@@ -209,7 +209,7 @@
                                         {% for block in schemaBlocks[3].commonBlocks.all() %}
                                             <div class="flex items-center">
                                                 <div class="w-6 shrink-0 border-t-2 border-dashed border-primary-dotted-line"></div>
-                                                <span class="inline-block bg-peach rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
+                                                <span class="inline-block bg-schema-bg border-2 border-primary rounded-full px-3 py-1.5 text-sm font-medium text-dark whitespace-nowrap">{{ block.commonTitle|striptags|raw }}</span>
                                             </div>
                                         {% endfor %}
                                     </div>
