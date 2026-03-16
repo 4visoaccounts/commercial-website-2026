@@ -56,15 +56,28 @@
                 this[oKey] = 1;
                 const all = this.$el.querySelectorAll('.hero-logo');
                 if (!all.length) return;
+                const contentEl = this.$el.parentElement.querySelector('.container');
+                const cRect = contentEl ? contentEl.getBoundingClientRect() : null;
+                const allArr = Array.from(all);
+                const safe = cRect
+                    ? allArr.filter(el => {
+                          const r = el.getBoundingClientRect();
+                          return r.right < cRect.left || r.left > cRect.right ||
+                                 r.bottom < cRect.top || r.top > cRect.bottom;
+                      })
+                    : allArr;
+                if (safe.length < 2) { await new Promise(r=>setTimeout(r,1000)); return; }
                 let a, b, attempts = 0;
                 do {
-                    a = Math.floor(Math.random()*all.length);
-                    b = Math.floor(Math.random()*all.length);
-                    const dist = Math.abs(Math.floor(a/this.cols)-Math.floor(b/this.cols))
-                               + Math.abs((a%this.cols)-(b%this.cols));
+                    a = Math.floor(Math.random()*safe.length);
+                    b = Math.floor(Math.random()*safe.length);
+                    const aIdx = allArr.indexOf(safe[a]);
+                    const bIdx = allArr.indexOf(safe[b]);
+                    const dist = Math.abs(Math.floor(aIdx/this.cols)-Math.floor(bIdx/this.cols))
+                               + Math.abs((aIdx%this.cols)-(bIdx%this.cols));
                     if (dist>=8 && dist<=18) break;
                 } while (++attempts < 200);
-                const path = this.buildPath(a, b, all);
+                const path = this.buildPath(allArr.indexOf(safe[a]), allArr.indexOf(safe[b]), all);
                 if (path.length < 2) { await new Promise(r=>setTimeout(r,1000)); return; }
                 this[aKey] = path;
                 path[0].classList.add('hero-logo-active');
@@ -102,6 +115,7 @@
                 this.logoArray = Array.from({length: cols * rows}, (_, i) => i);
                 this._startJourney2 = false;
                 const gen = ++this._gen;
+                if (window.innerWidth < 768) return; // Mobile: static grid only, no animation
                 // Journey 1 — starts after initial delay
                 (async () => {
                     await new Promise(r => setTimeout(r, 1000));
