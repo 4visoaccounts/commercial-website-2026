@@ -209,7 +209,8 @@
                     email: '',
                     privacyAccepted: false,
                     submitting: false,
-                    submitted: false,
+                    justSubmitted: false,
+                    alreadyOnList: localStorage.getItem('waitlistSubmitted') === '1',
                     error: '',
                     async handleSubmit() {
                         this.submitting = true;
@@ -226,7 +227,8 @@
                             });
                             const data = await res.json();
                             if (!data.success) throw new Error(data.error || 'Submission failed');
-                            this.submitted = true;
+                            this.justSubmitted = true;
+                            localStorage.setItem('waitlistSubmitted', '1');
                         } catch(e) {
                             this.error = e.message || 'Something went wrong, please try again.';
                         } finally {
@@ -234,13 +236,20 @@
                         }
                     }
                 }">
-                {# Success state #}
-                <div x-show="submitted" x-cloak class="text-white/90 text-lg">
-                    You're on the list — we'll be in touch soon.
+                {# Just submitted this session — confirmation message #}
+                <div x-show="justSubmitted" x-cloak class="text-white/90 text-lg">
+                    You've been added to the waiting list — we'll be in touch soon.
+                </div>
+
+                {# Returning visitor already on list — Let's talk button #}
+                <div x-show="alreadyOnList && !justSubmitted" x-cloak>
+                    <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white">
+                        Let's talk
+                    </a>
                 </div>
 
                 {# Waitlist form #}
-                <form x-show="!submitted" @submit.prevent="handleSubmit">
+                <form x-show="!justSubmitted && !alreadyOnList" @submit.prevent="handleSubmit">
                     {# Email + submit inline #}
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input
