@@ -2,11 +2,11 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   -
-    uid: 659c8bf8-75e8-4774-ac98-23f4823d5688 # benefits
-handle: benefits
+    uid: fd7abea2-fcbf-4b1b-a85f-618a52111a44 # News body
+handle: news
 maxAuthors: 1
 minAuthors: 1
-name: benefits
+name: news
 previewTargets:
   -
     label: 'Primary entry page'
@@ -17,6 +17,6 @@ siteSettings:
   e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
     enabledByDefault: true
     hasUrls: true
-    template: benefits/_entry.twig
-    uriFormat: 'benefits/{slug}'
+    template: news/_entry.twig
+    uriFormat: 'news/{slug}'
 type: channel

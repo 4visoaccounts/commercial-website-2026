@@ -1,0 +1,142 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set news = craft.entries().section('news').orderBy('postDate desc').all() %}
+{% set color = data.commonColor ?? "peach" %}
+{% set spacing = data.commonSpacing ?? "default" %}
+{% if spacing == "small" %}
+    {% set spacingClass = "py-8 md:py-16" %}
+{% elseif spacing == "smallTopDefaultBottom" %}
+    {% set spacingClass = "pt-8 md:pt-16 pb-16 md:pb-32" %}
+{% elseif spacing == "smallBottomDefaultTop" %}
+    {% set spacingClass = "pt-16 md:pt-32 pb-8 md:pb-16" %}
+{% else %}
+    {% set spacingClass = "py-16 md:py-32" %}
+{% endif %}
+
+{% if color == "green" %}
+    {% set bgClass = "bg-primary" %}
+    {% set titleClass = "text-white" %}
+    {% set descClass = "text-white" %}
+    {% set logoColor = "#B7E5BA" %}
+{% else %}
+    {% set bgClass = "bg-peach" %}
+    {% set titleClass = "" %}
+    {% set descClass = "" %}
+    {% set logoColor = "#288760" %}
+{% endif %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section
+    x-data="{
+        visible: false,
+        current: 0,
+        total: {{ news|length }},
+        perPage() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; },
+        maxIndex() { return Math.max(0, this.total - this.perPage()); },
+        prev() { this.current = Math.max(0, this.current - 1); },
+        next() { this.current = Math.min(this.maxIndex(), this.current + 1); },
+        canPrev() { return this.current > 0; },
+        canNext() { return this.current < this.maxIndex(); },
+        offset() { return `translateX(calc(-${this.current} * (100% / ${this.perPage()})))`; }
+    }"
+    x-intersect.once.margin.0px.0px.-100px.0px="visible = true"
+    class="{{ bgClass }} relative overflow-hidden"
+    id="{{ id }}">
+
+    <div class="container mx-auto px-4 lg:px-8 {{ spacingClass }} relative">
+
+
+        {# Header: centered title + description, arrows below #}
+        <div class="text-center mb-12"
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
+            {% if title %}
+                <h2 class="mb-4 {{ titleClass }}">{{ title|striptags|raw }}</h2>
+            {% endif %}
+            {% if description %}
+                <p class="max-w-2xl mx-auto {{ descClass }}">{{ description|striptags }}</p>
+            {% endif %}
+        </div>
+
+        {% if news|length > 3 %}
+            <div class="flex justify-end mb-8"
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 100ms ease-out, transform 0.5s 100ms ease-out;`">
+                <div class="flex items-center gap-2">
+                    <button
+                        @click="prev()"
+                        :disabled="!canPrev()"
+                        :class="canPrev() ? 'bg-white/80 border-white text-primary-pine hover:bg-white' : 'bg-white/30 border-white/30 text-primary-pine/30 cursor-not-allowed'"
+                        class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200">
+                        <i class="ph ph-arrow-left"></i>
+                    </button>
+                    <button
+                        @click="next()"
+                        :disabled="!canNext()"
+                        :class="canNext() ? 'bg-white/80 border-white text-primary-pine hover:bg-white' : 'bg-white/30 border-white/30 text-primary-pine/30 cursor-not-allowed'"
+                        class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200">
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        {% else %}
+            <div class="mb-8"></div>
+        {% endif %}
+
+        {# Cards carousel #}
+        {% if news|length %}
+            <div class="">
+                <div class="flex gap-6"
+                    :style="`transform: ${offset()}; transition: transform 0.5s ease-in-out; opacity: ${visible ? 1 : 0};`"
+                    style="opacity: 0; transition: opacity 0.5s 150ms ease-out;">
+
+                    {% for item in news %}
+                        {% set image = item.commonAsset.one() ?? null %}
+                        <div class="relative shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+
+                            {% if loop.first or loop.last %}
+                                <div class="flex gap-6 flex-col absolute pointer-events-none {{ loop.first ? '-top-[40px] -left-[80px]' : '-bottom-[40px] -right-[80px]' }}">
+                                    {% for i in 1..6 %}
+                                        <div class="flex gap-6">
+                                            {% for j in 1..6 %}
+                                                {% include "/shapes/logo.twig" with { customClass: 'w-3 h-3 shrink-0', customColor: logoColor } %}
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        <a href="{{ item.url }}"
+                            class="block w-full aspect-[4/3] rounded-xl overflow-hidden group no-underline relative hover:-translate-y-1 transition-all duration-300"
+                            style="opacity: 0; transform: translateY(40px);"
+                            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out, transform 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out;`">
+
+                            {# Background image #}
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                style="background-image: url('{{ image ? image.getUrl({ width: 900, format: 'webp', quality: 80 }) : '' }}');"></div>
+
+                            {# Gradient overlay #}
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+                            {# Content #}
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="text-xs font-medium text-white/70 uppercase tracking-widest block mb-2">{{ item.postDate|date('M j, Y') }}</span>
+                                <h5 class="text-white font-semibold leading-snug">{{ item.title|striptags }}</h5>
+                            </div>
+
+                        </a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+</section>

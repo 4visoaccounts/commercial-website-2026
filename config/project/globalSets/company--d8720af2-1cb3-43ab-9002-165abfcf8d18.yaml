@@ -11,10 +11,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 94a763f2-e57b-4935-af96-eec8b1710e03 # mail
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -28,10 +26,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 598e3601-950d-468c-8fbf-d03d7a4c4b29 # phone
             handle: commonPhone
-            includeInCards: false
             instructions: null
             label: phone
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -45,10 +41,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 2e3dc8e8-0706-4278-9355-7b9a9d2157d4
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -62,10 +56,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 86969438-8d1d-4ed2-b295-3cb890a11187 # Latitude
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -79,10 +71,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 5e479818-3d04-47c4-90b4-1eb87829b75d # Longtitude
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

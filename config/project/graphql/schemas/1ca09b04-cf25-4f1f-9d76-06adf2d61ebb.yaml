@@ -5,3 +5,5 @@ scope:
   - 'sections.289f1239-4e1e-4a9e-b365-f1be0eb33d64:read'
   - 'sections.76b9b340-6901-4b36-8142-34f7ca8a8380:read'
   - 'sections.7554f5ee-e901-410e-b44f-0b6ea2edec24:read'
+  - 'directive:parseRefs'
+  - 'directive:transform'

@@ -5,6 +5,7 @@ entryTypes:
     uid: eca69990-a706-4bb6-bd0d-3cbb761cd63f # Schema block
 handle: schemaBlock
 maxAuthors: 1
+minAuthors: 1
 name: 'schema block'
 previewTargets:
   -

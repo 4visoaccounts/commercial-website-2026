@@ -13,10 +13,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -30,10 +28,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 3c0db815-178c-49a9-a72b-f56d2bc4b8a8 # Hero
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -47,10 +43,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -70,10 +64,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

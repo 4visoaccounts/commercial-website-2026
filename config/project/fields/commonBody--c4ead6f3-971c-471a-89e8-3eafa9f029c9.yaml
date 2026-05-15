@@ -52,6 +52,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 9b708e81-e451-4724-adba-ed36bc42d17d # Body: news
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
           - 351ca9ec-c237-4655-94ff-e464febdf235 # Body numbers
         -
           - group

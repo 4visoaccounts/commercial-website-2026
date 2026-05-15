@@ -5,6 +5,7 @@ entryTypes:
     uid: eb1fe321-4bb0-403f-9d7f-de5de38200c3 # feature
 handle: features
 maxAuthors: 1
+minAuthors: 1
 name: feature
 previewTargets:
   -

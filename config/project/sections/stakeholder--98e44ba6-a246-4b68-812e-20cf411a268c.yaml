@@ -5,6 +5,7 @@ entryTypes:
     uid: 365c9d07-5bc9-4680-bd19-2683c2980c5c # stakeholder
 handle: stakeholder
 maxAuthors: 1
+minAuthors: 1
 name: stakeholder
 previewTargets:
   -

@@ -1,1 +1,4 @@
-* Lijn mag echt niet door de titel gaan 
+* anytype of consent 
+* store of cookie? 
+* fix broken links (???)
+* what about the 

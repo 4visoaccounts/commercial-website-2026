@@ -9,6 +9,7 @@ entryTypes:
     uid: 1c718c41-bce2-4c99-8c5a-489cc028f4be # blog overview
 handle: pages
 maxAuthors: 1
+minAuthors: 1
 name: pages
 previewTargets:
   -

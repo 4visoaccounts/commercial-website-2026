@@ -40,14 +40,6 @@ settings:
         -
           - group
           - General
-    -
-      __assoc__:
-        -
-          - uid
-          - 35a07891-bdfe-4e96-be8d-a63b5ac50ee6 # Product cta block
-        -
-          - group
-          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

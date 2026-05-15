@@ -7,12 +7,12 @@
     }
   },
   "require": {
-    "craftcms/ckeditor": "^4.10",
-    "craftcms/cms": "5.8.20",
+    "craftcms/ckeditor": "^5.6.1",
+    "craftcms/cms": "5.10.1",
     "ether/seo": "5.0.0",
     "presseddigital/linkit": "5.0.0",
-    "spicyweb/craft-neo": "5.5.3",
-    "verbb/field-manager": "^4.0",
+    "spicyweb/craft-neo": "5.5.8",
+    "verbb/field-manager": "4.0.4",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
