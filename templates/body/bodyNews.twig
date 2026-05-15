@@ -4,6 +4,7 @@
 {% set id = data.commonId ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
+{% set showAll = data.newsShowAll ?? false %}
 {% set news = craft.entries().section('news').orderBy('postDate desc').all() %}
 {% set color = data.commonColor ?? "peach" %}
 {% set spacing = data.commonSpacing ?? "default" %}
@@ -22,12 +23,21 @@
     {% set titleClass = "text-white" %}
     {% set descClass = "text-white" %}
     {% set logoColor = "#B7E5BA" %}
+{% elseif color == "white" %}
+    {% set bgClass = "bg-white" %}
+    {% set titleClass = "" %}
+    {% set descClass = "" %}
+    {% set logoColor = "#288760" %}
 {% else %}
     {% set bgClass = "bg-peach" %}
     {% set titleClass = "" %}
     {% set descClass = "" %}
     {% set logoColor = "#288760" %}
 {% endif %}
+
+{% set hasHeader = title or description %}
+{% set showArrows = (not showAll) and news|length > 3 %}
+{% set cardWidthClass = showAll ? '' : 'shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]' %}
 
 {# ========================================================================== #}
 {# :: Component #}
@@ -51,20 +61,22 @@
 
     <div class="container mx-auto px-4 lg:px-8 {{ spacingClass }} relative">
 
+        {# Header — only render if title or description exist #}
+        {% if hasHeader %}
+            <div class="text-center mb-12"
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
+                {% if title %}
+                    <h2 class="mb-4 {{ titleClass }}">{{ title|striptags|raw }}</h2>
+                {% endif %}
+                {% if description %}
+                    <p class="max-w-2xl mx-auto {{ descClass }}">{{ description|striptags }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
 
-        {# Header: centered title + description, arrows below #}
-        <div class="text-center mb-12"
-            style="opacity: 0; transform: translateY(40px);"
-            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
-            {% if title %}
-                <h2 class="mb-4 {{ titleClass }}">{{ title|striptags|raw }}</h2>
-            {% endif %}
-            {% if description %}
-                <p class="max-w-2xl mx-auto {{ descClass }}">{{ description|striptags }}</p>
-            {% endif %}
-        </div>
-
-        {% if news|length > 3 %}
+        {# Carousel arrows — only in carousel mode when there are more items than fit #}
+        {% if showArrows %}
             <div class="flex justify-end mb-8"
                 style="opacity: 0; transform: translateY(40px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 100ms ease-out, transform 0.5s 100ms ease-out;`">
@@ -85,22 +97,26 @@
                     </button>
                 </div>
             </div>
-        {% else %}
-            <div class="mb-8"></div>
         {% endif %}
 
-        {# Cards carousel #}
+        {# Cards — grid (show all) or carousel #}
         {% if news|length %}
-            <div class="">
-                <div class="flex gap-6"
-                    :style="`transform: ${offset()}; transition: transform 0.5s ease-in-out; opacity: ${visible ? 1 : 0};`"
-                    style="opacity: 0; transition: opacity 0.5s 150ms ease-out;">
+            {% if showAll %}
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                    style="opacity: 0; transition: opacity 0.5s 150ms ease-out;"
+                    :style="`opacity: ${visible ? 1 : 0};`">
+            {% else %}
+                <div>
+                    <div class="flex gap-6"
+                        style="opacity: 0; transition: opacity 0.5s 150ms ease-out;"
+                        :style="`transform: ${offset()}; transition: transform 0.5s ease-in-out; opacity: ${visible ? 1 : 0};`">
+            {% endif %}
 
                     {% for item in news %}
                         {% set image = item.commonAsset.one() ?? null %}
-                        <div class="relative shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                        <div class="relative {{ cardWidthClass }}">
 
-                            {% if loop.first or loop.last %}
+                            {% if not showAll and (loop.first or loop.last) %}
                                 <div class="flex gap-6 flex-col absolute pointer-events-none {{ loop.first ? '-top-[40px] -left-[80px]' : '-bottom-[40px] -right-[80px]' }}">
                                     {% for i in 1..6 %}
                                         <div class="flex gap-6">
@@ -112,30 +128,34 @@
                                 </div>
                             {% endif %}
 
-                        <a href="{{ item.url }}"
-                            class="block w-full aspect-[4/3] rounded-xl overflow-hidden group no-underline relative hover:-translate-y-1 transition-all duration-300"
-                            style="opacity: 0; transform: translateY(40px);"
-                            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out, transform 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out;`">
+                            <a href="{{ item.url }}"
+                                class="block w-full aspect-[4/3] rounded-xl overflow-hidden group no-underline relative hover:-translate-y-1 transition-all duration-300"
+                                style="opacity: 0; transform: translateY(40px);"
+                                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out, transform 0.5s {{ (loop.index0 * 100) + 200 }}ms ease-out;`">
 
-                            {# Background image #}
-                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                                style="background-image: url('{{ image ? image.getUrl({ width: 900, format: 'webp', quality: 80 }) : '' }}');"></div>
+                                {# Background image #}
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                    style="background-image: url('{{ image ? image.getUrl({ width: 900, format: 'webp', quality: 80 }) : '' }}');"></div>
 
-                            {# Gradient overlay #}
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                {# Gradient overlay #}
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                            {# Content #}
-                            <div class="absolute bottom-0 left-0 right-0 p-6">
-                                <time datetime="{{ item.postDate|atom }}" class="text-xs font-medium text-white/70 uppercase tracking-widest block mb-2">{{ item.postDate|date('M j, Y') }}</time>
-                                <h3 class="text-white font-semibold leading-snug text-base md:text-lg">{{ item.title|striptags }}</h3>
-                            </div>
+                                {# Content #}
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <time datetime="{{ item.postDate|atom }}" class="text-xs font-medium text-white/70 uppercase tracking-widest block mb-2">{{ item.postDate|date('M j, Y') }}</time>
+                                    <h3 class="text-white font-semibold leading-snug text-base md:text-lg">{{ item.title|striptags }}</h3>
+                                </div>
 
-                        </a>
+                            </a>
                         </div>
                     {% endfor %}
 
+            {% if showAll %}
                 </div>
-            </div>
+            {% else %}
+                    </div>
+                </div>
+            {% endif %}
         {% endif %}
 
     </div>

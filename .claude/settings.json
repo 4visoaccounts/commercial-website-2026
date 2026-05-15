@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(awk '/^  cd9adbe1-1422-4f5e-978e-2cd40e78d3ed:/,/^  [a-z0-9]+-[a-z0-9]+/' /Users/collinvandervorst/Code/4viso/commercial-website-2026/config/project/project.yaml)"
     ]
   }
 }

@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: green
 description: null
 fieldLayouts:
@@ -11,6 +12,7 @@ fieldLayouts:
             dateAdded: '2025-10-21T12:51:41+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
             handle: null
             instructions: null
@@ -26,6 +28,7 @@ fieldLayouts:
             dateAdded: '2025-11-09T12:53:40+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 3c0db815-178c-49a9-a72b-f56d2bc4b8a8 # Hero
             handle: null
             instructions: null
@@ -41,6 +44,7 @@ fieldLayouts:
             dateAdded: '2025-10-30T15:55:49+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c4ead6f3-971c-471a-89e8-3eafa9f029c9 # Body
             handle: null
             instructions: null
@@ -62,6 +66,7 @@ fieldLayouts:
             dateAdded: '2025-11-24T12:39:37+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
             handle: null
             instructions: null
@@ -76,6 +81,7 @@ fieldLayouts:
         name: Seo
         uid: bc3fe875-b577-410e-bcfc-1793d2100f05
         userCondition: null
+    thumbFieldKey: null
 handle: pages
 hasTitleField: false
 icon: memo
@@ -84,6 +90,7 @@ showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: '{commonTitle}'
+titleFormat: '{commonTitle|striptags}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'
