@@ -116,7 +116,7 @@
                         {% set image = item.commonAsset.one() ?? null %}
                         <div class="relative {{ cardWidthClass }}">
 
-                            {% if not showAll and (loop.first or loop.last) %}
+                            {% if not showAll and color == "green" and (loop.first or loop.last) %}
                                 <div class="flex gap-6 flex-col absolute pointer-events-none {{ loop.first ? '-top-[40px] -left-[80px]' : '-bottom-[40px] -right-[80px]' }}">
                                     {% for i in 1..6 %}
                                         <div class="flex gap-6">

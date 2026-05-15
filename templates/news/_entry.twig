@@ -152,7 +152,8 @@
                 });
             }
         }"
-        class="absolute inset-0 overflow-hidden pointer-events-none"
+        class="absolute inset-x-0 top-0 overflow-hidden pointer-events-none"
+        style="bottom: 180px;"
     >
         <div class="absolute inset-0 flex flex-wrap content-start gap-8 p-6">
             <template x-for="i in logoArray" :key="i">
@@ -198,16 +199,18 @@
         <div class="relative w-full overflow-hidden rounded-xl bg-primary-pine animate-fade-up"
             style="min-height: 50vh; margin-bottom: -180px;">
 
-            {# Hero image — <img> absolute-positioned so it escapes <picture> flow and fills the card #}
+            {# Hero image — direct <img> for reliable absolute positioning (component's <picture> wrapper interferes) #}
             {% if image %}
-                {% include 'components/image' with {
-                    asset: image,
-                    alt: (entry.commonTitle ?? entry.title)|striptags,
-                    class: 'absolute inset-0 w-full h-full object-cover object-center',
-                    sizes: '100vw',
-                    widths: [800, 1200, 1600],
-                    lazy: false,
-                } %}
+                <img
+                    src="{{ image.getUrl({ width: 1600, format: 'webp', quality: 80 }) }}"
+                    srcset="{{ image.getUrl({ width: 800, format: 'webp', quality: 80 }) }} 800w, {{ image.getUrl({ width: 1200, format: 'webp', quality: 80 }) }} 1200w, {{ image.getUrl({ width: 1600, format: 'webp', quality: 80 }) }} 1600w"
+                    sizes="100vw"
+                    alt="{{ (entry.commonTitle ?? entry.title)|striptags }}"
+                    class="absolute inset-0 w-full h-full object-cover object-center"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                >
             {% endif %}
 
             {# Gradient overlay #}
@@ -336,13 +339,15 @@
                         <a href="{{ item.url }}"
                             class="block relative aspect-[4/3] rounded-xl overflow-hidden group no-underline hover:-translate-y-1 transition-transform duration-300">
                             {% if itemImage %}
-                                {% include 'components/image' with {
-                                    asset: itemImage,
-                                    alt: (item.commonTitle ?? item.title)|striptags,
-                                    class: 'absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105',
-                                    sizes: '(max-width: 768px) 100vw, 33vw',
-                                    widths: [400, 600, 900],
-                                } %}
+                                <img
+                                    src="{{ itemImage.getUrl({ width: 900, format: 'webp', quality: 80 }) }}"
+                                    srcset="{{ itemImage.getUrl({ width: 400, format: 'webp', quality: 80 }) }} 400w, {{ itemImage.getUrl({ width: 600, format: 'webp', quality: 80 }) }} 600w, {{ itemImage.getUrl({ width: 900, format: 'webp', quality: 80 }) }} 900w"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    alt="{{ (item.commonTitle ?? item.title)|striptags }}"
+                                    class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
                             {% endif %}
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 right-0 p-6">
