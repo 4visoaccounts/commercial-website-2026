@@ -14,7 +14,11 @@
 {# ========================================================================== #}
 {# :: Hero — image card inside container, animated gradient bg behind        #}
 {# ========================================================================== #}
-<section class="text-white bg-cover bg-center bg-no-repeat relative z-10 pt-24 md:pt-40" style="background-image: url('/assets/gradient.png');">
+<article>
+<header class="text-white relative z-10 pt-24 md:pt-40">
+    {# Green gradient bg — stops 180px short of the section bottom so the image card overflows onto the white below #}
+    <div class="absolute inset-x-0 top-0 bg-cover bg-center bg-no-repeat" style="bottom: 180px; background-image: url('/assets/gradient.png');"></div>
+
     {# Animated logo grid with supply-chain transport animation #}
     <div
         x-data="{
@@ -194,10 +198,16 @@
         <div class="relative w-full overflow-hidden rounded-xl bg-primary-pine animate-fade-up"
             style="min-height: 50vh; margin-bottom: -180px;">
 
-            {# Background image #}
+            {# Hero image — <img> absolute-positioned so it escapes <picture> flow and fills the card #}
             {% if image %}
-                <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('{{ image.getUrl({ width: 1600, format: 'webp', quality: 80 }) }}');"></div>
+                {% include 'components/image' with {
+                    asset: image,
+                    alt: (entry.commonTitle ?? entry.title)|striptags,
+                    class: 'absolute inset-0 w-full h-full object-cover object-center',
+                    sizes: '100vw',
+                    widths: [800, 1200, 1600],
+                    lazy: false,
+                } %}
             {% endif %}
 
             {# Gradient overlay #}
@@ -207,9 +217,9 @@
             <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                 <div class="max-w-3xl">
                     {% if entry.postDate %}
-                        <span class="block text-xs font-medium text-white/70 uppercase tracking-widest mb-3 animate-fade-up [animation-delay:100ms]">
+                        <time datetime="{{ entry.postDate|atom }}" class="block text-xs font-medium text-white/70 uppercase tracking-widest mb-3 animate-fade-up [animation-delay:100ms]">
                             {{ entry.postDate|date('M j, Y') }}
-                        </span>
+                        </time>
                     {% endif %}
                     {% if entry.commonTitle %}
                         <h1 class="text-white animate-fade-up [animation-delay:200ms]">
@@ -220,7 +230,7 @@
             </div>
         </div>
     </div>
-</section>
+</header>
 
 {# ========================================================================== #}
 {# :: Article Body                                                              #}
@@ -304,5 +314,53 @@
         </div>
     </div>
 </div>
+
+{# ========================================================================== #}
+{# :: Related news                                                              #}
+{# ========================================================================== #}
+{% set related = craft.entries()
+    .section('news')
+    .id(['not', entry.id])
+    .orderBy('postDate desc')
+    .limit(3)
+    .all() %}
+
+{% if related|length %}
+    <footer class="bg-white pb-16 md:pb-24">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="mb-8 text-dark">Related news</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {% for item in related %}
+                        {% set itemImage = item.commonAsset.one() ?? null %}
+                        <a href="{{ item.url }}"
+                            class="block relative aspect-[4/3] rounded-xl overflow-hidden group no-underline hover:-translate-y-1 transition-transform duration-300">
+                            {% if itemImage %}
+                                {% include 'components/image' with {
+                                    asset: itemImage,
+                                    alt: (item.commonTitle ?? item.title)|striptags,
+                                    class: 'absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105',
+                                    sizes: '(max-width: 768px) 100vw, 33vw',
+                                    widths: [400, 600, 900],
+                                } %}
+                            {% endif %}
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                {% if item.postDate %}
+                                    <time datetime="{{ item.postDate|atom }}" class="text-xs font-medium text-white/70 uppercase tracking-widest block mb-2">
+                                        {{ item.postDate|date('M j, Y') }}
+                                    </time>
+                                {% endif %}
+                                <h3 class="text-white font-semibold leading-snug text-lg">{{ (item.commonTitle ?? item.title)|striptags }}</h3>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endif %}
+
+</article>
 
 {% endblock %}

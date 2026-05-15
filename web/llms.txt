@@ -1,0 +1,21 @@
+# 4viso
+
+> 4viso is a Belgium-based company building supply-chain technology that connects manufacturers, logistics providers, and downstream partners. This site is the public marketing presence for the company, its product, news, and team.
+
+Replace this paragraph with the official one-sentence pitch before publishing.
+
+## Core pages
+
+- [Home](https://4viso.com/): Company overview and waiting-list signup.
+- [News](https://4viso.com/news): Product updates, company announcements, industry commentary.
+
+## Company
+
+- Legal name: 4viso
+- Address: Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium
+- LinkedIn: replace-with-linkedin-url
+
+## Optional
+
+- [Privacy policy](https://4viso.com/privacy_policy.html)
+- [Terms and conditions](https://4viso.com/terms_and_conditions.html)

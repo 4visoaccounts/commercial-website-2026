@@ -1,0 +1,90 @@
+{# ========================================================================== #}
+{# :: Custom SEO meta template (ether/seo override)                            #}
+{# :: Wired via config/seo.php → metaTemplate                                  #}
+{# ::                                                                          #}
+{# :: Behavior:                                                                #}
+{# ::   1. If the entry's SEO field has a title/description, use those.        #}
+{# ::   2. Otherwise fall back to content-derived values:                      #}
+{# ::      - title:       entry.commonTitle, then entry.title, then siteName   #}
+{# ::      - description: entry.commonDescription, then first wysiwyg block,   #}
+{# ::                     then plugin default                                  #}
+{# ========================================================================== #}
+
+{% set seoField = getSeoField() %}
+
+{# ---- Title fallback (content-derived) ------------------------------------ #}
+{% set fallbackTitle = '' %}
+{% if entry is defined and entry %}
+    {% if entry.commonTitle ?? '' %}
+        {% set fallbackTitle = entry.commonTitle|striptags %}
+    {% elseif entry.title ?? '' %}
+        {% set fallbackTitle = entry.title|striptags %}
+    {% endif %}
+{% endif %}
+
+{# ---- Description fallback (content-derived) ------------------------------ #}
+{% set fallbackDescription = '' %}
+{% if entry is defined and entry %}
+    {% if entry.commonDescription ?? '' %}
+        {% set fallbackDescription = entry.commonDescription|striptags|slice(0, 200) %}
+    {% else %}
+        {% set wysiwyg = entry.commonWysiwyg ?? null %}
+        {% if wysiwyg %}
+            {% for block in wysiwyg.all() %}
+                {% if loop.first and block.type.handle == 'commonWysiwygBlock' and (block.commonDescription ?? '') %}
+                    {% set fallbackDescription = block.commonDescription|striptags|slice(0, 200) %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+{# Decide whether the field gave us a real title; if not, build a custom SEO model #}
+{% if seoField is null or seoField.title == '' %}
+    {% set seo = craft.seo.custom(fallbackTitle ?: siteName, fallbackDescription, false) %}
+{% else %}
+    {% set seo = seoField %}
+{% endif %}
+
+{# Final values — prefer the SEO field, fall back to content-derived #}
+{% set finalTitle = seo.title ?: (fallbackTitle ?: siteName) %}
+{% set finalDescription = seo.description ?: fallbackDescription %}
+
+{% set locale = craft.app.locale %}
+{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
+
+<title>{{ finalTitle }}</title>
+<meta name="description" content="{{ finalDescription }}" />
+
+{% set fb = seo.social.facebook -%}
+<meta property="fb:app_id" content="{{ fb.handle }}">
+<meta property="og:url" content="{{ seo.absolute }}" />
+<meta property="og:type" content="{{ entry is defined and entry and entry.section is defined and entry.section.handle == 'news' ? 'article' : 'website' }}" />
+<meta property="og:title" content="{{ fb.title ?: finalTitle }}" />
+<meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:description" content="{{ fb.description ?: finalDescription }}" />
+<meta property="og:site_name" content="{{ siteName }}" />
+<meta property="og:locale" content="{{ locale|replace('-', '_') }}" />
+{% for l in locales -%}
+    <meta property="og:locale:alternate" content="{{ l|replace('-', '_') }}" />
+{% endfor %}
+
+{% set tw = seo.social.twitter -%}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="{{ tw.handle }}" />
+<meta name="twitter:url" content="{{ seo.absolute }}" />
+<meta name="twitter:title" content="{{ tw.title ?: finalTitle }}" />
+<meta name="twitter:description" content="{{ tw.description ?: finalDescription }}" />
+<meta name="twitter:image" content="{{ craft.seo.twitterImage(tw.image) }}" />
+
+{% if seo.robots -%}
+    <meta name="robots" content="{{ seo.robots }}" />
+{% endif %}
+{%- if seo.expiry -%}
+    <meta name="robots" content="unavailable_after: {{ seo.expiry }}" />
+{% endif %}
+
+<link rel="home" href="{{ siteUrl }}" />
+<link rel="canonical" href="{{ seo.canonical }}">

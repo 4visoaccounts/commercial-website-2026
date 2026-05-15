@@ -40,7 +40,7 @@
                     style="opacity: 0; transform: translateY(40px);"
                     :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ loop.index * 100 }}ms ease-out, transform 0.5s {{ loop.index * 100 }}ms ease-out;`">
                     {% if block.commonTitle ?? null %}
-                        <h2 class="mb-4">{{ block.commonTitle|striptags }}</h2>
+                        <h3 class="mb-4 font-stack-headline text-[28px] md:text-[34px] lg:text-[40px] font-normal text-dark leading-tight">{{ block.commonTitle|striptags }}</h3>
                     {% endif %}
 
                     {% if block.commonDescription ?? null %}

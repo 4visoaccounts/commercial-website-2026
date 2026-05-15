@@ -1,4 +1,4 @@
-dateModified: 1778831970
+dateModified: 1778835266
 elementSources:
   craft\elements\Entry:
     -
@@ -161,6 +161,7 @@ meta:
     a930058f-c792-404b-aed8-42a307d8e25c: feature # feature
     ab2e69ff-aecb-4b09-bc05-c3d5b32a84a9: 'Body: wysiwyg' # Body: wysiwyg
     ae63c3ca-80e0-45c1-8c4c-c4af049f52fc: 'Body: video' # Body: video
+    af2fd2cd-1491-4e38-9044-916557afe8ac: 'Hero: small' # Hero: small
     b2af86f0-daa8-45e1-9813-a0dbf67dc0d1: 'Product subcategory' # Product subcategory
     b2fd6268-2e91-41e0-aef5-c6f5cec40b27: Blocks # Blocks
     b8bf8ba8-f3f5-4b4e-ade3-ae8a16885069: 'Body: contact' # Body: contact
@@ -173,6 +174,7 @@ meta:
     c4cc5c42-ac52-40a8-9249-f5fc84f5e7d9: header # header
     c4ead6f3-971c-471a-89e8-3eafa9f029c9: Body # Body
     ccf52594-aa01-4682-8db5-b69ba3070658: 'Body: logos' # Body: logos
+    cd9adbe1-1422-4f5e-978e-2cd40e78d3ed: 'Show all' # Show all
     cda21870-0257-401e-b49e-8c4988c4289f: Title # Title
     ce705e3c-b417-4928-a23c-47761737f752: Description # Description
     d044be7a-944b-44ba-a236-eb51dbe83bb1: 'Block with icon, title and description' # Block with icon, title and description

@@ -1,0 +1,58 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  75d9fb00-d559-43a7-b1b6-b203fc240f32:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-05-15T08:45:40+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eb8ec981-6452-46a0-9bf5-492556f318a2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-05-15T08:45:40+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc0f33de-053a-4aff-9aef-ef84e81f12d1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bb79b009-ef3b-404d-be8b-36452b33bfdf
+        userCondition: null
+    thumbFieldKey: null
+handle: heroSmall
+hasTitleField: false
+icon: null
+name: 'Hero: small'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{commonTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: ''

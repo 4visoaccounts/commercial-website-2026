@@ -7,6 +7,9 @@
         {# Seo #}
         {% hook "seo" %}
 
+        {# Structured data (JSON-LD) #}
+        {% include "_partials/jsonld" %}
+
         {# Favicon #}
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
@@ -86,7 +89,9 @@
         {# Header #}
         {% include "/header/_index.twig" %}
 
-        {% block content %}{% endblock %}
+        <main>
+            {% block content %}{% endblock %}
+        </main>
 
         {# Footer #}
         {% include "/footer/_index.twig" %}

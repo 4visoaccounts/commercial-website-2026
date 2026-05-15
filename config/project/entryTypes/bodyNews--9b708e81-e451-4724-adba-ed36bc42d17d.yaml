@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: green
 description: null
 fieldLayouts:
@@ -11,6 +12,7 @@ fieldLayouts:
             dateAdded: '2026-04-17T07:46:04+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
             handle: null
             instructions: null
@@ -26,6 +28,7 @@ fieldLayouts:
             dateAdded: '2026-04-17T11:37:36+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
             handle: null
             instructions: null
@@ -47,6 +50,7 @@ fieldLayouts:
             dateAdded: '2026-04-29T13:28:30+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: eadcc8ce-5a2b-4dea-bc4c-a4581336aec7 # Color
             handle: null
             instructions: null
@@ -58,9 +62,26 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-05-15T08:54:26+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cd9adbe1-1422-4f5e-978e-2cd40e78d3ed # Show all
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 693134bc-5602-4c92-a890-2e650923bd64
+            userCondition: null
+            warning: null
+            width: 100
         name: Settings
         uid: e23a2428-f60b-4cb8-88a3-dc535800e332
         userCondition: null
+    thumbFieldKey: null
 handle: bodyNews
 hasTitleField: false
 icon: null
@@ -72,3 +93,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'
