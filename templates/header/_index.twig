@@ -7,12 +7,41 @@
 {# ========================================================================== #}
 {# Header Index #}
 {# ========================================================================== #}
-<header class="absolute top-0 left-0 w-full z-50" x-data="{ open: false }">
+
+{# Secondary row — desktop only, scrolls away with page #}
+<div class="hidden md:block bg-white relative z-40">
     <div class="container mx-auto px-4 lg:px-8">
-        <nav class="flex items-center justify-between py-6 animate-fade-down">
+        <div class="flex items-center justify-between py-4 text-sm">
+            {# Left side — support + sales #}
+            <div class="flex items-center gap-6">
+                <a href="/customer-support" class="text-dark no-underline hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                    <i class="ph ph-headset"></i>
+                    Customer Support
+                </a>
+                <a href="/contact-sales" class="text-dark no-underline hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                    <i class="ph ph-phone"></i>
+                    Contact Sales
+                </a>
+            </div>
+
+            {# Right side — login #}
+            <div class="flex items-center gap-4">
+                <a href="/login" class="text-dark no-underline hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                    <i class="ph ph-sign-in"></i>
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Primary row — sticks to top once secondary scrolls off #}
+<header x-data="{ open: false }" class="sticky top-0 z-50 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+        <nav class="flex items-center justify-between py-4">
             {# Logo #}
             <a href="/" class="no-underline">
-                {% include "/logos/logo.twig" with { customClass: 'h-10'} %}
+                {% include "/logos/logo-green.twig" with { customClass: 'h-10'} %}
             </a>
 
             {# Desktop navigation #}
@@ -25,10 +54,10 @@
                                 {% include 'components/button' with {
                                     href: link.url ?? '#',
                                     text: link.text ?? '',
-                                    variant: 'white',
+                                    variant: 'primary',
                                 } %}
                             {% else %}
-                                <a href="{{ link.url ?? '#' }}" class="text-white no-underline text-[18px] font-medium hover:text-peach transition-colors">
+                                <a href="{{ link.url ?? '#' }}" class="text-dark no-underline text-[16px] font-medium hover:text-primary transition-colors">
                                     {{ link.text }}
                                 </a>
                             {% endif %}
@@ -38,7 +67,7 @@
             {% endif %}
 
             {# Mobile hamburger #}
-            <button @click="open = !open" class="md:hidden text-white" aria-label="Toggle menu">
+            <button @click="open = !open" class="md:hidden text-dark" aria-label="Toggle menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
@@ -86,6 +115,23 @@
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+
+                {# Secondary links — surfaced on mobile #}
+                <div class="flex flex-col items-center gap-6 pt-6 mt-2 border-t border-white/20 w-40">
+                    <a href="/customer-support" @click="open = false"
+                       class="text-white no-underline text-[18px] font-medium hover:text-peach transition-colors">
+                        Customer Support
+                    </a>
+                    <a href="/contact-sales" @click="open = false"
+                       class="text-white no-underline text-[18px] font-medium hover:text-peach transition-colors">
+                        Contact Sales
+                    </a>
+                    <a href="/login" @click="open = false"
+                       class="text-white no-underline text-[18px] font-medium hover:text-peach transition-colors inline-flex items-center gap-2">
+                        <i class="ph ph-sign-in"></i>
+                        Login
+                    </a>
+                </div>
             </div>
         </div>
     {% endif %}
