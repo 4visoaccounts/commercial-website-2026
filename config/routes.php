@@ -12,5 +12,6 @@
 return [
     'stylesheet' => ['template' => 'pages/stylesheet'],
     'coming-soon' => ['template' => 'pages/coming-soon'],
+    'help' => ['template' => 'pages/help'],
     'api' => 'graphql/api',
 ];

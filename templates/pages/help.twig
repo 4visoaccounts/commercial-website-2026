@@ -1,0 +1,110 @@
+{% extends '_layouts/base.twig' %}
+
+{% block content %}
+<main class="min-h-screen bg-card-bg py-24 px-4">
+    <div class="max-w-xl mx-auto">
+
+        <div class="mb-10">
+            <h1 class="mb-3">Submit a Support Ticket</h1>
+            <p class="text-grey text-[18px]">Fill in the form and we'll get back to you as soon as possible.</p>
+        </div>
+
+        <div
+            x-data="{
+                name: '',
+                email: '',
+                description: '',
+                honeypot: '',
+                file: null,
+                fileName: '',
+                submitting: false,
+                submitted: false,
+                error: '',
+                setFile(event) {
+                    this.file = event.target.files[0] ?? null;
+                    this.fileName = this.file ? this.file.name : '';
+                },
+                async handleSubmit() {
+                    this.submitting = true;
+                    this.error = '';
+                    try {
+                        const fd = new FormData();
+                        fd.append('name', this.name);
+                        fd.append('email', this.email);
+                        fd.append('description', this.description);
+                        fd.append('_gotcha', this.honeypot);
+                        if (this.file) fd.append('attachment', this.file);
+
+                        const res = await fetch('/actions/lead/ticket/submit', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'X-CSRF-Token': '{{ craft.app.request.csrfToken }}'
+                            },
+                            body: fd
+                        });
+                        const data = await res.json();
+                        if (!data.success) throw new Error(data.error || 'Submission failed');
+                        this.submitted = true;
+                    } catch(e) {
+                        this.error = e.message || 'Something went wrong, please try again.';
+                    } finally {
+                        this.submitting = false;
+                    }
+                }
+            }"
+            class="bg-white border border-card-border rounded p-8 md:p-12"
+        >
+            {# Success state #}
+            <div x-show="submitted" x-cloak class="text-dark space-y-2">
+                <p class="text-[20px] font-semibold">Ticket submitted!</p>
+                <p class="text-grey text-[16px]">We'll be in touch shortly.</p>
+            </div>
+
+            {# Form #}
+            <form x-show="!submitted" @submit.prevent="handleSubmit" class="space-y-6">
+                {# Honeypot #}
+                <div style="position: absolute; left: -9999px; visibility: hidden;" aria-hidden="true">
+                    <label for="tk-website">Leave this empty</label>
+                    <input type="text" id="tk-website" x-model="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div>
+                    <label for="tk-name" class="block text-dark text-[16px] mb-2 no-underline">Name<span class="text-primary">*</span></label>
+                    <input type="text" id="tk-name" x-model="name" required class="w-full px-4 py-3 rounded bg-card-bg border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                </div>
+
+                <div>
+                    <label for="tk-email" class="block text-dark text-[16px] mb-2 no-underline">Email<span class="text-primary">*</span></label>
+                    <input type="email" id="tk-email" x-model="email" required class="w-full px-4 py-3 rounded bg-card-bg border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary">
+                </div>
+
+                <div>
+                    <label for="tk-description" class="block text-dark text-[16px] mb-2 no-underline">Description<span class="text-primary">*</span></label>
+                    <textarea id="tk-description" x-model="description" rows="5" required class="w-full px-4 py-3 rounded bg-card-bg border border-card-border text-dark text-[16px] focus:outline-none focus:border-primary resize-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-dark text-[16px] mb-2 no-underline">Attachment <span class="text-grey text-[14px]">(optional)</span></label>
+                    <label for="tk-attachment" class="flex items-center gap-3 px-4 py-3 rounded border border-dashed border-card-border bg-card-bg cursor-pointer hover:border-primary transition">
+                        <i data-lucide="paperclip" class="w-4 h-4 text-grey shrink-0"></i>
+                        <span class="text-grey text-[15px]" x-text="fileName || 'Choose a file…'"></span>
+                    </label>
+                    <input type="file" id="tk-attachment" @change="setFile($event)" class="sr-only">
+                </div>
+
+                <p x-show="error" x-text="error" x-cloak class="text-red-600 text-sm"></p>
+
+                <div>
+                    <button
+                        type="submit"
+                        :disabled="submitting"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                        x-text="submitting ? 'Submitting…' : 'Submit Ticket'"
+                    ></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
