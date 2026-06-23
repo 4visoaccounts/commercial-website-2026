@@ -5,6 +5,7 @@
 {% set subtitle = data.commonSubtitle ?? "" %}
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
+{% set video = data.commonAsset.one() ?? null %}
 
 {# ========================================================================== #}
 {# :: Component #}
@@ -186,9 +187,11 @@
         .hero-logo-transit { opacity: 0.25; transform: scale(1.3); filter: brightness(0) invert(1); }
         .hero-logo-visited { opacity: 0.3; filter: brightness(0) invert(1); }
         .hero-connection-seg { height: 2px; transform-origin: 0 50%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 6px, transparent 6px, transparent 10px); }
+        video:fullscreen { object-fit: contain; }
+        video:-webkit-full-screen { object-fit: contain; }
     </style>
 
-    <div class="container mx-auto py-24 md:py-56 relative">
+    <div class="container mx-auto pt-16 md:pt-32 pb-12 relative">
         <div class="max-w-4xl mx-auto text-center space-y-10">
             {% if subtitle %}
                 <span class="s-hero-pill inline-block px-6 py-2 rounded-full text-white text-sm animate-fade-up">
@@ -287,5 +290,42 @@
                 </form>
             </div>
         </div>
+
+        {% if video %}
+            {# Video card straddles section bottom — half on green, half on white #}
+            <div class="max-w-5xl mx-auto relative z-10 -mb-20 sm:-mb-20 md:-mb-20 lg:-mb-24 mt-16">
+                <div
+                    x-data="{ playing: false }"
+                    class="animate-fade-up [animation-delay:400ms] rounded-2xl overflow-hidden ring-6 ring-peach shadow-2xl"
+                >
+                    <div class="relative aspect-video bg-black">
+                        <video
+                            x-ref="heroVideo"
+                            class="absolute inset-0 w-full h-full object-cover"
+                            playsinline
+                            preload="metadata"
+                            :controls="playing"
+                            @ended="playing = false"
+                        >
+                            <source src="{{ video.url }}#t=0.1" type="{{ video.mimeType ?? 'video/mp4' }}">
+                        </video>
+
+                        {# Play button overlay — hidden once playing #}
+                        <button
+                            type="button"
+                            x-show="!playing"
+                            @click="playing = true; $nextTick(() => $refs.heroVideo.play())"
+                            class="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group"
+                            aria-label="Play video"
+                        >
+                            <span class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition"></span>
+                            <span class="relative flex items-center justify-center w-20 h-20 rounded-full bg-white/90 text-primary-pine shadow-lg group-hover:scale-110 transition">
+                                <i class="ph-fill ph-play text-3xl ml-1"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </section>

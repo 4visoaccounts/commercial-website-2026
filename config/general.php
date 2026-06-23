@@ -19,6 +19,8 @@ return GeneralConfig::create()
     ->omitScriptNameInUrls()
     // Preload Single entries as Twig variables
     ->preloadSingles()
+    // Allow larger asset uploads (default 16MB) — needed for hero videos
+    ->maxUploadFileSize(1024 * 1024 * 200)
     // Prevent user enumeration attacks
     ->preventUserEnumeration()
     // Set the @webroot alias so the clear-caches command knows where to find CP resources
