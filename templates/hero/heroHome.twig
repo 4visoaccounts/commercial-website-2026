@@ -314,7 +314,7 @@
                         <button
                             type="button"
                             x-show="!playing"
-                            @click="playing = true; $nextTick(() => $refs.heroVideo.play())"
+                            @click="playing = true; $nextTick(() => { $refs.heroVideo.muted = false; $refs.heroVideo.volume = 1; $refs.heroVideo.play() })"
                             class="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group"
                             aria-label="Play video"
                         >
