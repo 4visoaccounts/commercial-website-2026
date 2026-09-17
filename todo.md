@@ -6,10 +6,10 @@ Done
 * I will make the repo private (somebody with access to accounts@4viso.com will need to do it, Serban)
 * Designer to give you access
 * Analytics ?? -> check it needs to go
+* Cookiebot
 
 Todo
 -----
-* Cookiebot
 * pricing table (https://fonts.google.com/icons)
 
 * Todo v2?

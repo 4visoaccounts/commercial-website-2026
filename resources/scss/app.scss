@@ -160,3 +160,153 @@ blockquote p {
   border-left: 2px solid #3B72C9;
   padding-left: 20px;
 }
+// Cookiebot (popup-v2 template) — 4viso branding, docked bottom right.
+// Cookiebot injects its own stylesheet at runtime, hence the !important overrides.
+#CybotCookiebotDialog {
+  font-family: "Stack Sans Text", sans-serif !important;
+  color: #162C26 !important;
+  background-color: #FBFEFC !important;
+  border: 1px solid #DEEEE5 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 20px 50px rgba(22, 44, 38, 0.18) !important;
+
+  #CybotCookiebotDialogBodyContentTitle,
+  h2 {
+    font-family: "Stack Sans Headline", sans-serif !important;
+    font-weight: 400 !important;
+    color: #162C26 !important;
+  }
+
+  a,
+  #CybotCookiebotDialogBodyContentText a,
+  #CybotCookiebotDialogBodyLevelButtonIABHeaderViewPartnersLink,
+  #CybotCookiebotDialogDetailBulkConsentList dt a,
+  #CybotCookiebotDialogDetailFooter a,
+  .CybotCookiebotDialogBodyLevelButtonIABDescription a,
+  .CybotCookiebotDialogDetailBodyContentCookieLink,
+  .CybotCookiebotDialogDetailBodyContentCookieContainerButton:hover,
+  .CybotCookiebotDialogDetailBodyContentIABv2Tab:hover,
+  #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieProvider:not(.CybotCookiebotDialogDetailBodyContentCookieInfoCount):hover {
+    color: #288760 !important;
+  }
+
+  // Logo bar
+  #CybotCookiebotDialogHeader {
+    display: none !important;
+  }
+
+  // Tabs
+  #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink {
+    text-decoration: none !important;
+
+    &:hover {
+      color: #288760 !important;
+    }
+
+    &.CybotCookiebotDialogActive {
+      color: #288760 !important;
+      border-bottom-color: #288760 !important;
+    }
+  }
+
+  // Toggles
+  input:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+    background-color: #288760 !important;
+  }
+
+  input:disabled:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+    background-color: #5CA87C !important;
+  }
+
+  // Buttons
+  #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+    border-radius: 9999px !important;
+    border: 2px solid #288760 !important;
+    background-color: transparent !important;
+    color: #288760 !important;
+    font-weight: 700 !important;
+    padding: 0.75em 1em !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: #288760 !important;
+      color: #fff !important;
+      opacity: 1 !important;
+    }
+  }
+
+  #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonCustomize .CybotCookiebotDialogArrow {
+    border-color: currentColor !important;
+  }
+
+  #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
+  #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
+  #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    background-color: #288760 !important;
+    color: #fff !important;
+
+    &:hover {
+      background-color: #1A5140 !important;
+      border-color: #1A5140 !important;
+    }
+  }
+}
+
+#CookiebotWidget {
+  .CookiebotWidget-consent-details button,
+  #CookiebotWidget-btn-withdraw {
+    color: #288760 !important;
+  }
+
+  #CookiebotWidget-buttons #CookiebotWidget-btn-change {
+    background-color: #288760 !important;
+    border-color: #288760 !important;
+  }
+
+  .CookiebotWidget-body .CookiebotWidget-consents-list li.CookiebotWidget-approved svg {
+    fill: #288760 !important;
+  }
+}
+
+// Bottom-right card from tablet up; mobile keeps Cookiebot's centered popup.
+@media screen and (min-width: 601px) {
+  #CybotCookiebotDialogBodyUnderlay {
+    display: none !important;
+  }
+
+  #CybotCookiebotDialog[data-template] {
+    top: auto !important;
+    left: auto !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    transform: none !important;
+    width: 440px !important;
+    max-width: calc(100vw - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+
+    #CybotCookiebotDialogFooter,
+    .CybotCookiebotDialogBodyBottomWrapper {
+      padding-left: 1.5em !important;
+      padding-right: 1.5em !important;
+    }
+
+    // Desktop row layout doesn't fit a 440px card — stack, accept first.
+    #CybotCookiebotDialogBodyButtonsWrapper {
+      flex-direction: column !important;
+      gap: 0.5em;
+    }
+
+    #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+
+    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
+    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
+    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+      order: -1;
+    }
+  }
+}
