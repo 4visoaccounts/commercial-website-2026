@@ -96,6 +96,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - ab2e69ff-aecb-4b09-bc05-c3d5b32a84a9 # Body: wysiwyg
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

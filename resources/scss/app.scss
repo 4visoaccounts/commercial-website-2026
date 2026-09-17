@@ -47,6 +47,19 @@ b, strong {
     margin-left: 16px;
   }
 
+  ol {
+    list-style: decimal;
+    margin-left: 16px;
+  }
+
+  h2, h3, h4 {
+    @apply mt-10 mb-4;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
   table {
     width: 100%;
     

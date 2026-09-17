@@ -183,11 +183,11 @@
         .hero-connection-seg { height: 2px; transform-origin: 0 50%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 6px, transparent 6px, transparent 10px); }
     </style>
 
-    {# Content — header overlays the top, so reserve room with pt-* #}
-    <div class="container mx-auto pt-32 md:pt-44 pb-16 md:pb-24 relative">
+    {# Content — header is sticky (not overlaying), so pad evenly to center the title #}
+    <div class="container mx-auto py-20 md:py-28 relative">
         <div class="max-w-4xl mx-auto text-center space-y-5">
             {% if title %}
-                <h1 class="text-white [&_strong]:text-peach animate-fade-up">{{ title|striptags('<strong><br>')|raw }}</h1>
+                <h1 class="text-white [&_strong]:text-peach text-[32px] md:text-[44px] lg:text-[52px] animate-fade-up">{{ title|striptags('<strong><br>')|raw }}</h1>
             {% endif %}
 
             {% if description %}

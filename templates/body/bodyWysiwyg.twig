@@ -1,0 +1,76 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set blocks = data.commonWysiwyg.all() ?? [] %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+{% if blocks|length %}
+<section
+    x-data="{ visible: false }"
+    x-intersect.once.margin.0px.0px.-100px.0px="visible = true"
+    class="bg-white">
+
+    <div class="container mx-auto px-4 lg:px-8 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto">
+
+            {% for block in blocks %}
+
+                {# Rich text #}
+                {% if block.type.handle == 'commonWysiwygBlock' %}
+                    <div class="s-wysiwyg text-dark text-[18px] leading-relaxed font-light mb-16"
+                        style="opacity: 0; transform: translateY(40px);"
+                        :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+                        {{ block.commonDescription|raw }}
+                    </div>
+
+                {# CTA button #}
+                {% elseif block.type.handle == 'commonWysiwygCta' %}
+                    {% set ctaEntry = block.commonCta.one() ?? null %}
+                    {% if ctaEntry %}
+                        {% set ctaLink = ctaEntry.commonLink ?? null %}
+                        {% if ctaLink %}
+                            <div class="mb-16 text-center"
+                                style="opacity: 0; transform: translateY(40px);"
+                                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+                                {% include 'components/button' with {
+                                    href: ctaLink.url ?? '#',
+                                    text: ctaLink.text ?? '',
+                                    variant: 'primary',
+                                } %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                {# Image block #}
+                {% elseif block.type.handle == 'commonImageBlock' %}
+                    {% set blockImage = block.commonAsset.one() ?? null %}
+                    {% set caption = block.commonTitle ?? null %}
+                    {% if blockImage %}
+                        <figure class="mb-16"
+                            style="opacity: 0; transform: translateY(40px);"
+                            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+                            <div class="rounded overflow-hidden">
+                                {% include 'components/image' with {
+                                    asset: blockImage,
+                                    class: 'w-full',
+                                    sizes: '(max-width: 768px) 100vw, 48rem',
+                                    widths: [600, 900, 1200],
+                                } %}
+                            </div>
+                            {% if caption %}
+                                <figcaption class="mt-3 text-sm text-grey text-center">
+                                    {{ caption|striptags }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endif %}
