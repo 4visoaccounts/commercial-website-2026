@@ -1,15 +1,17 @@
 Done
 -----
+* Autodeploy
+* Add .md with hosting information
+* * Hosting information on the hosting.md 
+* I will make the repo private (somebody with access to accounts@4viso.com will need to do it, Serban)
+* Designer to give you access
+* Analytics ?? -> check it needs to go
 
 Todo
 -----
-* I will make the repo private (somebody with access to accounts@4viso.com will need to do it)
-* Autodeploy
-* Add .md with hosting information
 * Cookiebot
-* Analytics ?? -> check it needs to go
-* Designer to give you access
-* Hosting information on the hosting.md 
+* pricing table (https://fonts.google.com/icons)
 
 * Todo v2?
 -----
+git
