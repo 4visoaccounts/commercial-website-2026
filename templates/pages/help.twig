@@ -39,7 +39,7 @@
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',
-                                'X-CSRF-Token': '{{ craft.app.request.csrfToken }}'
+                                'X-CSRF-Token': window.csrfToken
                             },
                             body: fd
                         });

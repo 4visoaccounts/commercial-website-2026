@@ -77,6 +77,11 @@
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+        {# CSRF token — must stay outside any {% cache %} block; forms read window.csrfToken at submit time #}
+        <script data-cookieconsent="ignore">
+            window.csrfToken = '{{ craft.app.request.csrfToken }}';
+        </script>
+
         {# Alpine.js x-cloak style #}
         <style>
             [x-cloak] { display: none !important; }

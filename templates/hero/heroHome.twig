@@ -224,7 +224,7 @@
                                 headers: {
                                     'Content-Type': 'application/json',
                                     'Accept': 'application/json',
-                                    'X-CSRF-Token': '{{ craft.app.request.csrfToken }}'
+                                    'X-CSRF-Token': window.csrfToken
                                 },
                                 body: JSON.stringify({ email: this.email })
                             });

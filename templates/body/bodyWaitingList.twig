@@ -50,7 +50,8 @@
             {# Right side: form #}
             <div class="w-full md:w-1/2">
                 <form method="post" accept-charset="UTF-8" class="space-y-6">
-                    {{ csrfInput() }}
+                    {# Token comes from base layout — csrfInput() would get baked into the page {% cache %} #}
+                    <input type="hidden" name="{{ craft.app.config.general.csrfTokenName }}" x-data :value="window.csrfToken">
                     {{ actionInput('contact-form/send') }}
                     {{ redirectInput(craft.app.request.url ~ '?success=1') }}
 
