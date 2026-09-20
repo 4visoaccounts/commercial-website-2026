@@ -104,6 +104,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - d1138c7b-cf07-4e5c-98af-18170a9e8c13 # Body: pricing
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

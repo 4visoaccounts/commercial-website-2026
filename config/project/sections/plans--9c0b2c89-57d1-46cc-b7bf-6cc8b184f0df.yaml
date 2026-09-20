@@ -1,0 +1,18 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: cbda2652-9448-403b-bbc8-0bd3b1f7c703 # Plan
+handle: plans
+maxAuthors: 1
+minAuthors: 1
+name: Plans
+previewTargets: {  }
+propagationMethod: all
+siteSettings:
+  e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

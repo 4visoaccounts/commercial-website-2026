@@ -6,12 +6,15 @@
 {% set variant = variant ?? 'primary' %}
 {% set icon = icon ?? null %}
 {% set positionIcon = positionIcon ?? 'left' %}
+{% set buttonClass = buttonClass ?? '' %}
 
 {# ========================================================================== #}
 {# :: Styles #}
 {# ========================================================================== #}
 {% if variant == 'secondary' %}
     {% set btnClasses = 'bg-primary-lightest-green text-primary-pine hover:bg-primary-mint hover:text-white' %}
+{% elseif variant == 'outline' %}
+    {% set btnClasses = 'bg-white text-primary border border-primary hover:bg-primary hover:text-white' %}
 {% elseif variant == 'white' %}
     {% set btnClasses = 'bg-white text-primary-pine hover:bg-white/90' %}
 {% else %}
@@ -21,7 +24,7 @@
 {# ========================================================================== #}
 {# :: Component #}
 {# ========================================================================== #}
-<a href="{{ href }}" class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition {{ btnClasses }}">
+<a href="{{ href }}" class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition {{ btnClasses }} {{ buttonClass }}">
     {% if icon and positionIcon == 'left' %}
         <i class="ph ph-{{ icon }}"></i>
     {% endif %}

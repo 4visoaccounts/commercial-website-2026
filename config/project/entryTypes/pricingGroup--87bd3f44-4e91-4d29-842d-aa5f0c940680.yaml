@@ -1,0 +1,81 @@
+color: null
+description: null
+fieldLayouts:
+  9f6fa02b-7ce6-4ada-948c-36a9f4cf2ed7:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-17T08:10:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: f636e9b5-562c-41d9-9887-09151dcbbabd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-17T08:10:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d87315db-ccbc-48ae-9958-d91d39bb28ad # Icon
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 724be9f3-9260-454d-9a6b-fd24b08d8948
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-17T08:10:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9ca5701e-1f48-4bd1-85d0-cd29227e8ebd # Pricing rows
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c51f3850-0a9c-41c4-b8a6-0d74cb0d149c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b3af96ef-5fb7-46ab-93aa-ad52f60a8017
+        userCondition: null
+handle: pricingGroup
+hasTitleField: true
+icon: null
+name: 'Pricing group'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

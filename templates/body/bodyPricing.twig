@@ -1,0 +1,128 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set plans = data.commonPlans.with(['commonPricingGroups']).all() ?? [] %}
+{% set footnote = data.commonFootnote ?? "" %}
+{% set spacing = data.commonSpacing ?? "default" %}
+{% if spacing == "small" %}
+    {% set spacingClass = "py-8 md:py-16" %}
+{% elseif spacing == "smallTopDefaultBottom" %}
+    {% set spacingClass = "pt-8 md:pt-16 pb-16 md:pb-32" %}
+{% elseif spacing == "smallBottomDefaultTop" %}
+    {% set spacingClass = "pt-16 md:pt-32 pb-8 md:pb-16" %}
+{% else %}
+    {% set spacingClass = "py-16 md:py-32" %}
+{% endif %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section x-data="{ visible: false, active: 0 }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="container mx-auto px-4 lg:px-8 {{ spacingClass }} relative" id="{{id}}">
+    {% if title or description %}
+        <div class="text-center mb-16 md:mb-20 space-y-4"
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
+            {% if title %}
+                <h2>{{ title|striptags|raw }}</h2>
+            {% endif %}
+
+            {% if description %}
+                <p class="text-dark">{{ description|striptags('<strong><br><br/>')|raw }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if plans|length %}
+        {# Mobile: swipeable scroll-snap carousel — sm and up: grid #}
+        <div x-ref="scroller"
+            @scroll.passive="active = Math.round($refs.scroller.scrollLeft / (($refs.scroller.firstElementChild.offsetWidth || 1) + 16))"
+            class="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pt-6 pb-2 scroll-px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 sm:overflow-visible sm:mx-0 sm:px-0 sm:pt-0 sm:pb-0 xl:grid-cols-4 items-stretch">
+            {% for plan in plans %}
+                {% set isPopular = plan.commonIsPopular ?? false %}
+                {% set link = plan.commonLink ?? null %}
+                {% set buttonStyle = plan.commonButtonStyle.value ?? 'outline' %}
+                <div class="relative w-[85%] shrink-0 snap-start sm:w-auto rounded border p-5 flex flex-col shadow-sm {% if isPopular %}bg-card-bg border-primary{% elseif buttonStyle == 'secondary' %}bg-white border-primary-lightest-green{% else %}bg-white border-card-border{% endif %}"
+                    style="opacity: 0; transform: translateY(40px);"
+                    :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (loop.index - 1) * 75 }}ms ease-out, transform 0.5s {{ (loop.index - 1) * 75 }}ms ease-out;`">
+                    {% if isPopular %}
+                        <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary-mint text-white rounded-full px-5 py-2 text-[14px] leading-none whitespace-nowrap">{{ 'Most popular'|t }}</span>
+                    {% endif %}
+
+                    {# Plan head #}
+                    <div class="pt-5">
+                        <h5 class="!text-[16px] font-semibold mb-3">{{ plan.title }}</h5>
+
+                        <div class="flex items-baseline gap-2 mb-3 min-h-[28px]">
+                            <span class="font-stack-headline text-[22px] leading-none font-bold text-dark">{{ plan.commonPrice }}</span>
+                            {% if plan.commonPricePeriod %}
+                                <span class="text-[14px] text-primary-mint">{{ plan.commonPricePeriod }}</span>
+                            {% endif %}
+                        </div>
+
+                        {% if plan.commonDescription %}
+                            <p class="!text-[14px] !leading-snug text-dark xl:min-h-[3.5rem]">{{ plan.commonDescription|striptags }}</p>
+                        {% endif %}
+
+                        {% if link and link.url %}
+                            <div class="mt-5">
+                                {% include 'components/button' with {
+                                    href: link.url,
+                                    text: link.text ?? 'Get started',
+                                    variant: buttonStyle,
+                                    buttonClass: 'w-full justify-center !text-[14px] !py-2.5 border' ~ (buttonStyle != 'outline' ? ' border-transparent' : ''),
+                                } %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {# Feature groups #}
+                    {% for group in plan.commonPricingGroups %}
+                        <div class="border-t border-card-border mt-6 pt-6">
+                            <div class="flex items-center gap-2 mb-5">
+                                {% if group.commonIcon ?? null %}
+                                    <i data-lucide="{{ group.commonIcon }}" class="w-4 h-4 text-primary shrink-0" stroke-width="2"></i>
+                                {% endif %}
+                                <span class="text-[13px] font-semibold text-dark">{{ group.title }}</span>
+                            </div>
+
+                            <ul class="space-y-3">
+                                {% for row in group.commonPricingRows ?? [] %}
+                                    <li class="flex items-start gap-3 text-[13px] leading-snug text-dark">
+                                        {% if row.included %}
+                                            <i data-lucide="check" class="w-4 h-4 text-primary shrink-0" stroke-width="2"></i>
+                                        {% else %}
+                                            <i data-lucide="x" class="w-4 h-4 text-red-500 shrink-0" stroke-width="2"></i>
+                                        {% endif %}
+                                        <span>{{ row.label }}{% if row.value %}: <strong>{{ row.value }}</strong>{% endif %}{% if row.suffix ?? null %} {{ row.suffix }}{% endif %}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {# Carousel dots (mobile only) #}
+        {% if plans|length > 1 %}
+            <div class="flex justify-center gap-2 mt-6 sm:hidden">
+                {% for plan in plans %}
+                    <button type="button"
+                        aria-label="{{ plan.title }}"
+                        @click="$refs.scroller.children[{{ loop.index0 }}].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })"
+                        :class="active === {{ loop.index0 }} ? 'bg-primary w-6' : 'bg-card-border w-2'"
+                        class="h-2 rounded-full transition-all duration-300"></button>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if footnote %}
+        <p class="!text-[14px] text-dark text-center mt-12 md:mt-16"
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 400ms ease-out, transform 0.5s 400ms ease-out;`">{{ footnote }}</p>
+    {% endif %}
+</section>

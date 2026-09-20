@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: commonIsPopular
+instructions: null
+name: 'Most popular'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

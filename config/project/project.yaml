@@ -1,4 +1,4 @@
-dateModified: 1782195916
+dateModified: 1789643292
 elementSources:
   craft\elements\Entry:
     -
@@ -78,6 +78,9 @@ elementSources:
       type: native
     -
       key: 'section:a834e510-4e62-4af2-b49e-70bbab90fd13'
+      type: native
+    -
+      key: 'section:9c0b2c89-57d1-46cc-b7bf-6cc8b184f0df' # plans
       type: native
     -
       heading: ''
@@ -199,6 +202,18 @@ meta:
     fa10e20e-af48-4184-9f2b-050e7fdda65e: Links # Links
     fd7abea2-fcbf-4b1b-a85f-618a52111a44: 'News body' # News body
     fff54fd8-f1d0-4940-8961-03451265dd61: news # news
+    1b1961b7-e645-4293-8bb6-7c27e5ee0031: 'Pricing groups' # Pricing groups
+    26379539-6c17-4d7d-8103-9cf1ca62a7fc: Price # Price
+    56cbe1a4-984d-4c6e-981a-5773e3971b68: 'Most popular' # Most popular
+    84720017-7993-4821-90da-bc9dafbafe34: Plans # Plans
+    87bd3f44-4e91-4d29-842d-aa5f0c940680: 'Pricing group' # Pricing group
+    8d12653d-08e5-4b04-8be5-238e9393c8e1: 'Button style' # Button style
+    94db60cf-4b0c-408f-971c-11da2507b9e5: 'Price period' # Price period
+    9c0b2c89-57d1-46cc-b7bf-6cc8b184f0df: Plans # Plans
+    9ca5701e-1f48-4bd1-85d0-cd29227e8ebd: 'Pricing rows' # Pricing rows
+    cbda2652-9448-403b-bbc8-0bd3b1f7c703: Plan # Plan
+    d1138c7b-cf07-4e5c-98af-18170a9e8c13: 'Body: pricing' # Body: pricing
+    d37f4e27-98ea-446a-8ace-53de5bc6897c: Footnote # Footnote
 plugins:
   ckeditor:
     edition: standard

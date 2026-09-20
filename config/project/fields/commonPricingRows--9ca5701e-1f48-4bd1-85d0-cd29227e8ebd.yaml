@@ -1,0 +1,80 @@
+columnSuffix: null
+handle: commonPricingRows
+instructions: 'One row per feature. Value is shown bold after the label (optional), suffix is shown regular after the value (optional). Included = check, not included = cross.'
+name: 'Pricing rows'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Label
+            -
+              - handle
+              - label
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Value
+            -
+              - handle
+              - value
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - Included
+            -
+              - handle
+              - included
+            -
+              - width
+              - ''
+            -
+              - type
+              - lightswitch
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - Suffix
+            -
+              - handle
+              - suffix
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults: {  }
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Table
