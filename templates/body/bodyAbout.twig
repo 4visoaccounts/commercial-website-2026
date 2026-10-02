@@ -27,14 +27,14 @@
             {% include "/shapes/logo.twig" with { customClass: 'w-2 h-2 shrink-0' } %}
         {% endfor %}
     </div>
-    <div class="container mx-auto px-4 lg:px-8 relative">
+    <div class="container mx-auto px-4 lg:px-8 xl:px-20 relative">
         {# Top: title left, description right #}
         {% if title or description or link %}
             <div class="flex flex-col md:flex-row gap-12 mb-20"
                 style="opacity: 0; transform: translateY(40px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
                 {% if title or link %}
-                    <div class="w-full md:w-1/3 flex items-center gap-6">
+                    <div class="w-full md:w-1/3 flex items-center gap-4">
                         {% if title %}
                             <h2 class="text-peach text-6xl">{{ title|striptags|raw }}</h2>
                         {% endif %}
