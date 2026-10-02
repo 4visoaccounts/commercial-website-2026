@@ -28,6 +28,7 @@ return [
         'coming-soon' => \modules\ComingSoonModule::class,
         'product-url' => \modules\ProductUrlModule::class,
         'lead'        => \modules\LeadModule::class,
+        'legal'       => \modules\legal\LegalModule::class,
     ],
     'bootstrap' => ['coming-soon', 'product-url'],
 ];

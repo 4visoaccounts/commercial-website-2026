@@ -5,6 +5,7 @@
 {% set title = data.commonTitle ?? "" %}
 {% set description = data.commonDescription ?? "" %}
 {% set blocks = data.commonBlocks.all() ?? [] %}
+{% set footnote = data.commonFootnote ?? "" %}
 {% set spacing = data.commonSpacing ?? "default" %}
 {% if spacing == "small" %}
     {% set spacingClass = "py-8 md:py-16" %}
@@ -75,6 +76,12 @@
                     </div>
                 {% endfor %}
             </div>
+        {% endif %}
+
+        {% if footnote %}
+            <p class="text-white/80 text-center max-w-3xl mx-auto mt-12"
+                style="opacity: 0; transform: translateY(40px);"
+                :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ (blocks|length + 1) * 100 }}ms ease-out, transform 0.5s {{ (blocks|length + 1) * 100 }}ms ease-out;`">{{ footnote }}</p>
         {% endif %}
     </div>
 </section>
