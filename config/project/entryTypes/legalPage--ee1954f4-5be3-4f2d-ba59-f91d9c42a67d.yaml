@@ -1,155 +1,168 @@
 allowLineBreaksInTitles: false
-color: null
+color: gray
 description: null
 fieldLayouts:
-  455fa3f1-ee7f-4875-a570-9a1d8456e19b:
+  171155ed-e545-480e-b69b-2b8554488b11:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-02-06T12:26:20+00:00'
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 64bf587a-894c-4f61-8167-f4d66e4d869a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
             fieldUid: 8681a8af-cec3-4d7e-8e2b-f4382d1a06eb # Subtitle
             handle: null
-            instructions: null
-            label: null
+            instructions: 'Small label above the title, e.g. "Privacy notice".'
+            label: Kicker
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 88094950-4a8d-4487-a9a2-095c9f76981d
+            uid: 9686617c-0279-4c73-b051-f90e4997c87b
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
-            dateAdded: '2025-10-30T12:28:13+00:00'
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: cda21870-0257-401e-b49e-8c4988c4289f # Title
+            fieldUid: 22fca15f-c55b-4a4a-8192-e409f2128472 # Meta rows
             handle: null
             instructions: null
-            label: null
+            label: 'Document details'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7181dcc9-1ed4-4196-aa6c-7953309946d8
+            uid: a5115bce-440e-42ca-a5a7-d7632c3ae15a
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-10-30T12:28:13+00:00'
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
             fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
             handle: null
-            instructions: null
-            label: null
+            instructions: 'One or two sentences shown in the header.'
+            label: Intro
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: d18898a0-f884-43f0-a95d-3472b731bde0
+            uid: 516babb6-3502-45a5-9b2a-ca8842695d57
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-10-30T12:28:13+00:00'
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 3a4e8925-b372-4821-b28c-e88e30148bb3 # Link
+            fieldUid: 6a1b0cdb-bcff-466c-a0cb-dd980eeb9548 # Callout
             handle: null
             instructions: null
-            label: null
+            label: Callout
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a47a8972-84a5-4fe0-a6ce-fc4eb3f3fcf8
+            uid: 8cca2429-688c-406d-aeaa-796717ba1a15
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-10-02T09:00:00+00:00'
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d6e2ce50-b265-4820-a3c7-ccb4122461e5 # Sections
+            handle: null
+            instructions: null
+            label: Sections
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15e05a70-7067-42e8-9acf-a6a5632f3210
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
             fieldUid: d37f4e27-98ea-446a-8ace-53de5bc6897c # Footnote
             handle: null
-            instructions: 'Small caption shown under the primary button, e.g. "Free for logistics service providers."'
-            label: null
+            instructions: 'Shown at the bottom after the copyright year, e.g. "4Viso BV · Science Park Antwerp, …".'
+            label: 'Footer line'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5b1c7e2a-8f3d-4c6e-9a1b-2d4f6e8a0c3e
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-10-02T09:00:00+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: fa10e20e-af48-4184-9f2b-050e7fdda65e # Links
-            handle: null
-            instructions: 'Secondary text links shown under the button, e.g. "Guideline owner, validator or certification body? Talk to us"'
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7e9d1f4b-2a6c-4e8f-b3d5-9c1a3e5f7b2d
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-06-23T06:25:16+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 6e8d296e-8b80-4b94-96b3-6ae6e854ca88 # Asset
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 03a2b9a5-d62c-4203-9279-6bc7046e9300
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-10-02T09:30:00+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: f2720851-60d7-4011-b11c-69020ac37663
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 397c169a-1233-439b-b197-347a1aafc903
+            uid: 20b0751d-511b-47b9-a69b-c947272bde80
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 18e2d1a2-4bcc-4842-afdc-fc9d874bf546
+        uid: d9cbb9ae-7aa1-480a-bc19-36928320a440
         userCondition: null
       -
         elementCondition: null
-        name: Settings
-        uid: debbeb0d-995d-46fa-8a88-760d088af0e5
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2c8c87a3-c210-4bdd-abfd-8b4befb21e9c # Seo
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8de3569c-283f-47a3-b627-dec622939574
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 9196d648-a190-4db9-b2ec-4635cd8fa141
         userCondition: null
     thumbFieldKey: null
-handle: heroHome
-hasTitleField: false
-icon: house
-name: 'Hero: home'
-showSlugField: true
+handle: legalPage
+hasTitleField: true
+icon: scale-balanced
+name: 'Legal page'
+showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

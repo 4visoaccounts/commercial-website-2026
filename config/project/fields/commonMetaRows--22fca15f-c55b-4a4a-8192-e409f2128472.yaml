@@ -1,0 +1,47 @@
+columnSuffix: null
+handle: commonMetaRows
+instructions: 'Label / value pairs shown under the title, e.g. Version, In effect from, Last updated.'
+name: 'Meta rows'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Label
+            -
+              - handle
+              - label
+            -
+              - type
+              - singleline
+            -
+              - width
+              - 35%
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Value
+            -
+              - handle
+              - value
+            -
+              - type
+              - singleline
+            -
+              - width
+              - ''
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

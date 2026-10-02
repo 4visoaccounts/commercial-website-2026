@@ -71,7 +71,6 @@ settings:
             -
               - type
               - singleline
-  defaults: {  }
   maxRows: null
   minRows: null
   staticRows: false

@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: commonCookieDeclaration
+instructions: 'Append the Cookiebot cookie declaration (list of all cookies) below this section.'
+name: 'Cookie declaration'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+  showLabelsInCards: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

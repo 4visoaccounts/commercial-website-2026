@@ -1,0 +1,102 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  b98559bd-f138-43a8-bcc9-f64c78f45130:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Section title'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: fde9cfe6-4cb9-4591-8379-c0e5ad273c8b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 76632528-a976-4c20-b4a9-aa98f9d07874 # ID
+            handle: null
+            instructions: 'Used for the table of contents link (e.g. `who-we-are`). Lowercase, no spaces. Falls back to the slug.'
+            label: Anchor
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 73f8a1b5-28da-42c3-904b-94545e033764
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 67f946de-72b1-45b8-b775-7c1cb5687517 # Cookie declaration
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15eb376a-ef55-4d5c-9989-a8d296f48af2
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce705e3c-b417-4928-a23c-47761737f752 # Description
+            handle: null
+            instructions: null
+            label: Content
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0a5e12fe-ebb9-4372-ac39-8b2466e133cd
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 4287ce0d-802a-42d4-a3c2-08af5ddbd775
+        userCondition: null
+    thumbFieldKey: null
+handle: commonLegalSection
+hasTitleField: true
+icon: section
+name: 'Legal section'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

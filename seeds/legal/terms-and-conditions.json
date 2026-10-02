@@ -33,67 +33,80 @@
     {
       "id": "who-we-are",
       "title": "Who we are",
-      "body": "<table>\n<tbody>\n<tr><td>Company name</td><td>4Viso BV</td></tr>\n<tr><td>Legal form</td><td>Private limited company (besloten vennootschap) under Belgian law</td></tr>\n<tr><td>Registered office</td><td>Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium</td></tr>\n<tr><td>Enterprise number</td><td>1027.105.086, RLE Antwerp, division Antwerp</td></tr>\n<tr><td>VAT number</td><td>BE 1027.105.086</td></tr>\n<tr><td>Email</td><td><a href=\"mailto:info@4viso.com\">info@4viso.com</a></td></tr>\n</tbody>\n</table>"
+      "body": "<table>\n<tbody>\n<tr><td>Company name</td><td>4Viso BV</td></tr>\n<tr><td>Legal form</td><td>Private limited company (besloten vennootschap) under Belgian law</td></tr>\n<tr><td>Registered office</td><td>Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium</td></tr>\n<tr><td>Enterprise number</td><td>1027.105.086, RLE Antwerp, division Antwerp</td></tr>\n<tr><td>VAT number</td><td>BE 1027.105.086</td></tr>\n<tr><td>Email</td><td><a href=\"mailto:info@4viso.com\">info@4viso.com</a></td></tr>\n</tbody>\n</table>",
+      "cookieDeclaration": false
     },
     {
       "id": "scope",
       "title": "Scope and acceptance",
-      "body": "<p>These terms apply to your use of the website 4viso.com, including its content and its contact form. By using the website you accept these terms. If you do not accept them, please do not use the website.</p>\n<p>The website is intended for professional users. Creating an account and using the 4Viso platform are governed by the Software Subscription Agreement, which you accept when you register in the platform. For anything that concerns the platform, the Agreement prevails over these terms.</p>"
+      "body": "<p>These terms apply to your use of the website 4viso.com, including its content and its contact form. By using the website you accept these terms. If you do not accept them, please do not use the website.</p>\n<p>The website is intended for professional users. Creating an account and using the 4Viso platform are governed by the Software Subscription Agreement, which you accept when you register in the platform. For anything that concerns the platform, the Agreement prevails over these terms.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "use",
       "title": "Using the website",
-      "body": "<p>You may browse the website and read its content for your own business information. You must not:</p>\n<ul>\n<li>use the website in a way that breaks the law or the rights of others;</li>\n<li>try to gain unauthorized access to the website, the platform, or the systems behind them, or interfere with their operation, for example by overloading them or introducing malicious code;</li>\n<li>copy or extract content by automated means such as scraping or crawling, other than indexing by public search engines;</li>\n<li>test the security of the website or the platform without our prior written consent;</li>\n<li>impersonate anyone or give false information in a form.</li>\n</ul>\n<p>If you believe you have found a security vulnerability, report it to <a href=\"mailto:info@4viso.com?subject=Security%20Report\">info@4viso.com</a> with the subject \"Security Report\".</p>"
+      "body": "<p>You may browse the website and read its content for your own business information. You must not:</p>\n<ul>\n<li>use the website in a way that breaks the law or the rights of others;</li>\n<li>try to gain unauthorized access to the website, the platform, or the systems behind them, or interfere with their operation, for example by overloading them or introducing malicious code;</li>\n<li>copy or extract content by automated means such as scraping or crawling, other than indexing by public search engines;</li>\n<li>test the security of the website or the platform without our prior written consent;</li>\n<li>impersonate anyone or give false information in a form.</li>\n</ul>\n<p>If you believe you have found a security vulnerability, report it to <a href=\"mailto:info@4viso.com?subject=Security%20Report\">info@4viso.com</a> with the subject \"Security Report\".</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "information",
       "title": "Information on the website",
-      "body": "<p>The website gives general information about 4Viso and its services. It is not legal, regulatory, or other professional advice.</p>\n<p>Descriptions of features, the product roadmap, and availability are indicative and may change. We take care to keep the information accurate, but we do not guarantee that it is complete, current, or free of errors. Binding commitments are made only in an Order Form or in the Software Subscription Agreement.</p>"
+      "body": "<p>The website gives general information about 4Viso and its services. It is not legal, regulatory, or other professional advice.</p>\n<p>Descriptions of features, the product roadmap, and availability are indicative and may change. We take care to keep the information accurate, but we do not guarantee that it is complete, current, or free of errors. Binding commitments are made only in an Order Form or in the Software Subscription Agreement.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "contact-requests",
       "title": "Contact and demo requests",
-      "body": "<p>When you use the contact form or email us, we use your details to answer your request and, where relevant, to arrange a demonstration or follow up on your enquiry. How we handle those details is described in the <a href=\"/privacy\">Privacy Policy</a>.</p>\n<p>Sending a request does not create a contract or an obligation for you or for us.</p>"
+      "body": "<p>When you use the contact form or email us, we use your details to answer your request and, where relevant, to arrange a demonstration or follow up on your enquiry. How we handle those details is described in the <a href=\"/privacy\">Privacy Policy</a>.</p>\n<p>Sending a request does not create a contract or an obligation for you or for us.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "intellectual-property",
       "title": "Intellectual property",
-      "body": "<p>The content of the website, including its text, graphics, design, software, and the 4VISO name and logo, belongs to 4Viso BV or its licensors and is protected by intellectual property law.</p>\n<p>You may view the pages and print or save them for your own internal business use. Any other reproduction, distribution, modification, or commercial use requires our prior written consent.</p>"
+      "body": "<p>The content of the website, including its text, graphics, design, software, and the 4VISO name and logo, belongs to 4Viso BV or its licensors and is protected by intellectual property law.</p>\n<p>You may view the pages and print or save them for your own internal business use. Any other reproduction, distribution, modification, or commercial use requires our prior written consent.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "links",
       "title": "Links to other websites",
-      "body": "<p>The website may link to websites of third parties. We do not control those websites and are not responsible for their content, availability, or privacy practices.</p>"
+      "body": "<p>The website may link to websites of third parties. We do not control those websites and are not responsible for their content, availability, or privacy practices.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "availability",
       "title": "Availability of the website",
-      "body": "<p>We provide the website as it is and may change, suspend, or withdraw any part of it at any time. We do not guarantee that it will always be available or free of interruptions. The availability of the platform is governed by the Software Subscription Agreement, not by these terms.</p>"
+      "body": "<p>We provide the website as it is and may change, suspend, or withdraw any part of it at any time. We do not guarantee that it will always be available or free of interruptions. The availability of the platform is governed by the Software Subscription Agreement, not by these terms.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "liability",
       "title": "Liability",
-      "body": "<p>To the extent permitted by law, 4Viso is not liable for any indirect or consequential loss, loss of profit, loss of data, or loss of business arising from the use of, or the inability to use, the website or from reliance on its information.</p>\n<p>Nothing in these terms excludes or limits liability for intentional fault or fraud, for death or personal injury, or any other liability that cannot be excluded or limited under Belgian law.</p>"
+      "body": "<p>To the extent permitted by law, 4Viso is not liable for any indirect or consequential loss, loss of profit, loss of data, or loss of business arising from the use of, or the inability to use, the website or from reliance on its information.</p>\n<p>Nothing in these terms excludes or limits liability for intentional fault or fraud, for death or personal injury, or any other liability that cannot be excluded or limited under Belgian law.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "privacy",
       "title": "Privacy and cookies",
-      "body": "<p>How we handle personal data is described in the <a href=\"/privacy\">Privacy Policy</a>. How we use cookies, and how you control them, is described in <a href=\"/privacy#cookies\">Section 14 of the Privacy Policy</a>. You can change your cookie choices at any time through the Cookie Settings link in the footer.</p>"
+      "body": "<p>How we handle personal data is described in the <a href=\"/privacy\">Privacy Policy</a>. How we use cookies, and how you control them, is described in <a href=\"/privacy#cookies\">Section 14 of the Privacy Policy</a>. You can change your cookie choices at any time through the Cookie Settings link in the footer.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "changes",
       "title": "Changes to these terms",
-      "body": "<p>We may update these terms. The \"Last updated\" date at the top changes each time. The version published when you use the website applies to that use.</p>"
+      "body": "<p>We may update these terms. The \"Last updated\" date at the top changes each time. The version published when you use the website applies to that use.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "governing-law",
       "title": "Governing law and disputes",
-      "body": "<p>These terms are governed by Belgian law. Disputes about the website fall under the exclusive jurisdiction of the courts of Antwerp, division Antwerp, without prejudice to any mandatory rules that apply. Disputes about the platform are resolved as the Software Subscription Agreement provides.</p>"
+      "body": "<p>These terms are governed by Belgian law. Disputes about the website fall under the exclusive jurisdiction of the courts of Antwerp, division Antwerp, without prejudice to any mandatory rules that apply. Disputes about the platform are resolved as the Software Subscription Agreement provides.</p>",
+      "cookieDeclaration": false
     },
     {
       "id": "contact",
       "title": "Contact",
-      "body": "<p><strong>4Viso BV</strong><br>Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium<br>Email: <a href=\"mailto:info@4viso.com\">info@4viso.com</a></p>"
+      "body": "<p><strong>4Viso BV</strong><br>Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium<br>Email: <a href=\"mailto:info@4viso.com\">info@4viso.com</a></p>",
+      "cookieDeclaration": false
     }
   ]
 }

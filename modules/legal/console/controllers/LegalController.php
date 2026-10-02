@@ -9,6 +9,7 @@ use craft\elements\Entry;
 use craft\enums\PropagationMethod;
 use craft\fieldlayoutelements\CustomField;
 use craft\fieldlayoutelements\entries\EntryTitleField;
+use craft\fields\Lightswitch;
 use craft\fields\Matrix;
 use craft\fields\Table;
 use craft\helpers\Console;
@@ -98,6 +99,18 @@ class LegalController extends Controller
             $this->saveField($callout);
         }
 
+        // Lightswitch: append the Cookiebot cookie declaration after a section's content
+        $cookieDeclaration = $fields->getFieldByHandle('commonCookieDeclaration');
+        if (!$cookieDeclaration) {
+            $cookieDeclaration = new Lightswitch([
+                'name' => 'Cookie declaration',
+                'handle' => 'commonCookieDeclaration',
+                'instructions' => 'Append the Cookiebot cookie declaration (list of all cookies) below this section.',
+                'default' => false,
+            ]);
+            $this->saveField($cookieDeclaration);
+        }
+
         // --- Section block entry type ------------------------------------------------------
         $sectionType = $entries->getEntryTypeByHandle(self::SECTION_ENTRY_TYPE);
         if (!$sectionType) {
@@ -119,6 +132,7 @@ class LegalController extends Controller
                             'instructions' => 'Used for the table of contents link (e.g. `who-we-are`). Lowercase, no spaces. Falls back to the slug.',
                             'width' => 50,
                         ]),
+                        new CustomField($cookieDeclaration, ['width' => 50]),
                         new CustomField($description, ['label' => 'Content']),
                     ],
                 ],
@@ -228,6 +242,47 @@ class LegalController extends Controller
     }
 
     /**
+     * Frees the URIs the legal singles need (`/privacy`, `/terms-and-conditions`).
+     * Any other entry currently living at one of those URIs gets its slug suffixed with `-old` and is disabled.
+     * Run this on production BEFORE `project-config/apply`, otherwise creating the singles fails on a URI clash.
+     */
+    public function actionPrepare(): int
+    {
+        $entries = Craft::$app->getEntries();
+        $elements = Craft::$app->getElements();
+        $changed = 0;
+
+        foreach (self::SINGLES as $handle => [$name, $uri]) {
+            if ($entries->getSectionByHandle($handle)) {
+                continue; // single already exists, nothing can clash
+            }
+
+            foreach (Craft::$app->getSites()->getAllSites() as $site) {
+                $entry = Entry::find()->uri($uri)->siteId($site->id)->status(null)->one();
+                if (!$entry) {
+                    continue;
+                }
+
+                $oldUri = $entry->uri;
+                $entry->slug = $entry->slug . '-old';
+                $entry->enabled = false;
+                $entry->setEnabledForSite(false);
+
+                if (!$elements->saveElement($entry)) {
+                    $this->stderr("Could not move entry #{$entry->id} away from /$oldUri: " . implode(' ', $entry->getErrorSummary(true)) . "\n", Console::FG_RED);
+                    return ExitCode::UNSPECIFIED_ERROR;
+                }
+
+                $this->stdout("Moved \"{$entry->title}\" (#{$entry->id}) from /$oldUri to /{$entry->uri} and disabled it.\n", Console::FG_YELLOW);
+                $changed++;
+            }
+        }
+
+        $this->stdout($changed ? "Done. URIs are free for the legal singles.\n" : "Nothing to do.\n", Console::FG_GREEN);
+        return ExitCode::OK;
+    }
+
+    /**
      * Imports seeds/legal/*.json into the matching single entries.
      * Replaces the full content of each page (title, header fields, all sections).
      *
@@ -297,6 +352,7 @@ class LegalController extends Controller
                         'title' => $block['title'] ?? '',
                         'fields' => [
                             'commonId' => $block['id'] ?? '',
+                            'commonCookieDeclaration' => !empty($block['cookieDeclaration']),
                             'commonDescription' => $block['body'] ?? '',
                         ],
                     ];

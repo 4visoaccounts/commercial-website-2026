@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: commonSections
+instructions: 'Numbered sections. The table of contents is generated from these.'
+name: Sections
+searchable: false
+settings:
+  createButtonLabel: 'Add section'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e2a8ad99-3785-46f5-9cee-123b7812b693 # Legal section
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

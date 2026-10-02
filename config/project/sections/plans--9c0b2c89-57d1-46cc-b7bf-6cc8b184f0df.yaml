@@ -7,7 +7,6 @@ handle: plans
 maxAuthors: 1
 minAuthors: 1
 name: Plans
-previewTargets: {  }
 propagationMethod: all
 siteSettings:
   e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b:

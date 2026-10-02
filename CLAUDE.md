@@ -148,6 +148,19 @@ Stagger children by adjusting the transition delay (`0.5s 100ms ease-out`, `0.5s
 - **Fonts:** `font-sans` = "Stack Sans Text"; `h1`–`h5` automatically use "Stack Sans Headline" via global styles.
 - **Default border radius:** `rounded` = `10px` (overridden in `tailwind.config.js`).
 
+## Legal pages (Privacy Policy / Terms and Conditions)
+
+Two Singles (`privacyPolicy` → `/privacy`, `termsAndConditions` → `/terms-and-conditions`) share the `legalPage` entry type and render via `templates/legal/_entry.twig` (own header, sticky numbered TOC, `.s-legal` rich-text styles). Sections live in the `commonSections` Matrix (`commonLegalSection` blocks: title, `commonId` anchor, `commonCookieDeclaration` switch, `commonDescription` body). Header meta uses the `commonMetaRows` Table field; the intro box is `commonCallout`.
+
+Content seeds live in `seeds/legal/*.json`; the `modules/legal` console module imports them:
+
+```
+php craft legal/prepare   # prod only, before project-config/apply: moves any entry squatting the URIs to <slug>-old (disabled)
+php craft legal/import    # (re)imports both seeds — replaces title, header fields and all sections
+```
+
+Structure is created locally via `php craft legal/setup` and reaches production through `config/project` as usual.
+
 ## Gotchas
 
 - **Header overlays the page top.** It's `position: absolute; z-50` — hero sections must own their top padding.

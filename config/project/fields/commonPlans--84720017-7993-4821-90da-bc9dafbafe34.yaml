@@ -17,7 +17,7 @@ settings:
   showUnpermittedEntries: false
   showUnpermittedSections: false
   sources:
-    - 'section:9c0b2c89-57d1-46cc-b7bf-6cc8b184f0df' # plans
+    - 'section:9c0b2c89-57d1-46cc-b7bf-6cc8b184f0df' # Plans
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

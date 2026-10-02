@@ -1,0 +1,184 @@
+{# ========================================================================== #}
+{# Legal page (Privacy Policy / Terms and Conditions singles)                  #}
+{# Entry type: legalPage — see modules/legal                                   #}
+{# ========================================================================== #}
+{% extends "_layouts/base.twig" %}
+
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set kicker = entry.commonSubtitle ?? '' %}
+{% set intro = entry.commonDescription ?? '' %}
+{% set metaRows = entry.commonMetaRows ?? [] %}
+{% set callout = entry.commonCallout ?? '' %}
+{% set footnote = entry.commonFootnote ?? '' %}
+{% set sections = entry.commonSections.all() ?? [] %}
+{% set otherLegalPages = craft.entries()
+    .section(['privacyPolicy', 'termsAndConditions'])
+    .id('not ' ~ entry.id)
+    .orderBy('title asc')
+    .all() %}
+
+{# Table of contents: anchor falls back to the block slug when no explicit ID is set #}
+{% set toc = [] %}
+{% for block in sections %}
+    {% set toc = toc|merge([{
+        anchor: (block.commonId ?? '')|trim ?: block.slug ?: ('section-' ~ loop.index),
+        title: block.title,
+        number: loop.index,
+    }]) %}
+{% endfor %}
+
+{# ========================================================================== #}
+{# Content #}
+{# ========================================================================== #}
+{% block content %}
+{% cache globally using key "legal-#{entry.slug}" if not craft.app.config.general.devMode %}
+
+{# -------------------------------------------------------------------------- #}
+{# Header                                                                     #}
+{# -------------------------------------------------------------------------- #}
+<section class="px-4 lg:px-8 text-white bg-cover bg-center bg-no-repeat relative overflow-hidden" style="background-image: url('/assets/gradient.png');">
+    <div class="container mx-auto py-16 md:py-24 relative">
+        <div class="max-w-3xl space-y-5">
+            {% if kicker %}
+                <span class="s-hero-pill inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white animate-fade-up">
+                    {{ kicker }}
+                </span>
+            {% endif %}
+
+            <h1 class="text-white text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] animate-fade-up [animation-delay:50ms]">
+                {{ entry.title }}
+            </h1>
+
+            {% if intro %}
+                <div class="text-white/85 text-lg font-light leading-relaxed max-w-2xl [&_strong]:text-peach animate-fade-up [animation-delay:100ms]">
+                    {{ intro|striptags('<strong><br><br/><a>')|raw }}
+                </div>
+            {% endif %}
+
+            {% if metaRows|length %}
+                <dl class="flex flex-wrap gap-x-10 gap-y-4 pt-4 animate-fade-up [animation-delay:150ms]">
+                    {% for row in metaRows %}
+                        {% if row.label or row.value %}
+                            <div>
+                                <dt class="text-[11px] uppercase tracking-[0.12em] text-white/60 mb-1">{{ row.label }}</dt>
+                                <dd class="text-[15px] font-medium text-white">{{ row.value }}</dd>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </dl>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{# -------------------------------------------------------------------------- #}
+{# Body: sticky TOC + content                                                 #}
+{# -------------------------------------------------------------------------- #}
+<section class="bg-white" x-data="{ active: '' }">
+    <div class="container mx-auto px-4 lg:px-8 py-12 md:py-20">
+        <div class="lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16 xl:gap-24">
+
+            {# Desktop table of contents #}
+            {% if toc|length %}
+                <aside class="hidden lg:block" aria-label="Table of contents">
+                    <nav class="sticky top-28">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-grey mb-4">On this page</p>
+                        <ol class="space-y-1 border-l border-card-border">
+                            {% for item in toc %}
+                                <li>
+                                    <a href="#{{ item.anchor }}"
+                                       class="block -ml-px border-l-2 pl-4 py-1 text-[14px] leading-snug no-underline transition-colors hover:text-primary"
+                                       :class="active === '{{ item.anchor|e('js') }}' ? 'border-primary text-primary font-semibold' : 'border-transparent text-grey'">
+                                        <span class="tabular-nums mr-1">{{ item.number }}.</span>{{ item.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </nav>
+                </aside>
+            {% endif %}
+
+            <div class="max-w-3xl">
+
+                {# Mobile table of contents #}
+                {% if toc|length %}
+                    <details class="lg:hidden mb-10 rounded border border-card-border bg-card-bg group">
+                        <summary class="flex items-center justify-between cursor-pointer list-none px-5 py-4 text-[15px] font-semibold text-dark">
+                            On this page
+                            <i class="ph ph-caret-down transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <ol class="px-5 pb-4 space-y-2">
+                            {% for item in toc %}
+                                <li>
+                                    <a href="#{{ item.anchor }}" class="text-[15px] text-dark no-underline hover:text-primary">
+                                        <span class="tabular-nums mr-1 text-grey">{{ item.number }}.</span>{{ item.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </details>
+                {% endif %}
+
+                {# Callout #}
+                {% if callout|striptags|trim %}
+                    <div class="s-legal rounded border border-card-border border-l-4 border-l-primary bg-card-bg px-6 py-5 mb-14 text-grey [&_p]:text-[16px] [&_p]:text-grey [&_p:last-child]:mb-0 [&_strong]:text-dark">
+                        {{ callout|raw }}
+                    </div>
+                {% endif %}
+
+                {# Sections #}
+                {% for block in sections %}
+                    {% set item = toc[loop.index0] %}
+                    <section id="{{ item.anchor }}"
+                             class="scroll-mt-28 mb-14 last:mb-0"
+                             x-intersect:enter.margin.-20%.0px.-70%.0px="active = '{{ item.anchor|e('js') }}'">
+                        <p class="text-primary text-[11px] font-bold uppercase tracking-[0.12em] mb-2">
+                            Section {{ '%02d'|format(item.number) }}
+                        </p>
+                        <h2 class="text-[26px] md:text-[30px] lg:text-[34px] mb-5">{{ block.title }}</h2>
+
+                        {% set body = block.commonDescription ?? '' %}
+                        {% if body|striptags|trim %}
+                            <div class="s-legal">
+                                {# Wrap tables so wide ones scroll horizontally on small screens #}
+                                {{ body|replace({
+                                    '<table': '<div class="overflow-x-auto"><table',
+                                    '</table>': '</table></div>',
+                                })|raw }}
+                            </div>
+                        {% endif %}
+
+                        {# Cookiebot cookie declaration (same cbid as the banner in _layouts/base.twig) #}
+                        {% if block.commonCookieDeclaration ?? false %}
+                            <div class="s-legal mt-6">
+                                <script id="CookieDeclaration" src="https://consent.cookiebot.com/2979d76c-4cfa-4735-bdad-41064a96aeef/cd.js" type="text/javascript" async></script>
+                            </div>
+                        {% endif %}
+                    </section>
+                {% endfor %}
+
+                {# Footer #}
+                <footer class="mt-16 pt-8 border-t border-card-border flex flex-col md:flex-row md:items-start md:justify-between gap-4 text-[14px] text-grey">
+                    <p class="text-[14px] text-grey">
+                        &copy; {{ now|date('Y') }}{% if footnote %} {{ footnote }}{% endif %}
+                        {% if company.commonMail ?? null %}
+                            &middot; <a href="mailto:{{ company.commonMail }}" class="text-primary no-underline hover:underline">{{ company.commonMail }}</a>
+                        {% endif %}
+                    </p>
+                    <nav class="flex flex-wrap gap-x-5 gap-y-2 shrink-0" aria-label="Legal documents">
+                        {% for page in otherLegalPages %}
+                            <a href="{{ page.url }}" class="text-dark no-underline hover:text-primary">{{ page.title }}</a>
+                        {% endfor %}
+                        <a href="#" onclick="if (window.Cookiebot) { Cookiebot.renew(); } return false;" class="text-dark no-underline hover:text-primary">Cookie Settings</a>
+                    </nav>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endcache %}
+{% endblock %}

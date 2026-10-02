@@ -1,0 +1,51 @@
+columnSuffix: null
+handle: commonCallout
+instructions: 'Highlighted intro box shown above the first section.'
+name: Callout
+searchable: true
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  characterLimit: null
+  css: null
+  cssFile: null
+  defaultTransform: null
+  defaultUploadLocationSubpath: null
+  defaultUploadLocationVolume: null
+  fullGraphqlData: true
+  headingLevels:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  imageEntryTypeUid: null
+  imageFieldUid: null
+  imageMode: img
+  js: null
+  jsFile: null
+  options: null
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  toolbar:
+    - heading
+    - '|'
+    - blockQuote
+    - bold
+    - italic
+    - underline
+    - insertTable
+    - bulletedList
+    - numberedList
+    - link
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\ckeditor\Field

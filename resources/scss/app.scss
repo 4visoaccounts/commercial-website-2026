@@ -84,6 +84,88 @@ b, strong {
   }
 }
 
+// Legal pages (Privacy Policy / Terms) — CKEditor output inside templates/legal/_entry.twig
+.s-legal {
+  p {
+    @apply mb-4 text-[16px] md:text-[17px];
+  }
+
+  ul,
+  ol {
+    @apply mb-5 pl-5 space-y-2 text-[16px] md:text-[17px] font-light text-dark leading-relaxed;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li > p {
+    @apply mb-0;
+  }
+
+  h3 {
+    @apply text-[18px] md:text-[20px] lg:text-[22px] font-bold mt-8 mb-3;
+  }
+
+  h4 {
+    @apply text-[16px] md:text-[17px] lg:text-[18px] font-bold mt-6 mb-2;
+  }
+
+  a {
+    @apply text-primary no-underline;
+
+    &:hover {
+      @apply text-primary-pine underline;
+    }
+  }
+
+  strong {
+    @apply text-dark font-bold;
+  }
+
+  // CKEditor wraps tables in <figure class="table">; the template also wraps them for horizontal scroll
+  figure.table {
+    @apply m-0 mb-6;
+  }
+
+  table {
+    @apply w-full mb-6 text-[15px] border border-card-border rounded;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+
+    th,
+    td {
+      @apply px-4 py-3 text-left align-top border-b border-card-border;
+    }
+
+    th {
+      @apply bg-card-bg text-dark font-bold;
+    }
+
+    td {
+      @apply text-dark font-light leading-relaxed;
+    }
+
+    thead th {
+      @apply text-[13px] uppercase tracking-wider text-grey;
+    }
+
+    tbody th {
+      @apply w-[34%] text-[15px] normal-case tracking-normal;
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0;
+    }
+  }
+}
+
 .s-stakeholder p,
 .s-mainfeatures p {
   margin-bottom: 20px;
