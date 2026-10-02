@@ -36,7 +36,7 @@
         {% if blocks|length %}
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {% for block in blocks %}
-                    <div class="relative">
+                    <div class="relative md:grid md:grid-rows-subgrid md:row-span-2 md:gap-y-0">
 
                         {% if loop.first or loop.last %}
                             {# Shapes #}
@@ -52,25 +52,25 @@
                         {% endif %}
 
                         {# Card #}
-                        <div class="bg-card-border rounded p-12"
+                        <div class="bg-card-border rounded p-12 h-full md:grid md:grid-rows-subgrid md:row-span-2 md:gap-y-0"
                             style="opacity: 0; transform: translateY(40px);"
                             :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s {{ loop.index * 100 }}ms ease-out, transform 0.5s {{ loop.index * 100 }}ms ease-out;`">
-                            {% if block.commonIcon ?? null %}
-                                <div class="flex items-center gap-3 mb-4">
-                                    <i data-lucide="{{ block.commonIcon }}" class="w-6 h-6 text-primary-mint" stroke-width="2.5"></i>
-                                    {% if block.commonTitle ?? null %}
-                                        <h4 class="font-bold">{{ block.commonTitle|striptags|raw }}</h4>
-                                    {% endif %}
-                                </div>
-                            {% elseif block.commonTitle ?? null %}
-                                <h5 class="font-bold mb-4">{{ block.commonTitle|striptags|raw }}</h5>
-                            {% endif %}
+                            {# Title row — always rendered so every card shares the same subgrid row #}
+                            <div class="flex items-center gap-3 mb-4">
+                                {% if block.commonIcon ?? null %}
+                                    <i data-lucide="{{ block.commonIcon }}" class="w-6 h-6 text-primary-mint shrink-0" stroke-width="2.5"></i>
+                                {% endif %}
+                                {% if block.commonTitle ?? null %}
+                                    <h4 class="font-bold">{{ block.commonTitle|striptags|raw }}</h4>
+                                {% endif %}
+                            </div>
 
-                            {% if block.commonDescription ?? null %}
-                                <div class="s-mainfeatures">
+                            {# Description row #}
+                            <div class="s-mainfeatures">
+                                {% if block.commonDescription ?? null %}
                                     {{ block.commonDescription|raw }}
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
