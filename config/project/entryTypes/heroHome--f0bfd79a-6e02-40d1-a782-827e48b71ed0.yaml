@@ -73,6 +73,38 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-10-02T09:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d37f4e27-98ea-446a-8ace-53de5bc6897c # Footnote
+            handle: null
+            instructions: 'Small caption shown under the primary button, e.g. "Free for logistics service providers."'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5b1c7e2a-8f3d-4c6e-9a1b-2d4f6e8a0c3e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T09:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fa10e20e-af48-4184-9f2b-050e7fdda65e # Links
+            handle: null
+            instructions: 'Secondary text links shown under the button, e.g. "Guideline owner, validator or certification body? Talk to us"'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7e9d1f4b-2a6c-4e8f-b3d5-9c1a3e5f7b2d
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-06-23T06:25:16+00:00'
             editCondition: null
             elementCondition: null
