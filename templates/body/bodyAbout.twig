@@ -33,29 +33,30 @@
             <div class="flex flex-col md:flex-row gap-12 mb-20"
                 style="opacity: 0; transform: translateY(40px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
-                {% if title %}
-                    <div class="w-full md:w-1/3">
-                        <h2 class="text-peach text-6xl">{{ title|striptags|raw }}</h2>
+                {% if title or link %}
+                    <div class="w-full md:w-1/3 flex items-center gap-6">
+                        {% if title %}
+                            <h2 class="text-peach text-6xl">{{ title|striptags|raw }}</h2>
+                        {% endif %}
+                        {% if link %}
+                            <a href="{{ link.url ?? '#' }}" class="inline-block no-underline text-primary-lightest-green hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                {% include "/shapes/linkedin.twig" with { customClass: 'w-8 h-auto shrink-0' } %}
+                            </a>
+                        {% endif %}
                     </div>
                 {% endif %}
 
-                <div class="w-full md:w-2/3 space-y-6">
-                    {% if description %}
+                {% if description %}
+                    <div class="w-full md:w-2/3">
                         <p class="text-white text-xl leading-[1.7]">{{ description|striptags('<strong><br><br/>')|raw }}</p>
-                    {% endif %}
-
-                    {% if link %}
-                        <a href="{{ link.url ?? '#' }}" class="inline-block no-underline" target="_blank" rel="noopener">
-                            <i data-lucide="linkedin" class="w-6 h-6 text-white"></i>
-                        </a>
-                    {% endif %}
-                </div>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
 
         {# Team members grid #}
         {% if teammembers|length %}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                 style="opacity: 0; transform: translateY(40px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
                 {% for member in teammembers %}
