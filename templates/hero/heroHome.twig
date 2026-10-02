@@ -9,6 +9,7 @@
 {% set footnote = data.commonFootnote ?? "" %}
 {% set secondaryLinks = data.commonLinks.all() ?? [] %}
 {% set video = data.commonAsset.one() ?? null %}
+{% set poster = data.commonPoster.one() ?? null %}
 
 {# ========================================================================== #}
 {# :: Component #}
@@ -256,11 +257,12 @@
                             x-ref="heroVideo"
                             class="absolute inset-0 w-full h-full object-cover"
                             playsinline
-                            preload="metadata"
+                            preload="{{ poster ? 'none' : 'metadata' }}"
+                            {% if poster %}poster="{{ poster.getUrl({ width: 1280, format: 'webp', quality: 80 }) }}"{% endif %}
                             :controls="playing"
                             @ended="playing = false"
                         >
-                            <source src="{{ video.url }}#t=0.1" type="{{ video.mimeType ?? 'video/mp4' }}">
+                            <source src="{{ video.url }}{{ poster ? '' : '#t=0.1' }}" type="{{ video.mimeType ?? 'video/mp4' }}">
                         </video>
 
                         {# Play button overlay — hidden once playing #}
