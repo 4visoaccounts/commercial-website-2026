@@ -56,14 +56,14 @@
 
         {# Team members grid #}
         {% if teammembers|length %}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:px-8"
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
                 style="opacity: 0; transform: translateY(40px);"
                 :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
                 {% for member in teammembers %}
                     {% set photo = member.commonAsset.one() ?? null %}
                     {% set memberLink = member.commonLink ?? null %}
 
-                    <div class="relative rounded overflow-hidden aspect-[300/350]{% if photo %} bg-cover bg-center{% endif %}"{% if photo %} style="background-image: url('{{ photo.getUrl({ width: 600, format: 'webp', quality: 80 }) }}')"{% endif %}>
+                    <div class="relative rounded overflow-hidden aspect-[3/4]{% if photo %} bg-cover bg-center{% endif %}"{% if photo %} style="background-image: url('{{ photo.getUrl({ width: 800, format: 'webp', quality: 80 }) }}')"{% endif %}>
 
                         {# Gradient overlay #}
                         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>
