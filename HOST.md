@@ -81,6 +81,12 @@ cd <project-dir>
 
 Note: `deploy.sh` runs `git checkout -- .` first, so any uncommitted edits made directly on the server are lost.
 
+## Domains
+
+- Canonical host is **`https://4viso.com`** (no www). `web/.htaccess` 301-redirects any `www.` host to the bare domain, keeping path and query string.
+- Both `4viso.com` and `www.4viso.com` must point to the hosting account and be covered by the SSL certificate in the Combell control panel, otherwise the redirect never gets a chance to run.
+- Local DDEV uses nginx, so the `.htaccess` rule only takes effect on Combell (Apache). Verify after deploy with `curl -I https://www.4viso.com/`.
+
 ## Environment
 
 - `.env` on the server is not in git. Start from `.env.example.production`.
