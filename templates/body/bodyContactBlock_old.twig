@@ -1,0 +1,210 @@
+{# ========================================================================== #}
+{# :: Variables #}
+{# ========================================================================== #}
+{% set id = data.commonId ?? "" %}
+{% set title = data.commonTitle ?? "" %}
+{% set description = data.commonDescription ?? "" %}
+{% set link = data.commonLink ?? null %}
+{% set spacing = data.commonSpacing ?? "default" %}
+{% set typeForm = data.commonTypeForm ?? "commercial" %}
+{% if spacing == "small" %}
+    {% set spacingClass = "py-8 md:py-16" %}
+{% elseif spacing == "smallTopDefaultBottom" %}
+    {% set spacingClass = "pt-8 md:pt-16 pb-16 md:pb-32" %}
+{% elseif spacing == "smallBottomDefaultTop" %}
+    {% set spacingClass = "pt-16 md:pt-32 pb-8 md:pb-16" %}
+{% else %}
+    {% set spacingClass = "py-16 md:py-32" %}
+{% endif %}
+
+{# ========================================================================== #}
+{# :: Component #}
+{# ========================================================================== #}
+<section x-data="{ visible: false }" x-intersect.once.margin.0px.0px.-100px.0px="visible = true" class="container mx-auto px-4 lg:px-8 {{ spacingClass }} relative" id="{{id}}">
+    {# Background vertical lines #}
+    <div class="absolute inset-y-0 left-[10%] w-4/5 flex flex-row justify-between pointer-events-none -z-10">
+        {% for i in 1..6 %}
+            <div class="h-full w-px bg-schema-line"></div>
+        {% endfor %}
+    </div>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+        {# Left side: title, description, email #}
+        <div class="w-full md:w-1/3 md:pt-8"
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
+            {% if title %}
+                <h2 class="mb-6">{{ title|striptags|raw }}</h2>
+            {% endif %}
+
+            {% if description %}
+                <h5 class="mb-8">{{ description|striptags }}</h5>
+            {% endif %}
+
+            {% if link %}
+                <div class="flex items-center gap-3">
+                    <i data-lucide="mail" class="w-5 h-5 text-primary-pine"></i>
+                    <span class="text-dark text-[18px]">{{link.text }} <a href="mailto:{{link.url }}" class="text-primary-pine font-semibold">info@4viso.com</a></span>
+                </div>
+            {% endif %}
+        </div>
+
+        {# Right side: form #}
+        <div class="w-full md:w-2/3"
+            style="opacity: 0; transform: translateY(40px);"
+            :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+
+            {% if typeForm == 'commercial' %}
+
+            {# ── Commercial lead: Zoho form popup ── #}
+            <script type="text/javascript">
+                function zforms_open_window(url, height, width) {
+                    var leftPos = 0;
+                    var topPos = 0;
+                    if (screen) {
+                        leftPos = (screen.width - width) / 2;
+                        topPos = (screen.height - height) / 2;
+                        window.open(url, null, 'width=' + width + ',height=' + height + ',left=' + leftPos + ',top=' + topPos + ', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');
+                    }
+                }
+            </script>
+            <div class="relative overflow-hidden">
+                <div class="flex gap-6 flex-col absolute -top-[40px] -right-[40px] -z-10">
+                    {% for i in 1..6 %}
+                        <div class="flex gap-6">
+                            {% for i in 1..6 %}
+                                {% include "/shapes/logo.twig" with { customClass: 'w-3 h-3 shrink-0' } %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="bg-peach-light rounded p-8 md:p-12">
+                    <a
+                        href="https://forms.zohopublic.eu/4visoglobal1/form/LetsTalk4Visowebsite/formperma/qeqNezzqkbrLM7gS6WqnsUaThxVyNajX1mfmwA3NpH4"
+                        title="Lets Talk _ 4Viso website"
+                        target="_blank"
+                        rel="noopener"
+                        onclick="zforms_open_window(this.href, 648, 700); return false"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary"
+                    >
+                        Lets talk
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            {% else %}
+
+            {# ── IT support ticket form ── #}
+            <div
+                x-data="{
+                    name: '',
+                    email: '',
+                    description: '',
+                    honeypot: '',
+                    file: null,
+                    fileName: '',
+                    submitting: false,
+                    submitted: false,
+                    error: '',
+                    setFile(event) {
+                        this.file = event.target.files[0] ?? null;
+                        this.fileName = this.file ? this.file.name : '';
+                    },
+                    async handleSubmit() {
+                        this.submitting = true;
+                        this.error = '';
+                        try {
+                            const fd = new FormData();
+                            fd.append('name', this.name);
+                            fd.append('email', this.email);
+                            fd.append('description', this.description);
+                            fd.append('_gotcha', this.honeypot);
+                            if (this.file) fd.append('attachment', this.file);
+
+                            const res = await fetch('/actions/lead/ticket/submit', {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'X-CSRF-Token': window.csrfToken
+                                },
+                                body: fd
+                            });
+                            const data = await res.json();
+                            if (!data.success) throw new Error(data.error || 'Submission failed');
+                            this.submitted = true;
+                        } catch(e) {
+                            this.error = e.message || 'Something went wrong, please try again.';
+                        } finally {
+                            this.submitting = false;
+                        }
+                    }
+                }">
+                <div class="relative overflow-hidden">
+                    <div class="flex gap-6 flex-col absolute -top-[40px] -right-[40px] -z-10">
+                        {% for i in 1..6 %}
+                            <div class="flex gap-6">
+                                {% for i in 1..6 %}
+                                    {% include "/shapes/logo.twig" with { customClass: 'w-3 h-3 shrink-0' } %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bg-peach-light rounded p-8 md:p-12">
+
+                        {# Success state #}
+                        <div x-show="submitted" x-cloak class="text-dark text-lg space-y-2">
+                            <p class="font-semibold">Your ticket has been submitted. We'll be in touch.</p>
+                        </div>
+
+                        {# Form #}
+                        <form x-show="!submitted" @submit.prevent="handleSubmit" class="relative space-y-6">
+                            {# Honeypot #}
+                            <div style="position: absolute; left: -9999px; visibility: hidden;" aria-hidden="true">
+                                <label for="tk-website">Leave this empty</label>
+                                <input type="text" id="tk-website" x-model="honeypot" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <div>
+                                <label for="tk-name" class="block text-dark text-[16px] mb-2 no-underline">Name<span class="text-primary">*</span></label>
+                                <input type="text" id="tk-name" x-model="name" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="tk-email" class="block text-dark text-[16px] mb-2 no-underline">Email<span class="text-primary">*</span></label>
+                                <input type="email" id="tk-email" x-model="email" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="tk-description" class="block text-dark text-[16px] mb-2 no-underline">Description<span class="text-primary">*</span></label>
+                                <textarea id="tk-description" x-model="description" rows="4" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary resize-none"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-dark text-[16px] mb-2 no-underline">Attachment <span class="text-grey text-[14px]">(optional)</span></label>
+                                <label for="tk-attachment" class="flex items-center gap-3 px-4 py-3 rounded border border-dashed border-primary-mint bg-white cursor-pointer hover:border-primary transition">
+                                    <i data-lucide="paperclip" class="w-4 h-4 text-grey shrink-0"></i>
+                                    <span class="text-grey text-[15px]" x-text="fileName || 'Choose a file…'"></span>
+                                </label>
+                                <input type="file" id="tk-attachment" @change="setFile($event)" class="sr-only">
+                            </div>
+
+                            <p x-show="error" x-text="error" x-cloak class="text-red-600 text-sm"></p>
+
+                            <div>
+                                <button
+                                    type="submit"
+                                    :disabled="submitting"
+                                    class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                                    x-text="submitting ? 'Sending…' : 'Submit Ticket'"
+                                ></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</section>
