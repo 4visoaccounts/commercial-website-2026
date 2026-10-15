@@ -27,10 +27,9 @@
             <div class="h-full w-px bg-schema-line"></div>
         {% endfor %}
     </div>
-    {% set isCommercial = typeForm == 'commercial' %}
-    <div class="{{ isCommercial ? 'flex flex-col items-center text-center max-w-3xl mx-auto gap-10' : 'flex flex-col md:flex-row gap-12 md:gap-20 items-start' }}">
-        {# Title, description, email #}
-        <div class="w-full {{ isCommercial ? '' : 'md:w-1/3 md:pt-8' }}"
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+        {# Left side: title, description, email #}
+        <div class="w-full md:w-1/3 md:pt-8"
             style="opacity: 0; transform: translateY(40px);"
             :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s ease-out, transform 0.5s ease-out;`">
             {% if title %}
@@ -41,47 +40,142 @@
                 <h5 class="mb-8">{{ description|striptags }}</h5>
             {% endif %}
 
-            {% if isCommercial %}
-                {# ── Commercial lead: Zoho form popup ── #}
-                <script type="text/javascript">
-                    function zforms_open_window(url, height, width) {
-                        var leftPos = 0;
-                        var topPos = 0;
-                        if (screen) {
-                            leftPos = (screen.width - width) / 2;
-                            topPos = (screen.height - height) / 2;
-                            window.open(url, null, 'width=' + width + ',height=' + height + ',left=' + leftPos + ',top=' + topPos + ', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');
-                        }
-                    }
-                </script>
-                <div class="mb-8 flex justify-center">
-                    <a
-                        href="https://forms.zohopublic.eu/4visoglobal1/form/LetsTalk4Visowebsite/formperma/qeqNezzqkbrLM7gS6WqnsUaThxVyNajX1mfmwA3NpH4"
-                        title="Lets Talk _ 4Viso website"
-                        target="_blank"
-                        rel="noopener"
-                        onclick="zforms_open_window(this.href, 648, 700); return false"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary"
-                    >
-                        Lets talk
-                        <i class="ph ph-arrow-right"></i>
-                    </a>
-                </div>
-            {% endif %}
-
             {% if link %}
-                <div class="flex items-center gap-3 {{ isCommercial ? 'justify-center' : '' }}">
+                <div class="flex items-center gap-3">
                     <i data-lucide="mail" class="w-5 h-5 text-primary-pine"></i>
                     <span class="text-dark text-[18px]">{{link.text }} <a href="mailto:{{link.url }}" class="text-primary-pine font-semibold">info@4viso.com</a></span>
                 </div>
             {% endif %}
         </div>
 
-        {% if not isCommercial %}
-        {# Ticket form #}
+        {# Right side: form #}
         <div class="w-full md:w-2/3"
             style="opacity: 0; transform: translateY(40px);"
             :style="`opacity: ${visible ? 1 : 0}; transform: translateY(${visible ? 0 : 40}px); transition: opacity 0.5s 150ms ease-out, transform 0.5s 150ms ease-out;`">
+
+            {% if typeForm == 'commercial' %}
+
+            {# ── Commercial lead form ── #}
+            <div
+                x-data="{
+                    firstName: '',
+                    lastName: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    description: '',
+                    honeypot: '',
+                    agree: false,
+                    submitting: false,
+                    submitted: false,
+                    error: '',
+                    async handleSubmit() {
+                        this.submitting = true;
+                        this.error = '';
+                        try {
+                            const res = await fetch('/actions/lead/lead/submit', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'X-CSRF-Token': window.csrfToken
+                                },
+                                body: JSON.stringify({
+                                    first_name: this.firstName,
+                                    last_name: this.lastName,
+                                    company: this.company,
+                                    email: this.email,
+                                    phone: this.phone,
+                                    description: this.description,
+                                    _gotcha: this.honeypot
+                                })
+                            });
+                            const data = await res.json();
+                            if (!data.success) throw new Error(data.error || 'Submission failed');
+                            this.submitted = true;
+                        } catch(e) {
+                            this.error = e.message || 'Something went wrong, please try again.';
+                        } finally {
+                            this.submitting = false;
+                        }
+                    }
+                }">
+                <div class="relative overflow-hidden">
+                    <div class="flex gap-6 flex-col absolute -top-[40px] -right-[40px] -z-10">
+                        {% for i in 1..6 %}
+                            <div class="flex gap-6">
+                                {% for i in 1..6 %}
+                                    {% include "/shapes/logo.twig" with { customClass: 'w-3 h-3 shrink-0' } %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bg-peach-light rounded p-8 md:p-12">
+
+                        {# Success state #}
+                        <div x-show="submitted" x-cloak class="text-dark text-lg space-y-2">
+                            <p class="font-semibold">Thanks! We'll be in touch soon.</p>
+                        </div>
+
+                        {# Form #}
+                        <form x-show="!submitted" @submit.prevent="handleSubmit" class="relative space-y-6">
+                            {# Honeypot — hidden from humans, filled by bots #}
+                            <div style="position: absolute; left: -9999px; visibility: hidden;" aria-hidden="true">
+                                <label for="cb-website">Leave this empty</label>
+                                <input type="text" id="cb-website" x-model="honeypot" tabindex="-1" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="cb-firstName" class="block text-dark text-[16px] mb-2 no-underline">First Name<span class="text-primary">*</span></label>
+                                <input type="text" id="cb-firstName" x-model="firstName" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="cb-lastName" class="block text-dark text-[16px] mb-2 no-underline">Last Name<span class="text-primary">*</span></label>
+                                <input type="text" id="cb-lastName" x-model="lastName" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="cb-email" class="block text-dark text-[16px] mb-2 no-underline">Email Address<span class="text-primary">*</span></label>
+                                <input type="email" id="cb-email" x-model="email" required class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="cb-company" class="block text-dark text-[16px] mb-2 no-underline">Company</label>
+                                <input type="text" id="cb-company" x-model="company" class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+
+                            <div>
+                                <label for="cb-phone" class="block text-dark text-[16px] mb-2 no-underline">Phone Number</label>
+                                <input type="tel" id="cb-phone" x-model="phone" class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label for="cb-description" class="block text-dark text-[16px] mb-2 no-underline">Message</label>
+                                <textarea id="cb-description" x-model="description" rows="4" class="w-full px-4 py-3 rounded bg-white text-dark text-[16px] focus:outline-none focus:border-primary resize-none"></textarea>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="cb-agree" x-model="agree" required class="mt-1.5 w-4 h-4 accent-primary-pine cursor-pointer">
+                                <label for="cb-agree" class="text-dark text-[14px] no-underline cursor-pointer">I agree with 4VISO's <a href="/terms-and-conditions" class="text-primary-pine font-semibold">terms of agreement</a>.</label>
+                            </div>
+
+                            <p x-show="error" x-text="error" x-cloak class="text-red-600 text-sm"></p>
+
+                            <div>
+                                <button
+                                    type="submit"
+                                    :disabled="submitting"
+                                    class="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-[16px] no-underline transition bg-primary-pine text-white hover:bg-primary cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                                    x-text="submitting ? 'Sending…' : 'Submit'"
+                                ></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {% else %}
 
             {# ── IT support ticket form ── #}
             <div
@@ -192,7 +286,8 @@
                 </div>
             </div>
 
+            {% endif %}
+
         </div>
-        {% endif %}
     </div>
 </section>
