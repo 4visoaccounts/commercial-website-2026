@@ -29,6 +29,7 @@ return [
         'product-url' => \modules\ProductUrlModule::class,
         'lead'        => \modules\LeadModule::class,
         'legal'       => \modules\legal\LegalModule::class,
+        'mix'         => \modules\MixModule::class,
     ],
-    'bootstrap' => ['coming-soon', 'product-url'],
+    'bootstrap' => ['coming-soon', 'product-url', 'mix'],
 ];
