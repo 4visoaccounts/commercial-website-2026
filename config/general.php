@@ -23,6 +23,8 @@ return GeneralConfig::create()
     ->maxUploadFileSize(1024 * 1024 * 200)
     // Prevent user enumeration attacks
     ->preventUserEnumeration()
+    // Add ?v=<timestamp> to asset URLs so browsers fetch replaced images instead of an old cached copy
+    ->revAssetUrls()
     // Set the @webroot alias so the clear-caches command knows where to find CP resources
     ->aliases([
         '@webroot' => dirname(__DIR__) . '/web',
