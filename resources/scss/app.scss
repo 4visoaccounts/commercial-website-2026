@@ -272,8 +272,13 @@ blockquote p {
     color: #288760 !important;
   }
 
-  // Logo bar
+  // Logo bar: show our logo (uploaded in the Cookiebot admin), hide Cookiebot's own branding
   #CybotCookiebotDialogHeader {
+    display: flex !important;
+  }
+
+  #CybotCookiebotDialogPoweredbyCybot,
+  #CybotCookiebotDialogPoweredByText {
     display: none !important;
   }
 
