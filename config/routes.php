@@ -12,6 +12,7 @@
 return [
     'stylesheet' => ['template' => 'pages/stylesheet'],
     'coming-soon' => ['template' => 'pages/coming-soon'],
-    'help' => ['template' => 'pages/help'],
+    // Support ticket page, hidden for now (template kept as pages/_help.twig so Craft won't serve it by path).
+    // To bring it back: rename to pages/help.twig and restore: 'help' => ['template' => 'pages/help'],
     'api' => 'graphql/api',
 ];

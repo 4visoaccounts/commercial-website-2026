@@ -93,6 +93,18 @@
         <script type="text/plain" data-cookieconsent="statistics">
         gtag('js', new Date());
         gtag('config', 'G-QX1HC04BCT');
+
+        // Sign-up button clicks, with the page section they were clicked in (header / hero / context / numbers / benefits)
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href^="https://app.4viso.com/signup"]');
+            if (!a) return;
+            var sec = a.closest('section');
+            var loc = a.closest('header') ? 'header'
+                : sec && sec.id ? ({ schema: 'context' }[sec.id] || sec.id)
+                : sec && sec === document.querySelector('main section') ? 'hero'
+                : 'other';
+            gtag('event', 'sign_up_click', { location: loc });
+        });
         </script>
 
         {% block head %}{% endblock %}
