@@ -1,4 +1,4 @@
-dateModified: 1790972743
+dateModified: 1794589399
 elementSources:
   craft\elements\Entry:
     -
@@ -141,6 +141,7 @@ meta:
     9ec578d1-f37f-43c3-a06e-4b54e927e7b4: 'Hero: default' # Hero: default
     22fca15f-c55b-4a4a-8192-e409f2128472: 'Meta rows' # Meta rows
     32a0b0a7-acf4-4b48-837e-fc8cb4ea9f89: 'Privacy Policy' # Privacy Policy
+    38060c58-614f-44ec-8cf9-0e92dc84bec5: 'Cookie Policy' # Cookie Policy
     35a07891-bdfe-4e96-be8d-a63b5ac50ee6: 'Product cta block' # Product cta block
     48e6ce49-4871-427c-b4ff-0ef9174c66bb: Content # Content
     56cbe1a4-984d-4c6e-981a-5773e3971b68: 'Most popular' # Most popular

@@ -32,6 +32,7 @@ class LegalController extends Controller
     private const SINGLES = [
         'privacyPolicy' => ['Privacy Policy', 'privacy'],
         'termsAndConditions' => ['Terms and Conditions', 'terms-and-conditions'],
+        'cookiePolicy' => ['Cookie Policy', 'cookie-policy'],
     ];
 
     private const TEMPLATE = 'legal/_entry.twig';

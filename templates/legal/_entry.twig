@@ -1,5 +1,5 @@
 {# ========================================================================== #}
-{# Legal page (Privacy Policy / Terms and Conditions singles)                  #}
+{# Legal page (Privacy Policy / Terms and Conditions / Cookie Policy singles)  #}
 {# Entry type: legalPage — see modules/legal                                   #}
 {# ========================================================================== #}
 {% extends "_layouts/base.twig" %}
@@ -14,7 +14,7 @@
 {% set footnote = entry.commonFootnote ?? '' %}
 {% set sections = entry.commonSections.all() ?? [] %}
 {% set otherLegalPages = craft.entries()
-    .section(['privacyPolicy', 'termsAndConditions'])
+    .section(['privacyPolicy', 'termsAndConditions', 'cookiePolicy'])
     .id('not ' ~ entry.id)
     .orderBy('title asc')
     .all() %}

@@ -1,0 +1,80 @@
+{
+  "section": "cookiePolicy",
+  "title": "Cookie Policy",
+  "seo": {
+    "title": "Cookie Policy",
+    "description": "Which cookies 4Viso BV uses on 4viso.com and in the 4Viso platform, why, how long they last, and how you change your choice."
+  },
+  "fields": {
+    "commonSubtitle": "Privacy notice",
+    "commonDescription": "<p>Which cookies and similar technologies 4Viso BV uses on 4viso.com and in the 4Viso platform, why, and how you control them.</p>",
+    "commonMetaRows": [
+      {
+        "label": "Version",
+        "value": "1.2"
+      },
+      {
+        "label": "In effect from",
+        "value": "16 November 2026"
+      },
+      {
+        "label": "Last updated",
+        "value": "16 November 2026"
+      },
+      {
+        "label": "Supersedes",
+        "value": "Cookie Policy v1.1 (05 October 2026)"
+      },
+      {
+        "label": "Controller",
+        "value": "4Viso BV, Niel, Belgium"
+      }
+    ],
+    "commonCallout": "<p>This Cookie Policy explains which cookies <strong>4Viso BV</strong> uses on the website 4viso.com and in the 4Viso platform, why we use them, how long they last, and how you change your choice. Analytics cookies are only set after you accept them. We do not use advertising or cross-site tracking cookies.</p>\n<p>For how we handle personal data in general, see our <a href=\"/privacy\">Privacy Policy</a>.</p>",
+    "commonFootnote": "4Viso BV · Science Park Antwerp, Galileilaan 15, 2845 Niel, Belgium"
+  },
+  "sections": [
+    {
+      "title": "What cookies are",
+      "id": "what-are-cookies",
+      "cookieDeclaration": false,
+      "body": "<p>Cookies are small text files that a website stores in your browser. They let the site remember something between pages or visits, such as your cookie choice. Similar technologies, such as your browser's local storage, work the same way and are covered by this policy.</p>\n<p>Cookies set by 4Viso itself are <strong>first-party</strong>. Cookies set by another company, such as Cookiebot for the consent banner, are <strong>third-party</strong>.</p>"
+    },
+    {
+      "title": "Cookies on 4viso.com",
+      "id": "website",
+      "cookieDeclaration": true,
+      "body": "<p>The website uses two categories of cookies:</p>\n<table>\n<thead><tr><th>Category</th><th>What it does</th><th>Your consent</th></tr></thead>\n<tbody>\n<tr><td>Necessary</td><td>Keeps the site secure (protection of our forms against cross-site request forgery) and remembers your cookie choice.</td><td>Not needed: the site cannot work properly without them</td></tr>\n<tr><td>Statistics</td><td>Google Analytics 4 counts visits and shows which pages are viewed and which sign-up buttons are clicked.</td><td>Only after you accept \"Statistics\"</td></tr>\n</tbody>\n</table>\n<p>Google Analytics is not loaded at all until you accept Statistics. We use it only to measure our own website, not for advertising or remarketing. We do not use preference or marketing cookies on the website.</p>\n<p>The list below is produced by Cookiebot, which scans the website regularly, so it always shows the cookies in use today, with their provider, purpose, and lifetime.</p>"
+    },
+    {
+      "title": "Cookies in the 4Viso platform",
+      "id": "platform",
+      "cookieDeclaration": false,
+      "body": "<p>The platform at app.4viso.com uses:</p>\n<ul>\n<li><strong>Strictly necessary cookies and storage</strong> to keep you signed in, protect your session, and remember your choices in the interface. They are needed for the platform to work.</li>\n<li><strong>Product analytics with PostHog</strong>, only after you accept analytics cookies. PostHog records which pages and features are used, linked to an internal user ID, not to your name or email address. It does not record your sessions or capture what you type. The data is stored in PostHog's EU cloud.</li>\n</ul>\n<p>A full list of the platform's cookies, with names and lifetimes, is available on request at <a href=\"mailto:info@4viso.com\">info@4viso.com</a>.</p>"
+    },
+    {
+      "title": "Your choices",
+      "id": "your-choices",
+      "cookieDeclaration": false,
+      "body": "<p>On your first visit to 4viso.com a banner asks for your choice. You can <strong>allow all</strong> cookies, <strong>deny</strong> all cookies except the necessary ones, or <strong>customize</strong> your choice per category. Nothing but the necessary cookies is set before you choose.</p>\n<p>You can change or withdraw your consent at any time, with the cookie icon at the bottom left of every page or the <strong>Cookie Settings</strong> link at the bottom of this page. Withdrawing your consent does not affect what was done before.</p>\n<p>You can also block or delete cookies in your browser settings. If you block the necessary cookies, parts of the website or platform may stop working. For Google Analytics, Google also offers a <a href=\"https://tools.google.com/dlpage/gaoptout\">browser add-on to opt out</a>.</p>"
+    },
+    {
+      "title": "Third-party providers",
+      "id": "providers",
+      "cookieDeclaration": false,
+      "body": "<table>\n<thead><tr><th>Provider</th><th>What it does</th><th>Where data is processed</th></tr></thead>\n<tbody>\n<tr><td>Usercentrics A/S (Cookiebot)</td><td>Shows the consent banner on 4viso.com and keeps a record of your choice for 12 months, as proof of consent</td><td>EU</td></tr>\n<tr><td>Google (Google Analytics 4)</td><td>Website analytics on 4viso.com, after your consent</td><td>EU and United States, under the EU-US Data Privacy Framework</td></tr>\n<tr><td>PostHog</td><td>Product analytics in the platform, after your consent</td><td>EU</td></tr>\n</tbody>\n</table>\n<p>Each provider processes this data for us under a data processing agreement. Their own privacy policies: <a href=\"https://www.cookiebot.com/en/privacy-policy/\">Cookiebot</a>, <a href=\"https://policies.google.com/privacy\">Google</a>, <a href=\"https://posthog.com/privacy\">PostHog</a>.</p>"
+    },
+    {
+      "title": "Changes to this policy",
+      "id": "changes",
+      "cookieDeclaration": false,
+      "body": "<p>We update this policy when the cookies we use change or when the law requires it. The \"Last updated\" date at the top changes each time. The list of website cookies in Section 2 is updated automatically after each scan.</p>"
+    },
+    {
+      "title": "Contact",
+      "id": "contact",
+      "cookieDeclaration": false,
+      "body": "<p>Questions about cookies or this policy: <a href=\"mailto:info@4viso.com\">info@4viso.com</a> (subject: \"Privacy / DPO Request\"). You can also complain to the Belgian Data Protection Authority; its details are in our <a href=\"/privacy#contact\">Privacy Policy</a>.</p>"
+    }
+  ]
+}
